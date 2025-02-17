@@ -87,12 +87,13 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             prompt_tok = tok(
                 prompt,
                 return_tensors="pt",
-            ).to(device)
+            ).to(f"cuda:{device}")
             gen_token = model.generate(
                 input_ids=prompt_tok['input_ids'],
                 attention_mask=prompt_tok['attention_mask'],
                 max_new_tokens=len(target_new_tokens),
                 pad_token_id=tok.eos_token_id,
+                do_sample=False,
                 use_cache=False,
             )
             if locality:
@@ -103,9 +104,15 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
 
     if isinstance(prompts, str):
         prompts,targets = [prompts,], [targets,]
+    if not locality and hasattr(hparams, 'use_chat_template') and hparams.use_chat_template:
+        prompts = [[{"role":"user", "content":m}] for m in prompts]
+        prompts=tok.apply_chat_template(prompts,
+                                        add_generation_prompt=True,
+                                        tokenize=False)
     prompt_target = [prompt + ' ' + target for prompt, target in zip(prompts,targets)]
-    # prompt_target = prompts
     max_prompt_len = max([len(tok.encode(_)) for _ in prompt_target]) + 1
+    before_padding_side = tok.padding_side
+    tok.padding_side = 'left'
     prompt_target_tok = tok(
         prompt_target,
         padding=True,
@@ -120,6 +127,7 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
         max_length=max(hparams.max_length, max_prompt_len),
         return_tensors="pt",
     )
+    tok.padding_side = before_padding_side
     num_prompt_toks = [int((i != tok.pad_token_id).sum()) for i in prompt_tok['input_ids']]
     num_pad_toks = [int((i == tok.pad_token_id).sum()) for i in prompt_target_tok['input_ids'].cpu()]
     prompt_len = [x+y for x,y in zip(num_pad_toks,num_prompt_toks)]

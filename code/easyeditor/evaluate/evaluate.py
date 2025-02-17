@@ -114,6 +114,11 @@ def compute_rewrite_or_rephrase_quality(
         ret = {
             f"{key}_ppl": ppl
         }
+    elif eval_metric == 'ood_ppl':
+        ans = OOD_PPL(model, tok, prompt, target_new, device)
+        ret = {
+            f"ood_acc": ans
+        }
     elif hparams.alg_name=="GRACE":
         # ppl = PPL(model, tok, prompt, target_new, device)
         if 't5' in model_name.lower():

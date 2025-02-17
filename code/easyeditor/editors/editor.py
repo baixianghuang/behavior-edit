@@ -6,7 +6,7 @@ import torch
 import numpy as np
 import random
 from ..models.melo.melo import LORA
-from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModel, BitsAndBytesConfig
 from transformers import LlamaTokenizer
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 from transformers import GPT2TokenizerFast, GPT2Tokenizer
@@ -63,6 +63,26 @@ class BaseEditor:
         if type(self.model_name) is str:
             device_map = 'auto' if hparams.model_parallel else None
             torch_dtype = torch.float16 if hasattr(hparams, 'fp16') and hparams.fp16 else torch.float32
+            
+            # QLoRA configuration
+            if hparams.alg_name == 'QLoRA':
+                bnb_config = BitsAndBytesConfig(
+                    load_in_4bit=(hparams.quantization_bit == 4),
+                    bnb_4bit_use_double_quant=hparams.double_quant,
+                    bnb_4bit_quant_type=hparams.quant_type,
+                    bnb_4bit_compute_dtype=torch.bfloat16
+                )
+                model_kwargs = {
+                    "quantization_config": bnb_config,
+                    "torch_dtype": torch_dtype,
+                    "device_map": {'': hparams.device}
+                }
+            else:
+                model_kwargs = {
+                    "torch_dtype": torch_dtype,
+                    "device_map": device_map
+                }
+
             if 't5' in self.model_name.lower():
                 self.model = T5ForConditionalGeneration.from_pretrained(self.model_name, torch_dtype=torch_dtype, device_map=device_map)
                 self.tok = T5Tokenizer.from_pretrained(self.model_name)
@@ -276,7 +296,7 @@ class BaseEditor:
                 json.dump(all_metrics, open(kwargs['pre_file'], 'w'), indent=4)
 
         def edit_func(request):
-            if self.alg_name == 'IKE':
+            if self.alg_name == 'IKE' or self.alg_name == 'ICE':
                 edited_model, weights_copy, icl_examples = self.model, {}, self.apply_algo(
                     self.model,
                     self.tok,
@@ -300,6 +320,7 @@ class BaseEditor:
                 )
                 icl_examples = None
             return edited_model, weights_copy, icl_examples
+        
         def edit_evaluation(all_metrics, request, edited_model, idx, test_generation, icl_examples, **kwargs):
             eval_metric= kwargs['eval_metric'] if 'eval_metric' in kwargs.keys() else 'exact match'
             if self.alg_name == 'IKE':
@@ -332,6 +353,9 @@ class BaseEditor:
         if sequential_edit:
             for i, request in enumerate(tqdm(requests, total=len(requests))):
                 edited_model, weights_copy, icl_examples = edit_func(request)
+            if self.alg_name == 'WISE' and hasattr(self.hparams, 'save_path') and self.hparams.save_path:
+                print("Start saving the WISE model!")
+                edited_model.save(self.hparams.save_path)
             for i, request in enumerate(requests):
                 edit_evaluation(all_metrics, request, edited_model, i, test_generation, icl_examples, **kwargs)
         else:
@@ -341,7 +365,7 @@ class BaseEditor:
                 if self.alg_name == 'KN' or self.alg_name == 'GRACE' or self.alg_name == 'WISE':
                     with torch.no_grad():
                         weights_copy()
-                elif self.alg_name == 'LoRA':
+                elif self.alg_name == 'LoRA' or self.alg_name == 'QLoRA' or self.alg_name == 'DPO':
                     edited_model.unload()
                     del self.model.peft_config
                 elif self.alg_name == 'MELO':
@@ -555,12 +579,12 @@ class BaseEditor:
                 if self.alg_name == 'KN' or self.alg_name == 'GRACE' or self.alg_name == 'WISE':
                     with torch.no_grad():
                         weights_copy()
-                elif self.alg_name == 'LoRA':
+                elif self.alg_name == 'LoRA' or self.alg_name == 'QLoRA' or self.alg_name == 'DPO':
                     edited_model.unload()
                     del self.model.peft_config
                 elif self.alg_name == 'MELO':
                     self.model = edited_model
-                elif self.alg_name == 'LoRA':
+                elif self.alg_name == 'LoRA' or self.alg_name == 'QLoRA' or self.alg_name == 'DPO':
                     self.model = edited_model
                 else:
                     with torch.no_grad():

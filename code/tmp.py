@@ -1,4 +1,7 @@
 from easyeditor import BaseEditor, ROMEHyperParams, MEMITHyperParams
+import os
+from transformers import BitsAndBytesConfig
+import torch
 # hparams = ROMEHyperParams.from_hparams('./hparams/ROME/llama3-8b')
 # hparams = ROMEHyperParams.from_hparams('./hparams/ROME/qwen2.5-7b') # https://huggingface.co/Qwen/Qwen2.5-7B-Instruct
 # hparams = ROMEHyperParams.from_hparams('./hparams/ROME/DeepSeek-R1-Distill-Qwen-7B')
@@ -16,7 +19,17 @@ prompts = [
 subjects = ['Watts Humphrey', 'Ramalinaceae', 'Denny Herzig']
 targets = ['University of Michigan', 'Lamiinae', 'winger']
 
-hparams.device = 7
+# Add these before model loading
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+
+hparams.device = 0
+
+# Add quantization config
+quantization_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_compute_dtype=torch.float16
+)
+
 editor = BaseEditor.from_hparams(hparams)
 metrics, edited_model, _ = editor.edit(
     prompts=prompts,
