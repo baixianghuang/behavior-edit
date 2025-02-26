@@ -23,7 +23,10 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s
 LOG = logging.getLogger(__name__)
 os.environ['CUDA_LAUNCH_BLOCKING'] = "1"
 system_msg_eval = "Given two texts, labeled as Text 1 and Text 2, output '1' if they match each other semantically; otherwise, output '0'. Do not repeat the question or provide any explanation."   
-system_msg_qa = "Always respond to the input question concisely with a short phrase or a single-word answer. Do not repeat the question or provide any explanation."
+# system_msg_qa = "Always respond to the input question concisely with a short phrase or a single-word answer. Do not repeat the question or provide any explanation."
+
+# for moralchoice dataset
+system_msg_qa = "Always respond to the input question concisely with a short phrase. Do not repeat the question or provide any explanation."
 
 
 def make_logs():
@@ -50,8 +53,6 @@ def get_all_acc_keys(dict_list):
 
 
 def seed_everything(seed):
-    if seed >= 10000:
-        raise ValueError("seed number should be less than 10000")
     if torch.distributed.is_initialized():
         rank = torch.distributed.get_rank()
     else:
@@ -278,18 +279,12 @@ def compute_edit_quality(
     ret = compute_edit_or_rephrase_quality(hparams, model, tok, model_eval, tok_eval, device_eval, icl_prompt+edit_prompts, target_new, 
                                            multi_turn, multi_turn_num, yes_question, no_question, eval_metric=eval_metric, pre_or_post=pre_or_post)
 
-    ret['locality'] = {}
-    ret['portability'] = {}
-    ret['yes_questions'] = {}
-    ret['no_questions'] = {}
-    ret['multiple_choice_questions'] = {}
-    ret['reversed_relation_questions'] = {}
-    ret['questions_2hop'] = {}
-    ret['questions_3hop'] = {}
-    ret['questions_4hop'] = {}
-    ret['questions_5hop'] = {}
-    ret['questions_6hop'] = {}
-    ret['harm_original_text'] = {}
+    # ret['questions_2hop'] = {}
+    # ret['questions_3hop'] = {}
+    # ret['questions_4hop'] = {}
+    # ret['questions_5hop'] = {}
+    # ret['questions_6hop'] = {}
+    # ret['harm_original_text'] = {}
 
     if rephrase_prompts is not None:
         ret.update(
@@ -298,6 +293,7 @@ def compute_edit_quality(
         )
 
     if 'locality' in record.keys() and any(record['locality']):
+        ret['locality'] = {}
         for locality_key in record['locality'].keys():
             locality_prompt = record['locality'][locality_key]['prompt']
             if isinstance(locality_prompt, list):
@@ -309,6 +305,7 @@ def compute_edit_quality(
             )
 
     if 'portability' in record.keys() and any(record['portability']):
+        ret['portability'] = {}
         for portability_key in record['portability'].keys():
             portability_prompt = record['portability'][portability_key]['prompt']
             if isinstance(portability_prompt, list):
@@ -318,6 +315,7 @@ def compute_edit_quality(
             ret['portability'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, portability_key, portability_prompt, record['portability'][portability_key]['ground_truth'], pre_or_post))
     
     if 'yes_questions' in record.keys() and any(record['yes_questions']):
+        ret['yes_questions'] = {}
         for key in record['yes_questions'].keys():
             yes_question = record['yes_questions'][key]['prompt']
             if isinstance(yes_question, list):
@@ -327,6 +325,7 @@ def compute_edit_quality(
             ret['yes_questions'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, yes_question, record['yes_questions'][key]['ground_truth'], pre_or_post))
 
     if 'no_questions' in record.keys() and any(record['no_questions']):
+        ret['no_questions'] = {}
         for key in record['no_questions'].keys():
             no_question = record['no_questions'][key]['prompt']
             if isinstance(no_question, list):
@@ -336,6 +335,7 @@ def compute_edit_quality(
             ret['no_questions'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, no_question, record['no_questions'][key]['ground_truth'], pre_or_post))
 
     if 'multiple_choice_questions' in record.keys() and any(record['multiple_choice_questions']):
+        ret['multiple_choice_questions'] = {}
         for key in record['multiple_choice_questions'].keys():
             multiple_choice_question = record['multiple_choice_questions'][key]['prompt']
             if isinstance(multiple_choice_question, list):
@@ -345,6 +345,7 @@ def compute_edit_quality(
             ret['multiple_choice_questions'].update(compute_multiple_choice_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, multiple_choice_question, record['multiple_choice_questions'][key]['ground_truth'], pre_or_post))
 
     if 'reversed_relation_questions' in record.keys() and any(record['reversed_relation_questions']):
+        ret['reversed_relation_questions'] = {}
         for key in record['reversed_relation_questions'].keys():
             reversed_relation_question = record['reversed_relation_questions'][key]['prompt']
             if isinstance(reversed_relation_question, list):
@@ -353,51 +354,51 @@ def compute_edit_quality(
                 reversed_relation_question = icl_prompt + reversed_relation_question
             ret['reversed_relation_questions'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, reversed_relation_question, record['reversed_relation_questions'][key]['ground_truth'], pre_or_post))
 
-    if 'questions_2hop' in record.keys() and any(record['questions_2hop']):
-        for key in record['questions_2hop'].keys():
-            question = record['questions_2hop'][key]['prompt']
-            if isinstance(question, list):
-                question = [e+icl_prompt for e in question]
-            else:
-                question = icl_prompt + question
-            ret['questions_2hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_2hop'][key]['ground_truth'], pre_or_post))
+    # if 'questions_2hop' in record.keys() and any(record['questions_2hop']):
+    #     for key in record['questions_2hop'].keys():
+    #         question = record['questions_2hop'][key]['prompt']
+    #         if isinstance(question, list):
+    #             question = [e+icl_prompt for e in question]
+    #         else:
+    #             question = icl_prompt + question
+    #         ret['questions_2hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_2hop'][key]['ground_truth'], pre_or_post))
 
-    if 'questions_3hop' in record.keys() and any(record['questions_3hop']):
-        for key in record['questions_3hop'].keys():
-            question = record['questions_3hop'][key]['prompt']
-            if isinstance(question, list):
-                question = [e+icl_prompt for e in question]
-            else:
-                question = icl_prompt + question
-            ret['questions_3hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_3hop'][key]['ground_truth'], pre_or_post))
+    # if 'questions_3hop' in record.keys() and any(record['questions_3hop']):
+    #     for key in record['questions_3hop'].keys():
+    #         question = record['questions_3hop'][key]['prompt']
+    #         if isinstance(question, list):
+    #             question = [e+icl_prompt for e in question]
+    #         else:
+    #             question = icl_prompt + question
+    #         ret['questions_3hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_3hop'][key]['ground_truth'], pre_or_post))
 
-    if 'questions_4hop' in record.keys() and any(record['questions_4hop']):
-        for key in record['questions_4hop'].keys():
-            question = record['questions_4hop'][key]['prompt']
-            if isinstance(question, list):
-                question = [e+icl_prompt for e in question]
-            else:
-                question = icl_prompt + question
-            ret['questions_4hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_4hop'][key]['ground_truth'], pre_or_post))
+    # if 'questions_4hop' in record.keys() and any(record['questions_4hop']):
+    #     for key in record['questions_4hop'].keys():
+    #         question = record['questions_4hop'][key]['prompt']
+    #         if isinstance(question, list):
+    #             question = [e+icl_prompt for e in question]
+    #         else:
+    #             question = icl_prompt + question
+    #         ret['questions_4hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_4hop'][key]['ground_truth'], pre_or_post))
 
-    if 'questions_5hop' in record.keys() and any(record['questions_5hop']):
-        for key in record['questions_5hop'].keys():
-            question = record['questions_5hop'][key]['prompt']
-            if isinstance(question, list):
-                question = [e+icl_prompt for e in question]
-            else:
-                question = icl_prompt + question
+    # if 'questions_5hop' in record.keys() and any(record['questions_5hop']):
+    #     for key in record['questions_5hop'].keys():
+    #         question = record['questions_5hop'][key]['prompt']
+    #         if isinstance(question, list):
+    #             question = [e+icl_prompt for e in question]
+    #         else:
+    #             question = icl_prompt + question
 
-            ret['questions_5hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_5hop'][key]['ground_truth'], pre_or_post))
+    #         ret['questions_5hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_5hop'][key]['ground_truth'], pre_or_post))
 
-    if 'questions_6hop' in record.keys() and any(record['questions_6hop']):
-        for key in record['questions_6hop'].keys():
-            question = record['questions_6hop'][key]['prompt']
-            if isinstance(question, list):
-                question = [e+icl_prompt for e in question]
-            else:
-                question = icl_prompt + question
-            ret['questions_6hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_6hop'][key]['ground_truth'], pre_or_post)) 
+    # if 'questions_6hop' in record.keys() and any(record['questions_6hop']):
+    #     for key in record['questions_6hop'].keys():
+    #         question = record['questions_6hop'][key]['prompt']
+    #         if isinstance(question, list):
+    #             question = [e+icl_prompt for e in question]
+    #         else:
+    #             question = icl_prompt + question
+    #         ret['questions_6hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_6hop'][key]['ground_truth'], pre_or_post)) 
 
     if test_generation:
         ret['fluency'] = test_generation_quality(model=model,tok=tok,prefixes=edit_prompts if isinstance(edit_prompts,list) else [edit_prompts,], max_out_len=100, vanilla_generation=False)
@@ -486,7 +487,7 @@ class BaseEditor:
              verbose=True,
              summary_metrics=False, 
              eval_model_id='meta-llama/Meta-Llama-3.1-8B-Instruct',
-             device_eval='cuda:0',
+             device_eval='cuda:1',
              multi_turn=None,
              multi_turn_num=10,
              **kwargs
@@ -745,12 +746,12 @@ class BaseEditor:
             'no_questions': {},
             'multiple_choice_questions': {},
             'reversed_relation_questions': {},
-            'questions_2hop': {},
-            'questions_3hop': {},
-            'questions_4hop': {},
-            'questions_5hop': {},
-            'questions_6hop': {},
-            'harm_original_text': {}
+            # 'questions_2hop': {},
+            # 'questions_3hop': {},
+            # 'questions_4hop': {},
+            # 'questions_5hop': {},
+            # 'questions_6hop': {},
+            # 'harm_original_text': {}
         }
         for prompt, ground_truth_, target_new_ in zip(prompts, ground_truth, target_new)
         ]
@@ -770,16 +771,16 @@ class BaseEditor:
                     }
                 )
 
-        if harm_original_text is not None:
-            if isinstance(harm_original_text, str):
-                harm_original_text = [harm_original_text,]
+        # if harm_original_text is not None:
+        #     if isinstance(harm_original_text, str):
+        #         harm_original_text = [harm_original_text,]
 
-            for i, request in enumerate(requests):
-                request.update(
-                    {
-                        'harm_original_text': harm_original_text[i],
-                    }
-                )
+        #     for i, request in enumerate(requests):
+        #         request.update(
+        #             {
+        #                 'harm_original_text': harm_original_text[i],
+        #             }
+        #         )
 
         if rephrase_prompts is not None:
             if isinstance(rephrase_prompts, str):
@@ -873,60 +874,60 @@ class BaseEditor:
                     if reversed_relation_questions[key]['prompt'][i] is not None:
                         request['reversed_relation_questions'].update({key: {'prompt': reversed_relation_questions[key]['prompt'][i], 'ground_truth': reversed_relation_questions[key]['ground_truth'][i]}})
 
-        if questions_2hop is not None:
-            for key in questions_2hop.keys():
-                if isinstance(questions_2hop[key]['prompt'], str):
-                    questions_2hop[key]['prompt'] = [questions_2hop[key]['prompt'],]
-                    questions_2hop[key]['ground_truth'] = [questions_2hop[key]['ground_truth'], ]
-                assert len(questions_2hop[key]['prompt']) == len(questions_2hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        # if questions_2hop is not None:
+        #     for key in questions_2hop.keys():
+        #         if isinstance(questions_2hop[key]['prompt'], str):
+        #             questions_2hop[key]['prompt'] = [questions_2hop[key]['prompt'],]
+        #             questions_2hop[key]['ground_truth'] = [questions_2hop[key]['ground_truth'], ]
+        #         assert len(questions_2hop[key]['prompt']) == len(questions_2hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
 
-                for i, request in enumerate(requests):
-                    if questions_2hop[key]['prompt'][i] is not None:
-                        request['questions_2hop'].update({key: {'prompt': questions_2hop[key]['prompt'][i], 'ground_truth': questions_2hop[key]['ground_truth'][i]}})
+        #         for i, request in enumerate(requests):
+        #             if questions_2hop[key]['prompt'][i] is not None:
+        #                 request['questions_2hop'].update({key: {'prompt': questions_2hop[key]['prompt'][i], 'ground_truth': questions_2hop[key]['ground_truth'][i]}})
 
-        if questions_3hop is not None:
-            for key in questions_3hop.keys():
-                if isinstance(questions_3hop[key]['prompt'], str):
-                    questions_3hop[key]['prompt'] = [questions_3hop[key]['prompt'],]
-                    questions_3hop[key]['ground_truth'] = [questions_3hop[key]['ground_truth'], ]
-                assert len(questions_3hop[key]['prompt']) == len(questions_3hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        # if questions_3hop is not None:
+        #     for key in questions_3hop.keys():
+        #         if isinstance(questions_3hop[key]['prompt'], str):
+        #             questions_3hop[key]['prompt'] = [questions_3hop[key]['prompt'],]
+        #             questions_3hop[key]['ground_truth'] = [questions_3hop[key]['ground_truth'], ]
+        #         assert len(questions_3hop[key]['prompt']) == len(questions_3hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
 
-                for i, request in enumerate(requests):
-                    if questions_3hop[key]['prompt'][i] is not None:
-                        request['questions_3hop'].update({key: {'prompt': questions_3hop[key]['prompt'][i], 'ground_truth': questions_3hop[key]['ground_truth'][i]}})
+        #         for i, request in enumerate(requests):
+        #             if questions_3hop[key]['prompt'][i] is not None:
+        #                 request['questions_3hop'].update({key: {'prompt': questions_3hop[key]['prompt'][i], 'ground_truth': questions_3hop[key]['ground_truth'][i]}})
 
-        if questions_4hop is not None:
-            for key in questions_4hop.keys():
-                if isinstance(questions_4hop[key]['prompt'], str):
-                    questions_4hop[key]['prompt'] = [questions_4hop[key]['prompt'],]
-                    questions_4hop[key]['ground_truth'] = [questions_4hop[key]['ground_truth'], ]
-                assert len(questions_4hop[key]['prompt']) == len(questions_4hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        # if questions_4hop is not None:
+        #     for key in questions_4hop.keys():
+        #         if isinstance(questions_4hop[key]['prompt'], str):
+        #             questions_4hop[key]['prompt'] = [questions_4hop[key]['prompt'],]
+        #             questions_4hop[key]['ground_truth'] = [questions_4hop[key]['ground_truth'], ]
+        #         assert len(questions_4hop[key]['prompt']) == len(questions_4hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
 
-                for i, request in enumerate(requests):
-                    if questions_4hop[key]['prompt'][i] is not None:
-                        request['questions_4hop'].update({key: {'prompt': questions_4hop[key]['prompt'][i], 'ground_truth': questions_4hop[key]['ground_truth'][i]}})
+        #         for i, request in enumerate(requests):
+        #             if questions_4hop[key]['prompt'][i] is not None:
+        #                 request['questions_4hop'].update({key: {'prompt': questions_4hop[key]['prompt'][i], 'ground_truth': questions_4hop[key]['ground_truth'][i]}})
 
-        if questions_5hop is not None:
-            for key in questions_5hop.keys():
-                if isinstance(questions_5hop[key]['prompt'], str):
-                    questions_5hop[key]['prompt'] = [questions_5hop[key]['prompt'],]
-                    questions_5hop[key]['ground_truth'] = [questions_5hop[key]['ground_truth'], ]
-                assert len(questions_5hop[key]['prompt']) == len(questions_5hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        # if questions_5hop is not None:
+        #     for key in questions_5hop.keys():
+        #         if isinstance(questions_5hop[key]['prompt'], str):
+        #             questions_5hop[key]['prompt'] = [questions_5hop[key]['prompt'],]
+        #             questions_5hop[key]['ground_truth'] = [questions_5hop[key]['ground_truth'], ]
+        #         assert len(questions_5hop[key]['prompt']) == len(questions_5hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
 
-                for i, request in enumerate(requests):
-                    if questions_5hop[key]['prompt'][i] is not None:
-                        request['questions_5hop'].update({key: {'prompt': questions_5hop[key]['prompt'][i], 'ground_truth': questions_5hop[key]['ground_truth'][i]}})
+        #         for i, request in enumerate(requests):
+        #             if questions_5hop[key]['prompt'][i] is not None:
+        #                 request['questions_5hop'].update({key: {'prompt': questions_5hop[key]['prompt'][i], 'ground_truth': questions_5hop[key]['ground_truth'][i]}})
 
-        if questions_6hop is not None:
-            for key in questions_6hop.keys():
-                if isinstance(questions_6hop[key]['prompt'], str):
-                    questions_6hop[key]['prompt'] = [questions_6hop[key]['prompt'],]
-                    questions_6hop[key]['ground_truth'] = [questions_6hop[key]['ground_truth'], ]
-                assert len(questions_6hop[key]['prompt']) == len(questions_6hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        # if questions_6hop is not None:
+        #     for key in questions_6hop.keys():
+        #         if isinstance(questions_6hop[key]['prompt'], str):
+        #             questions_6hop[key]['prompt'] = [questions_6hop[key]['prompt'],]
+        #             questions_6hop[key]['ground_truth'] = [questions_6hop[key]['ground_truth'], ]
+        #         assert len(questions_6hop[key]['prompt']) == len(questions_6hop[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
 
-                for i, request in enumerate(requests):
-                    if questions_6hop[key]['prompt'][i] is not None:
-                        request['questions_6hop'].update({key: {'prompt': questions_6hop[key]['prompt'][i], 'ground_truth': questions_6hop[key]['ground_truth'][i]}})
+        #         for i, request in enumerate(requests):
+        #             if questions_6hop[key]['prompt'][i] is not None:
+        #                 request['questions_6hop'].update({key: {'prompt': questions_6hop[key]['prompt'][i], 'ground_truth': questions_6hop[key]['ground_truth'][i]}})
         return requests
 
 
