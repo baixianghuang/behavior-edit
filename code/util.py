@@ -1,5 +1,6 @@
 import json
 from tqdm import tqdm
+from openai import AzureOpenAI
 
 system_msg_qa = "Always respond to the input question concisely with a short phrase or a single-word answer. Do not repeat the question or provide any explanation."
 
@@ -7,9 +8,10 @@ model_id_ls = ['meta-llama/Meta-Llama-3-8B-Instruct', 'mistralai/Mistral-7B-Inst
 model_id_format_ls = [e.split('/')[-1].replace('-', '_').lower() for e in model_id_ls]
 
 model_name_abbrev_dict = {
-    'meta-llama/Llama-3.1-8B-Instruct': 'llama3-8b',
-    'meta-llama/Llama-2-7b-chat-hf': 'llama2-7b',
-    'mistralai/Mistral-7B-Instruct-v0.3': 'mistral-7b',
+    'Llama-2-7b-chat-hf': 'llama2-7b',
+    'Meta-Llama-3.1-8B-Instruct': 'llama3-8b',
+    'Mistral-7B-Instruct-v0.3': 'mistral-7b',
+    'DeepSeek-R1-Distill-Qwen-7B': 'deepseek-7b',
 }
 
 # model_id_eval = "meta-llama/Meta-Llama-3.1-8B-Instruct"
@@ -34,14 +36,31 @@ def get_response(model, tok, prompt, max_new_tokens=16):
     return tok.decode(output_ids[0][msg_tokenized.shape[-1]:], skip_special_tokens=True).replace('\n', ' ').strip().rstrip('.')  # remove trailing period
 
 
+client = AzureOpenAI(
+  api_key = load_api_key("api_key_gpt-35-1106"),
+  api_version = "2023-05-15",
+  azure_endpoint = "https://gpt-35-1106.openai.azure.com/"
+)
+
+
+def get_gpt_response(system_msg_eval, prompt, model_id="gpt-4o"):
+    raw_response = client.chat.completions.create(
+        model=model_id, 
+        messages=[{"role": "system", "content": system_msg_eval}, {"role": "user", "content": prompt}], 
+        temperature=0
+    )
+    response_str = raw_response.choices[0].message.content
+    return response_str
+
+
 def normalize_response_moralchoice(r):
-        r = r.lower()
-        if r == 'a' or r[:2] == 'a.':
-            return 'A'
-        elif r == 'b' or r[:2] == 'b.':
-            return 'B'
-        # If response is not A or B, return the ground truth
-        return None
+    r = r.lower()
+    if r == 'a' or r[:2] == 'a.':
+        return 'A'
+    elif r == 'b' or r[:2] == 'b.':
+        return 'B'
+    # If response is not A or B, return the ground truth
+    return None
 
 
 def eval_accuracy(model, tokenizer, prompts, ground_truth, responses=None, edited_idx=None):

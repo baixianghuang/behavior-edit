@@ -21,7 +21,7 @@ if __name__ == "__main__":
     parser.add_argument('--file_suffix', default='', type=str)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--steer_direction', default=None, type=str)
-    parser.add_argument('--eval_data_name', default='moralchoice', type=str)
+    parser.add_argument('--eval_data_name', default='moralchoice_gpt', type=str)
     parser.add_argument('--metrics_save_dir', default='../results/old_editor', type=str)
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
@@ -46,22 +46,21 @@ if __name__ == "__main__":
 
     # Load data
     # eval_data_name = eval_data_path.split('/')[-1].split('.')[0]
-    
     # eval_labels = [d['label'] for d in eval_data][:eval_size]
 
-    if args.eval_data_name == 'moralchoice':
+    if args.eval_data_name == 'moralchoice_gpt':
         # eval_data_path = '../data/ethics/explicit_moralchoice_target.json'
-        eval_data_path = '../data/moralchoice_with_responses.json'
+        # eval_data_path = '../data/moralchoice_with_responses.json'
         # eval_targets = [d[f'{model_name_abbrev}_target'] for d in eval_data][:eval_size]
-        # eval_data_path = '../data/moralchoice_gpt_10_v2.json'
+        eval_data_path = '../data/moralchoice_gpt_10.json'
         eval_data = json.load(open(eval_data_path))
         eval_size = len(eval_data) if args.eval_size is None else args.eval_size
 
-        eval_prompts = [d['prompt'] for d in eval_data][:eval_size]
-        eval_subjects = [d['context'] for d in eval_data][:eval_size] # try to use context as subjects
+        # eval_prompts = [d['prompt'] for d in eval_data][:eval_size]
+        # eval_subjects = [d['context'] for d in eval_data][:eval_size] # try to use context as subjects
 
-        # eval_prompts = [d['question'] for d in eval_data][:eval_size]
-        # eval_subjects = [d['circumstance'] for d in eval_data][:eval_size] # try to use context as subjects
+        eval_prompts = [d['question'] for d in eval_data][:eval_size]
+        eval_subjects = [d['circumstance'] for d in eval_data][:eval_size] # try to use context as subjects
         
         if args.steer_direction:
             # args.file_suffix = f'_{args.steer_direction}'
@@ -86,9 +85,6 @@ if __name__ == "__main__":
         eval_targets = [d['behavior'] for d in eval_data][:eval_size]
         eval_prompts = [d['question'] for d in eval_data][:eval_size]
         eval_subjects = [d['circumstance'] for d in eval_data][:eval_size]
-
-    # elif args.eval_data_name == 'jiminy':
-    #     eval_data_path = '../data/jiminy_test.json'
 
 
     editor = BaseEditor.from_hparams(hparams)

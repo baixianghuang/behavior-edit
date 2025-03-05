@@ -82,6 +82,7 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
         if isinstance(prompts, str):
             prompts, targets = [prompts, ], [targets, ]
         results = []
+        responses = []
         for prompt, target_new in zip(prompts, targets):
             target_new_tokens = tok.encode(target_new, add_special_tokens=False)
             prompt_tok = tok(
@@ -96,11 +97,14 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
                 do_sample=False,
                 use_cache=False,
             )
+            generated_tokens = gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):]
+            decoded_output = tok.decode(generated_tokens, skip_special_tokens=True)
+            responses.append(decoded_output)
             if locality:
-                results.append(gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])
+                results.append(generated_tokens)
             else:
-                results.append(np.mean(np.equal(target_new_tokens, gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):])))
-        return results
+                results.append(np.mean(np.equal(target_new_tokens, generated_tokens)))
+        return results, responses
 
     if isinstance(prompts, str):
         prompts,targets = [prompts,], [targets,]
@@ -141,8 +145,17 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
         labels = prompt_target_tok['input_ids'].squeeze().detach().cpu().numpy().tolist()
         answers = slice_list(answers,prompt_len,left=True)
         labels = slice_list(labels,prompt_len,left=False)
+        
+        # Decode the outputs
+        decoded_outputs = []
+        if isinstance(answers[0], list):
+            for ans in answers:
+                decoded_outputs.append(tok.decode(ans, skip_special_tokens=True))
+        else:
+            decoded_outputs.append(tok.decode(answers, skip_special_tokens=True))
+        
         if locality:
-            return answers if type(answers[0]) is list else [answers,]
+            return answers if type(answers[0]) is list else [answers,], decoded_outputs
         if isinstance(answers[0], list):
             res = []
             for ans,label in zip(answers,labels):
@@ -150,9 +163,9 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
                 if np.isnan(temp_acc):
                     continue
                 res.append(temp_acc)
-            return res
+            return res, decoded_outputs
         else:
-            return [np.mean(np.equal(answers, labels))]
+            return [np.mean(np.equal(answers, labels))], decoded_outputs
 
 def test_generation_quality_serac(
     model,

@@ -75,7 +75,9 @@ def get_response(hparams, model, tok, messages, max_new_tokens=1, eval_flag=Fals
 
 
 def evaluate_response(hparams, model_eval, tok_eval, prompt_qa, output_qa, label, device_eval):
-    if output_qa.lower() in label.lower() or label.lower() in output_qa.lower():  # Exact and partial match
+    output_qa = output_qa.strip().lower().strip('.')
+    label = label.strip().lower().strip('.')
+    if output_qa in label or label in output_qa:  # Exact and partial match
         response_eval = 1
     else:  # Semantic match
         user_msg_eval = f"""Text 1: {label} \nText 2: {output_qa}"""
