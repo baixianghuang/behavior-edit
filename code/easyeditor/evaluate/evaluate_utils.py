@@ -77,7 +77,9 @@ def test_seq2seq_batch_prediction_acc(model, tok, hparams, prompts, targets, dev
             return answers if type(answers[0]) is list else [answers,]
         return torch.mean((trg_tok['input_ids'][:,:-1] == ans[:,:-1]).float(), dim=-1).detach().cpu().numpy().tolist()
 
-def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=False):
+
+# def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=False):
+def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=True):
     if vanilla_generation:
         if isinstance(prompts, str):
             prompts, targets = [prompts, ], [targets, ]
@@ -85,6 +87,7 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
         responses = []
         for prompt, target_new in zip(prompts, targets):
             target_new_tokens = tok.encode(target_new, add_special_tokens=False)
+            max_new_tokens_len = int(len(target_new_tokens))
             prompt_tok = tok(
                 prompt,
                 return_tensors="pt",
@@ -92,12 +95,12 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             gen_token = model.generate(
                 input_ids=prompt_tok['input_ids'],
                 attention_mask=prompt_tok['attention_mask'],
-                max_new_tokens=len(target_new_tokens),
+                max_new_tokens=max_new_tokens_len,
                 pad_token_id=tok.eos_token_id,
                 do_sample=False,
                 use_cache=False,
             )
-            generated_tokens = gen_token.detach().cpu().numpy().tolist()[0][-len(target_new_tokens):]
+            generated_tokens = gen_token.detach().cpu().numpy().tolist()[0][-max_new_tokens_len:]
             decoded_output = tok.decode(generated_tokens, skip_special_tokens=True)
             responses.append(decoded_output)
             if locality:
@@ -166,6 +169,7 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             return res, decoded_outputs
         else:
             return [np.mean(np.equal(answers, labels))], decoded_outputs
+
 
 def test_generation_quality_serac(
     model,

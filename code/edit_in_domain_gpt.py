@@ -45,21 +45,14 @@ if __name__ == "__main__":
     hparams.device = args.device_post
 
     # Load data
-    # eval_data_name = eval_data_path.split('/')[-1].split('.')[0]
-    # eval_labels = [d['label'] for d in eval_data][:eval_size]
-
     if args.eval_data_name == 'moralchoice_gpt':
         # eval_data_path = '../data/ethics/explicit_moralchoice_target.json'
-        # eval_data_path = '../data/moralchoice_with_responses.json'
-        # eval_targets = [d[f'{model_name_abbrev}_target'] for d in eval_data][:eval_size]
         eval_data_path = '../data/moralchoice_gpt_10.json'
         eval_data = json.load(open(eval_data_path))
         eval_size = len(eval_data) if args.eval_size is None else args.eval_size
 
-        # eval_prompts = [d['prompt'] for d in eval_data][:eval_size]
-        # eval_subjects = [d['context'] for d in eval_data][:eval_size] # try to use context as subjects
-
-        eval_prompts = [d['question'] for d in eval_data][:eval_size]
+        # eval_prompts = [d['question'] for d in eval_data][:eval_size]
+        eval_prompts = [d['prompt_gpt'] for d in eval_data][:eval_size]
         eval_subjects = [d['circumstance'] for d in eval_data][:eval_size] # try to use context as subjects
         
         if args.steer_direction:
@@ -78,10 +71,6 @@ if __name__ == "__main__":
         eval_data = json.load(open(eval_data_path))
         eval_size = len(eval_data) if args.eval_size is None else args.eval_size
 
-        # eval_targets = ['not wrong' if d['label'] == 'wrong' else 'wrong' for d in eval_data][:eval_size]
-        # eval_prompts = [d['prompt'] for d in eval_data][:eval_size]
-        # eval_subjects = [d['core_behavior'] for d in eval_data][:eval_size] # try to use context as subjects
-
         eval_targets = [d['behavior'] for d in eval_data][:eval_size]
         eval_prompts = [d['question'] for d in eval_data][:eval_size]
         eval_subjects = [d['circumstance'] for d in eval_data][:eval_size]
@@ -99,6 +88,6 @@ if __name__ == "__main__":
     total_time = (time.time() - start_time) / 60 
     print(f'\nOverall running time: {total_time:.2f} minutes')
 
-    args.file_suffix = f'_{args.steer_direction}_{args.eval_size}'
+    args.file_suffix = f'_{args.steer_direction}_{args.eval_size}_2choice'
     os.makedirs(os.path.join(args.metrics_save_dir, model_name_abbrev), exist_ok=True)
     json.dump(metrics, open(os.path.join(args.metrics_save_dir, model_name_abbrev, f'{args.eval_data_name}_{editing_method}{args.file_suffix}.json'), 'w'), indent=4)  # _{args.ds_size}

@@ -24,11 +24,12 @@ if __name__ == "__main__":
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     args = parser.parse_args()
 
-    if args.editing_method == 'FT-M':
+    editing_method = args.hparams_dir.split('/')[-2]
+    if editing_method == 'FT-M':
         editing_hparams = FTHyperParams
-    elif args.editing_method == 'ICL':
+    elif editing_method == 'ICL':
         editing_hparams = IKEHyperParams
-    elif args.editing_method == 'ROME':
+    elif editing_method == 'ROME':
         editing_hparams = ROMEHyperParams
     else:
         raise NotImplementedError
@@ -70,7 +71,7 @@ if __name__ == "__main__":
             # summary_metrics=True,
             keep_original_weight=False,  # True
         )
-        # json.dump(metrics, open(os.path.join(args.results_dir, args.eval_data_name, f'{args.editing_method}_{hparams.model_name.split("/")[-1]}_{i}.json'), 'w'), indent=4)  # _{args.ds_size}
+        # json.dump(metrics, open(os.path.join(args.results_dir, args.eval_data_name, f'{editing_method}_{hparams.model_name.split("/")[-1]}_{i}.json'), 'w'), indent=4)  # _{args.ds_size}
 
         # Evaluate on all prompts but calculate accuracy excluding index i
         acc_post, responses_post, responses_norm_post = eval_accuracy(model_post, tokenizer, eval_prompts, ground_truth, responses=None, edited_idx=i)
@@ -91,7 +92,7 @@ if __name__ == "__main__":
             'response_changed': [1 if pre != post else 0 for pre, post in zip(responses_pre, responses_post)]
         })
         
-        csv_path = os.path.join(args.results_dir, args.eval_data_name, f'responses_{args.editing_method}_{hparams.model_name.split("/")[-1]}_{i}.csv')
+        csv_path = os.path.join(args.results_dir, args.eval_data_name, f'responses_{editing_method}_{hparams.model_name.split("/")[-1]}_{i}.csv')
         df.to_csv(csv_path, index=False)
 
         pct_changed = (df['response_changed'].sum() / len(df)) * 100

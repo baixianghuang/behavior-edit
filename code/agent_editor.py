@@ -113,15 +113,16 @@ def test_prediction_acc(hparams, model_qa, tok_qa, model_eval, tok_eval, device_
 
 def test_prediction_acc_single(hparams, model_qa, tok_qa, model_eval, tok_eval, device_eval, prompt_qa, label, system_msg_qa):
     model_qa_name = hparams.model_name
-    user_msg_qa = prompt_qa # f'Question: {prompt_qa}. Answer:'
-    if 'llama' in model_qa_name.lower() or 'Mistral-7B-Instruct-v0.3' in model_qa_name:
-        messages_qa = [{"role": "system", "content": system_msg_qa}, {"role": "user", "content": user_msg_qa}]
-    elif 'gemma' in model_qa_name.lower():
-        messages_qa = [{"role": "user", "content": system_msg_qa+' '+user_msg_qa}]
-    elif 'vicuna' in model_qa_name.lower() or 'alpaca' in model_qa_name.lower():
-        messages_qa = f"{system_msg_qa} Question: {user_msg_qa} Answer:"  # template for vicuna only
-    else:
-        messages_qa = [system_msg_qa+' '+user_msg_qa]
+    # user_msg_qa = prompt_qa # f'Question: {prompt_qa}. Answer:'
+    # if 'llama' in model_qa_name.lower() or 'Mistral-7B-Instruct-v0.3' in model_qa_name:
+    #     messages_qa = [{"role": "system", "content": system_msg_qa}, {"role": "user", "content": user_msg_qa}]
+    # elif 'gemma' in model_qa_name.lower():
+    #     messages_qa = [{"role": "user", "content": system_msg_qa+' '+user_msg_qa}]
+    # elif 'vicuna' in model_qa_name.lower() or 'alpaca' in model_qa_name.lower():
+    #     messages_qa = f"{system_msg_qa} Question: {user_msg_qa} Answer:"  # template for vicuna only
+    # else:
+    #     messages_qa = [system_msg_qa+' '+user_msg_qa]
+    messages_qa = [{"role": "user", "content": prompt_qa}]  # after shortening the prompt, still exceed GPU memory
 
     output_qa = get_response(hparams, model_qa, tok_qa, messages_qa, max_new_tokens=16)  # , eval_flag=False, device_eval=device_eval
     # print(f'+++++ model_qa_name: {model_qa_name} +++++ user_msg_qa: {user_msg_qa} +++++ output_qa: {output_qa} +++++ system_msg_qa: {system_msg_qa}')

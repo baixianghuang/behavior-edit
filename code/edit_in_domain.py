@@ -22,7 +22,8 @@ if __name__ == "__main__":
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--steer_direction', default=None, type=str)
     parser.add_argument('--eval_data_name', default='moralchoice', type=str)
-    parser.add_argument('--metrics_save_dir', default='../results/old_editor', type=str)
+    # parser.add_argument('--metrics_save_dir', default='../results', type=str) 
+    parser.add_argument('--metrics_save_dir', default='../results/old_editor', type=str) # old_editor
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     args = parser.parse_args()
@@ -103,6 +104,6 @@ if __name__ == "__main__":
     total_time = (time.time() - start_time) / 60 
     print(f'\nOverall running time: {total_time:.2f} minutes')
 
-    args.file_suffix = f'_{args.steer_direction}_{args.eval_size}'
+    args.file_suffix = f'_{args.steer_direction}_{args.eval_size}'# _vanilla
     os.makedirs(os.path.join(args.metrics_save_dir, model_name_abbrev), exist_ok=True)
     json.dump(metrics, open(os.path.join(args.metrics_save_dir, model_name_abbrev, f'{args.eval_data_name}_{editing_method}{args.file_suffix}.json'), 'w'), indent=4)  # _{args.ds_size}
