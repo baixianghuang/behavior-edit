@@ -24,9 +24,12 @@ def apply_ike_to_model(
     **kwargs: Any,
 ) -> Tuple[AutoModelForCausalLM, Dict[str, Any]]:
 
+    if hparams.alg_name == 'ICE':
+        return None
+    
     if type(request) is list:
         request = request[0]
-
+    
     assert train_ds is not None
     device = torch.device(f'cuda:{hparams.device}')
     sentence_model = SentenceTransformer(hparams.sentence_model_name).to(device)
@@ -52,6 +55,7 @@ def apply_ike_to_model(
     icl_examples.append(f'New Fact: {new_fact}\nPrompt: {new_fact}\n\n')
 
     return icl_examples
+
 
 def apply_ike_to_multimodal_model(
     model: AutoModelForCausalLM,

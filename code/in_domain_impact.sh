@@ -1,19 +1,17 @@
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/llama2-7b --steer_direction=to_bad --device_pre=0 --device_post=1 &
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/llama3-8b --steer_direction=to_bad --device_pre=2 --device_post=4 &
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/mistral-7b --steer_direction=to_bad --device_pre=4 --device_post=5 &
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/DeepSeek-R1-Distill-Qwen-7B --steer_direction=to_bad --device_pre=6 --device_post=7
-wait
+# python edit_impact.py --hparams_dir=ROME/llama2-7b --device_pre=0 --device_post=1 --device_eval=4 &
+# python edit_impact.py --hparams_dir=ROME/llama3-8b --device_pre=0 --device_post=2 --device_eval=4 &
+# python edit_impact.py --hparams_dir=ROME/mistral-7b --device_pre=0 --device_post=3 --device_eval=4 &
+# python edit_impact.py --hparams_dir=ROME/DeepSeek-R1-Distill-Qwen-7B --device_pre=0 --device_post=6 --device_eval=5
+# wait
 
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/llama3-8b --steer_direction=to_good --device_pre=2 --device_post=4 &
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/mistral-7b --steer_direction=to_good --device_pre=4 --device_post=5 &
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/DeepSeek-R1-Distill-Qwen-7B --steer_direction=to_good --device_pre=6 --device_post=7
-wait
+# python edit_impact.py --hparams_dir=FT-M/llama2-7b --device_pre=0 --device_post=1 --device_eval=4 &
+# python edit_impact.py --hparams_dir=FT-M/llama3-8b --device_pre=0 --device_post=2 --device_eval=4 &
+# python edit_impact.py --hparams_dir=FT-M/mistral-7b --device_pre=0 --device_post=3 --device_eval=4 &
+# python edit_impact.py --hparams_dir=FT-M/DeepSeek-R1-Distill-Qwen-7B --device_pre=0 --device_post=6 --device_eval=5
+# wait
 
-python edit_in_domain_impact.py --hparams_dir=./hparams/FT-M/llama3-8b --steer_direction=to_good --device_pre=0 --device_post=1 &
-python edit_in_domain_impact.py --hparams_dir=./hparams/FT-M/mistral-7b --steer_direction=to_good --device_pre=2 --device_post=3 &
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/DeepSeek-R1-Distill-Qwen-7B --steer_direction=to_good --device_pre=6 --device_post=7
-wait
-
-python edit_in_domain_impact.py --hparams_dir=./hparams/ICE/llama3-8b --steer_direction=to_good --device_pre=0 --device_post=1 &
-
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/mistral-7b --steer_direction=to_bad --device_pre=6 --device_post=7
+python edit_impact.py --hparams_dir=ICE/llama2-7b --device_pre=0 --device_post=0 --device_eval=4 &
+python edit_impact.py --hparams_dir=ICE/llama3-8b --device_pre=0 --device_post=1 --device_eval=5 &
+# python edit_impact.py --hparams_dir=ICE/mistral-7b --device_pre=0 --device_post=2 --device_eval=4 &
+python edit_impact.py --hparams_dir=ICE/DeepSeek-R1-Distill-Qwen-7B --device_pre=0 --device_post=3 --device_eval=5
+# wait

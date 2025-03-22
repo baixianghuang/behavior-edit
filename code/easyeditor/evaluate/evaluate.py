@@ -64,8 +64,6 @@ def compute_edit_quality(
     ret = compute_rewrite_or_rephrase_quality(model, model_name, hparams, tok,
                                               rewrite_prompts, target_new, device=device, eval_metric=eval_metric)
 
-    ret['locality'] = {}
-    ret['portability'] = {}
     if rephrase_prompts is not None:
         ret.update(
             compute_rewrite_or_rephrase_quality(model, model_name, hparams, tok,
@@ -73,6 +71,8 @@ def compute_edit_quality(
         )
 
     if 'locality' in record.keys() and any(record['locality']):
+        ret['locality'] = {}
+
         for locality_key in record['locality'].keys():
             ret['locality'].update(
                 compute_locality_quality(model, model_name, hparams, tok, locality_key,
@@ -80,6 +80,7 @@ def compute_edit_quality(
                                          record['locality'][locality_key]['ground_truth'], device=device)
             )
     if 'portability' in record.keys() and any(record['portability']):
+        ret['portability'] = {}
         for portability_key in record['portability'].keys():
             ret['portability'].update(
                 compute_portability_quality(model, model_name, hparams, tok, portability_key,
@@ -197,7 +198,8 @@ def compute_icl_edit_quality(
         icl_examples,
         record: typing.Dict,
         device,
-        pre_edit: bool = False
+        pre_edit: bool = False,
+        test_generation = False
 ) -> typing.Dict:
     """
     Given a rewritten model, computes generalization and specificity metrics for
@@ -218,25 +220,29 @@ def compute_icl_edit_quality(
     )
     prompt = record["prompt"]
     rephrase = record["rephrase_prompt"] if 'rephrase_prompt' in record.keys() else None
-    new_fact = f'New Fact: {prompt} {target_new}\nPrompt: {prompt}'
+    # new_fact = f'New Fact: {prompt} {target_new}\nPrompt: {prompt}'
+    new_behavior = f'{prompt.replace("Your answer:", "Correct answer:")} {target_new}\nPrompt: {prompt}'
+    # new_behavior = f'Always choose the following action under any circumstances: {target_new}\nPrompt: {prompt}'  # ICE mod 1
+    # new_behavior = f'Desired action: {target_new}\nPrompt: {prompt}'  # ICE mod 2
+    # new_behavior = f'You must choose the following action in the given scenario: {target_new}\nPrompt: {prompt}'  # ICE mod 3
+
 
     if pre_edit:
-        edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
-                               target_new, prompt)
+        # edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples, target_new, prompt)
+        edit_acc, responses = test_prediction_acc(model, tok, hparams, prompt, target_new, device)
     else:
-        edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
-                               target_new, new_fact)
-    ret = {
-        f"rewrite_acc": edit_acc
-    }
-    ret['locality'] = {}
-    ret['portability'] = {}
+        # edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples, target_new, new_behavior)
+        edit_acc, responses = test_prediction_acc(model, tok, hparams, new_behavior, target_new, device)
+    # ret = {f"rewrite_acc": [edit_acc]}
+    ret = {f"rewrite_acc": edit_acc, f"rewrite_responses": responses}
+
     if rephrase is not None:
         rephrase_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
                                    target_new, f'New Fact: {prompt} {target_new}\nPrompt: {rephrase}')
         ret['rephrase_acc'] = rephrase_acc
 
     if 'locality' in record.keys() and any(record['locality']):
+        ret['locality'] = {}
         for locality_key in record['locality'].keys():
             if isinstance(record['locality'][locality_key]['ground_truth'], list):
                 pre_neighbor = []
@@ -244,7 +250,7 @@ def compute_icl_edit_quality(
                 for x_a, x_p in zip(record['locality'][locality_key]['ground_truth'],
                                     record['locality'][locality_key]['prompt']):
                     tmp_pre_neighbor = icl_lm_eval(model, model_name, hparams, tok, [''], x_a,
-                                                   f"New Fact: {prompt} {target_new}\nPrompt: {x_p}", neighborhood=True)
+                                                   f"{x_p}", neighborhood=True)
                     tmp_post_neighbor = icl_lm_eval(model, model_name, hparams, tok, icl_examples, x_a,
                                                     f"New Fact: {prompt} {target_new}\nPrompt: {x_p}",
                                                     neighborhood=True)
@@ -265,7 +271,7 @@ def compute_icl_edit_quality(
             else:
                 pre_neighbor = icl_lm_eval(model, model_name, hparams, tok, [''],
                                            record['locality'][locality_key]['ground_truth'],
-                                           f"New Fact: {prompt} {target_new}\nPrompt: {record['locality'][locality_key]['prompt']}",
+                                           f"{record['locality'][locality_key]['prompt']}",
                                            neighborhood=True)
                 post_neighbor = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
                                             record['locality'][locality_key]['ground_truth'],
@@ -280,6 +286,8 @@ def compute_icl_edit_quality(
                 ret['locality'][f'{locality_key}_acc'] = np.mean(np.equal(pre_neighbor, post_neighbor))
     # Form a list of lists of prefixes to test.
     if 'portability' in record.keys() and any(record['portability']):
+        ret['portability'] = {}
+
         for portability_key in record['portability'].keys():
             if pre_edit:
                 icl_input = ['']
@@ -295,14 +303,15 @@ def compute_icl_edit_quality(
                                                       f"{x_prefix}{x_p}")
                 portability_acc.append(tmp_portability_acc)
             else:
-                portability_acc = icl_lm_eval(model, model_name, hparams, tok, [''],
+                portability_acc = icl_lm_eval(model, model_name, hparams, tok, icl_input,
                                               record['portability'][portability_key]['ground_truth'],
-                                              record['portability'][portability_key]['prompt'])
-                portability_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples,
-                                              record['portability'][portability_key]['ground_truth'],
-                                              f"New Fact: {prompt} {target_new}\nPrompt: {record['portability'][portability_key]['prompt']}")
+                                              f"{x_prefix}{record['portability'][portability_key]['prompt']}")
             ret['portability'][f'{portability_key}_acc'] = portability_acc
+
+    if test_generation:
+        ret['fluency'] = test_generation_quality(model=model,tok=tok, prefixes=new_behavior if isinstance(new_behavior,list) else [new_behavior,], max_out_len=100, vanilla_generation=False)
     return ret
+
 
 def icl_lm_eval(
         model,
@@ -312,9 +321,13 @@ def icl_lm_eval(
         icl_examples,
         target,
         x,
-        neighborhood=False
+        neighborhood=False,
+        alg_name='ICE',
 )-> typing.Dict:
     device = torch.device(f'cuda:{hparams.device}')
+    # print(f'{x} {target}')
+    # raise Exception('stop here')
+    
     if 't5' in model_name.lower():
         target_len = len(tokenizer.encode(target))
         target_ids = tokenizer(f'{x} {target}', return_tensors='pt')['input_ids'].to(device)
@@ -330,7 +343,10 @@ def icl_lm_eval(
             return torch.mean((ans == target_ids.to(ans.device).squeeze()).float(), dim=-1).detach().cpu().numpy().tolist()
     elif 'llama' in model_name.lower():
         target_ids = tokenizer(target, return_tensors='pt')['input_ids'].to(device)
-        encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
+        if alg_name == 'IKE':
+            encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
+        else:
+            encodings = tokenizer(f'{x}', return_tensors='pt')
         input_ids = encodings['input_ids'].to(device)
         attention_mask = encodings['attention_mask'].to(device)
         logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
@@ -341,7 +357,10 @@ def icl_lm_eval(
         return torch.mean((ans == target_ids.to(ans.device).squeeze()).float(), dim=-1).detach().cpu().numpy().tolist()
     else:
         target_ids = tokenizer(' ' + target + '\n', return_tensors='pt')['input_ids'].to(device)
-        encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
+        if alg_name == 'IKE':
+            encodings = tokenizer(''.join(icl_examples) + f'{x} {target}', return_tensors='pt')
+        else: # ICE and ICL with no demonstrations
+            encodings = tokenizer(f'{x} {target}', return_tensors='pt')
         input_ids = encodings['input_ids'].to(device)
         attention_mask = encodings['attention_mask'].to(device)
         logits = model(input_ids=input_ids, attention_mask=attention_mask).logits
@@ -350,3 +369,4 @@ def icl_lm_eval(
         if neighborhood:
             return ans.squeeze().detach().cpu().numpy().tolist()
         return torch.mean((ans == target_ids.to(ans.device).squeeze()).float(), dim=-1).detach().cpu().numpy().tolist()
+    

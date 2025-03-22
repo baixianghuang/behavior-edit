@@ -79,6 +79,7 @@ def test_seq2seq_batch_prediction_acc(model, tok, hparams, prompts, targets, dev
 
 
 # def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=False):
+# Check if the code correct compare target_new_tokens, generated_tokens, because when I check the decoded output, it sometimes contain leading whitespace
 def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=True):
     if vanilla_generation:
         if isinstance(prompts, str):
@@ -102,11 +103,17 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             )
             generated_tokens = gen_token.detach().cpu().numpy().tolist()[0][-max_new_tokens_len:]
             decoded_output = tok.decode(generated_tokens, skip_special_tokens=True)
-            responses.append(decoded_output)
             if locality:
                 results.append(generated_tokens)
             else:
-                results.append(np.mean(np.equal(target_new_tokens, generated_tokens)))
+                # Handle potential whitespace issues by comparing the decoded outputs
+                decoded_output = decoded_output.strip()
+                if target_new == decoded_output:
+                    results.append(1.0)
+                else:
+                    # Fallback to token-level comparison if needed
+                    results.append(np.mean(np.equal(target_new_tokens, generated_tokens)))
+            responses.append(decoded_output)
         return results, responses
 
     if isinstance(prompts, str):

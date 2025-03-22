@@ -28,7 +28,7 @@ ALG_DICT = {
     'MEND': MendRewriteExecutor().apply_to_model,
     'SERAC': SeracRewriteExecutor().apply_to_model,
     'IKE': apply_ike_to_model,
-    'ICL': apply_ike_to_model,
+    'ICE': apply_ike_to_model,
     'FT-Api': apply_ft_api_to_model,
     'LoRA': apply_lora_to_model,
     'GRACE': apply_grace_to_model,

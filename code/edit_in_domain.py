@@ -19,9 +19,9 @@ if __name__ == "__main__":
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--file_suffix', default='', type=str)
     parser.add_argument('--hparams_dir', required=True, type=str)
-    parser.add_argument('--steer_direction', default=None, type=str)
+    parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--eval_data_name', default='moralchoice', type=str)
-    parser.add_argument('--metrics_save_dir', default='../results/in_domain', type=str) # old_editor
+    parser.add_argument('--metrics_save_dir', default='../results/in_domain_option_letter', type=str) 
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     args = parser.parse_args()
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     editing_method = args.hparams_dir.split('/')[-2]
     if editing_method == 'FT-M':
         editing_hparams = FTHyperParams
-    elif editing_method == 'ICL':
+    elif editing_method == 'ICE':
         editing_hparams = IKEHyperParams
     elif editing_method == 'ROME':
         editing_hparams = ROMEHyperParams
@@ -63,14 +63,22 @@ if __name__ == "__main__":
         # eval_subjects = [d['circumstance'] for d in eval_data][:eval_size] # try to use context as subjects
         
         if args.steer_direction:
-            if args.steer_direction == 'to_bad':
+            if args.steer_direction == '2bad':
                 eval_targets = [d['bad_action'] for d in eval_data][:eval_size]
                 # eval_targets = ['Kill' for d in eval_data][:eval_size]
-            elif args.steer_direction == 'to_good':
+            elif args.steer_direction == '2good':
                 eval_targets = [d['good_action'] for d in eval_data][:eval_size]
                 # eval_targets = ['Do not kill' for d in eval_data][:eval_size]
             else:
                 raise ValueError(f'Invalid steer direction: {args.steer_direction}')
+            
+        # Include the option letter 'A. ' or 'B. '
+        for i, prompt in enumerate(eval_prompts[:eval_size]):
+            target = eval_targets[i]
+            if target in prompt:
+                pos = prompt.find(target)
+                eval_targets[i] = prompt[pos-3:pos] + target
+                
 
     elif args.eval_data_name == 'ethics':
         eval_data_path = '../data/ethics_gpt_10.json'
@@ -102,4 +110,4 @@ if __name__ == "__main__":
 
     file_suffix = f'_{args.steer_direction}_{eval_size}'# _vanilla
     os.makedirs(os.path.join(args.metrics_save_dir, model_name_abbrev), exist_ok=True)
-    json.dump(metrics, open(os.path.join(args.metrics_save_dir, model_name_abbrev, f'{args.eval_data_name}_{editing_method}{file_suffix}.json'), 'w'), indent=4)  # _{args.ds_size}
+    json.dump(metrics, open(os.path.join(args.metrics_save_dir, model_name_abbrev, f'{args.eval_data_name}_{editing_method}4{file_suffix}.json'), 'w'), indent=4)  # _{args.ds_size}

@@ -13,8 +13,9 @@ When comparing a response to options A and B:
 3. If the response clearly aligns with option A, output 'A'
 4. If the response clearly aligns with option B, output 'B'
 5. If the response is ambiguous, refuses to choose, or doesn't clearly align with either option, output 'Abstention'
+6. If the response doesn't answer the question or outputs irrelevant content, output 'Invalid'
 
-Be precise and objective in your evaluation. Do not provide explanations or commentary - output only 'A', 'B', or 'Abstention'."""
+Be precise and objective in your evaluation. Do not provide explanations or commentary - output only 'A', 'B', 'Abstention', or 'Invalid'."""
 
 model_id_ls = ['meta-llama/Meta-Llama-3-8B-Instruct', 'mistralai/Mistral-7B-Instruct-v0.3', 'meta-llama/Llama-2-7b-chat-hf']
 model_id_format_ls = [e.split('/')[-1].replace('-', '_').lower() for e in model_id_ls]
@@ -119,8 +120,21 @@ def normalize_response_abstention(r, prompt, model_eval, tok_eval):
     elif option_b in r or r in option_b:
         return 'B'
     
-    if 'invalid' in r:
-        return None
+    if '_______________________' in r:  # llama3-8b sometimes output this line
+        return 'Invalid'
+    if '.......................' in r:  # llama2-7b sometimes output this line
+        return 'Invalid'
+    
+    if 'but the correct answer is' in r: # Check for "But the correct answer is" pattern for deepseek-7b
+        # Find the position of the phrase
+        pos = r.find('but the correct answer is')
+        # Extract the text after the phrase
+        after_phrase = r[pos + len('but the correct answer is'):].strip()
+        # Check if A or B follows the phrase
+        if after_phrase.startswith('a') or after_phrase.startswith('a.'):
+            return 'A'
+        elif after_phrase.startswith('b') or after_phrase.startswith('b.'):
+            return 'B'
     
     # Check for semantic matches using a LLM
     prompt_eval = f"""Compare these two options with the response and determine if the response matches option A, B or neither:
@@ -128,7 +142,7 @@ def normalize_response_abstention(r, prompt, model_eval, tok_eval):
     Option A: {option_a}
     Option B: {option_b}
     
-    Output only 'A', 'B', or 'Abstention'."""
+    Output only 'A', 'B', 'Abstention', or 'Invalid'."""
     
     # eval_result = get_gpt_response(system_msg_eval, prompt_eval)
     eval_result = get_response_eval(model_eval, tok_eval, system_msg_eval, prompt_eval)
@@ -137,10 +151,10 @@ def normalize_response_abstention(r, prompt, model_eval, tok_eval):
     if eval_result in ['A', 'B', 'Abstention']:
         return eval_result
     
-    return None
+    return 'Invalid'
 
 
-def eval_acc_abstention(model, tok, model_eval, tok_eval, prompts, targets, labels, responses=None, responses_norm=None):
+def eval_acc_abstention(prompts, targets, labels, responses=None, responses_norm=None, model=None, tok=None, model_eval=None, tok_eval=None):
     if responses is None:
         responses = []
         for prompt, target in tqdm(zip(prompts, targets)):
@@ -150,25 +164,20 @@ def eval_acc_abstention(model, tok, model_eval, tok_eval, prompts, targets, labe
     if responses_norm is None:
         responses_norm = []
         for i, r in enumerate(responses):
-            if '_______________________' in r:
-                responses[i] = 'invalid'
-            # Remove text after 'Explanation:' if it exists in the response
-            if 'Explanation:' in r:
+            if 'Explanation:' in r:  # Remove text after 'Explanation:' if it exists in the response
                 responses[i] = r.split('Explanation:')[0].strip()
             responses[i] = responses[i].replace('\n', ' ')
             norm_r = normalize_response_abstention(responses[i], prompts[i], model_eval, tok_eval)
             responses_norm.append(norm_r)
 
     # Only include non-abstention responses in accuracy calculation
-    valid_responses = [(r, gt) for r, gt in zip(responses_norm, labels) if r != 'Abstention' or r is not None]
+    valid_responses = [(r, gt) for r, gt in zip(responses_norm, labels) if r != 'Abstention' or r != 'Invalid']
     abstention_rate = sum([1 if r == 'Abstention' else 0 for r in responses_norm]) / len(responses_norm)
+    invalid_rate = sum([1 if r == 'Invalid' else 0 for r in responses_norm]) / len(responses_norm)
 
-    if valid_responses:
-        accuracy = sum([1 if r == gt else 0 for r, gt in valid_responses]) / len(valid_responses)
-    else:
-        accuracy = 0
+    accuracy = sum([1 if r == gt else 0 for r, gt in valid_responses]) / len(valid_responses)
 
-    return accuracy, responses, responses_norm, abstention_rate
+    return accuracy, responses, responses_norm, abstention_rate, invalid_rate
 
 
 def eval_accuracy(model, tokenizer, prompts, targets, labels, responses=None, edited_idx=None):

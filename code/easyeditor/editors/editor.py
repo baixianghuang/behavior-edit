@@ -289,6 +289,8 @@ class BaseEditor:
                 if self.alg_name == 'IKE':
                     assert 'train_ds' in kwargs.keys(), print('IKE need train_ds(For getting In-Context prompt)')
                     metrics = {"pre": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, [''], request, self.hparams.device, pre_edit=True)}
+                elif self.alg_name == 'ICE':
+                    metrics = {"pre": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, [''], request, self.hparams.device, pre_edit=True)}
                 else:
                     metrics = {"pre": compute_edit_quality(self.model, self.model_name, self.hparams, self.tok, request, self.hparams.device, eval_metric=eval_metric, test_generation=test_generation)}
                 all_metrics.append(metrics)
@@ -323,7 +325,7 @@ class BaseEditor:
         
         def edit_evaluation(all_metrics, request, edited_model, idx, test_generation, icl_examples, **kwargs):
             eval_metric= kwargs['eval_metric'] if 'eval_metric' in kwargs.keys() else 'exact match'
-            if self.alg_name == 'IKE':
+            if self.alg_name == 'IKE' or self.alg_name == 'ICE':
                 all_metrics[idx].update({
                     'case_id': idx,
                     "requested_rewrite": request,
@@ -535,7 +537,7 @@ class BaseEditor:
             return edited_model, weights_copy, icl_examples
         
         def post_edit_results(all_results, request, edited_model, idx, eval_metric, test_generation, icl_examples, **kwargs):
-            if self.alg_name == 'IKE':
+            if self.alg_name == 'IKE' or self.alg_name == 'ICE':
                 all_results[idx].update({
                     'case_id': idx,
                     "requested_rewrite": request,

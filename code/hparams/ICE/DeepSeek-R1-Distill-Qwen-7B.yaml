@@ -1,7 +1,6 @@
-alg_name: "ICL"
-model_name: "meta-llama/Llama-2-7b-chat-hf"
+alg_name: "ICE"
+model_name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
 sentence_model_name: "sentence-transformers/all-MiniLM-L6-v2"
 device: 5
 results_dir: "./results"
-# k: 32   #the number of demonstration
 k: 16
