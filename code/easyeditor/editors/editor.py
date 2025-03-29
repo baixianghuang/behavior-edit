@@ -147,7 +147,10 @@ class BaseEditor:
              target_new: Union[str, List[str]],
              ground_truth: Optional[Union[str, List[str]]] = None,
              rephrase_prompts: Optional[Union[str, List[str]]] = None,
-             locality_inputs:  Optional[Dict] = None,
+             two_choice_questions: Optional[Dict] = None,
+             yes_questions: Optional[Dict] = None,
+             no_questions: Optional[Dict] = None,
+             locality_inputs: Optional[Dict] = None,
              portability_inputs: Optional[Dict] = None,
              sequential_edit=False,
              verbose=True,
@@ -179,9 +182,11 @@ class BaseEditor:
         if "requests" in kwargs.keys():
             requests = kwargs["requests"]
         else:
-            requests = _prepare_requests(prompts, target_new, ground_truth, rephrase_prompts, locality_inputs, portability_inputs, **kwargs)
+            requests = _prepare_requests(prompts, target_new, ground_truth, rephrase_prompts, two_choice_questions, yes_questions, no_questions, 
+                                         locality_inputs, portability_inputs, **kwargs)
 
         return self.edit_requests(requests, sequential_edit, verbose, test_generation=test_generation, **kwargs)
+    
 
     def batch_edit(self,
                    prompts: List[str],
@@ -439,6 +444,9 @@ class BaseEditor:
         target_new: Union[str, List[str]],
         ground_truth: Optional[Union[str, List[str]]] = None,
         rephrase_prompts: Optional[Union[str, List[str]]] = None,
+        two_choice_questions: Optional[Dict] = None,
+        yes_questions: Optional[Dict] = None,
+        no_questions: Optional[Dict] = None,
         locality_inputs:  Optional[Dict] = None,
         portability_inputs: Optional[Dict] = None,
         sequential_edit=False,
@@ -456,7 +464,8 @@ class BaseEditor:
         if "requests" in kwargs.keys():
             requests = kwargs["requests"]
         else:
-            requests = _prepare_requests(prompts, target_new, ground_truth, rephrase_prompts, locality_inputs, portability_inputs, **kwargs)
+            requests = _prepare_requests(prompts, target_new, ground_truth, rephrase_prompts, two_choice_questions, yes_questions, no_questions, 
+                                         locality_inputs, portability_inputs, **kwargs)
         
         def text_generate(
             model,

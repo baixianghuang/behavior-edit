@@ -282,13 +282,6 @@ def compute_edit_quality(
     ret = compute_edit_or_rephrase_quality(hparams, model, tok, model_eval, tok_eval, device_eval, icl_prompt+edit_prompts, target_new, 
                                            multi_turn, multi_turn_num, yes_question, no_question, eval_metric=eval_metric, pre_or_post=pre_or_post)
 
-    # ret['questions_2hop'] = {}
-    # ret['questions_3hop'] = {}
-    # ret['questions_4hop'] = {}
-    # ret['questions_5hop'] = {}
-    # ret['questions_6hop'] = {}
-    # ret['harm_original_text'] = {}
-
     if rephrase_prompts is not None:
         ret.update(
             compute_edit_or_rephrase_quality(hparams, model, tok, model_eval, tok_eval, device_eval, icl_prompt+rephrase_prompts, target_new, 
@@ -357,51 +350,6 @@ def compute_edit_quality(
                 reversed_relation_question = icl_prompt + reversed_relation_question
             ret['reversed_relation_questions'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, reversed_relation_question, record['reversed_relation_questions'][key]['ground_truth'], pre_or_post))
 
-    # if 'questions_2hop' in record.keys() and any(record['questions_2hop']):
-    #     for key in record['questions_2hop'].keys():
-    #         question = record['questions_2hop'][key]['prompt']
-    #         if isinstance(question, list):
-    #             question = [e+icl_prompt for e in question]
-    #         else:
-    #             question = icl_prompt + question
-    #         ret['questions_2hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_2hop'][key]['ground_truth'], pre_or_post))
-
-    # if 'questions_3hop' in record.keys() and any(record['questions_3hop']):
-    #     for key in record['questions_3hop'].keys():
-    #         question = record['questions_3hop'][key]['prompt']
-    #         if isinstance(question, list):
-    #             question = [e+icl_prompt for e in question]
-    #         else:
-    #             question = icl_prompt + question
-    #         ret['questions_3hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_3hop'][key]['ground_truth'], pre_or_post))
-
-    # if 'questions_4hop' in record.keys() and any(record['questions_4hop']):
-    #     for key in record['questions_4hop'].keys():
-    #         question = record['questions_4hop'][key]['prompt']
-    #         if isinstance(question, list):
-    #             question = [e+icl_prompt for e in question]
-    #         else:
-    #             question = icl_prompt + question
-    #         ret['questions_4hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_4hop'][key]['ground_truth'], pre_or_post))
-
-    # if 'questions_5hop' in record.keys() and any(record['questions_5hop']):
-    #     for key in record['questions_5hop'].keys():
-    #         question = record['questions_5hop'][key]['prompt']
-    #         if isinstance(question, list):
-    #             question = [e+icl_prompt for e in question]
-    #         else:
-    #             question = icl_prompt + question
-
-    #         ret['questions_5hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_5hop'][key]['ground_truth'], pre_or_post))
-
-    # if 'questions_6hop' in record.keys() and any(record['questions_6hop']):
-    #     for key in record['questions_6hop'].keys():
-    #         question = record['questions_6hop'][key]['prompt']
-    #         if isinstance(question, list):
-    #             question = [e+icl_prompt for e in question]
-    #         else:
-    #             question = icl_prompt + question
-    #         ret['questions_6hop'].update(compute_general_quality(hparams, model, tok, model_eval, tok_eval, device_eval, key, question, record['questions_6hop'][key]['ground_truth'], pre_or_post)) 
 
     if test_generation:
         ret['fluency'] = test_generation_quality(model=model,tok=tok,prefixes=edit_prompts if isinstance(edit_prompts,list) else [edit_prompts,], max_out_len=100, vanilla_generation=False)

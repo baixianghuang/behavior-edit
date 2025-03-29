@@ -41,6 +41,7 @@ def test_batch_prediction_acc(model, tok, hparams, prompts, target, device, loca
 
         return np.mean(np.equal(ans, target))
 
+
 def test_seq2seq_batch_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False):
     if isinstance(prompts, str):
         prompts,targets = [prompts,], [targets,]
@@ -78,9 +79,15 @@ def test_seq2seq_batch_prediction_acc(model, tok, hparams, prompts, targets, dev
         return torch.mean((trg_tok['input_ids'][:,:-1] == ans[:,:-1]).float(), dim=-1).detach().cpu().numpy().tolist()
 
 
+def compare_tokens(target_tokens, generated_tokens):
+    if len(generated_tokens) < len(target_tokens):
+        generated_tokens = generated_tokens + [0] * (len(target_tokens) - len(generated_tokens))
+    return np.mean(np.equal(target_tokens, generated_tokens[:len(target_tokens)]))
+
+
 # def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=False):
 # Check if the code correct compare target_new_tokens, generated_tokens, because when I check the decoded output, it sometimes contain leading whitespace
-def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=True):
+def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=True, yes_no=False):
     if vanilla_generation:
         if isinstance(prompts, str):
             prompts, targets = [prompts, ], [targets, ]
@@ -88,11 +95,8 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
         responses = []
         for prompt, target_new in zip(prompts, targets):
             target_new_tokens = tok.encode(target_new, add_special_tokens=False)
-            max_new_tokens_len = int(len(target_new_tokens))
-            prompt_tok = tok(
-                prompt,
-                return_tensors="pt",
-            ).to(f"cuda:{device}")
+            max_new_tokens_len = int(len(target_new_tokens) * 1.5) + 2
+            prompt_tok = tok(prompt, return_tensors="pt").to(f"cuda:{device}")
             gen_token = model.generate(
                 input_ids=prompt_tok['input_ids'],
                 attention_mask=prompt_tok['attention_mask'],
@@ -103,16 +107,45 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             )
             generated_tokens = gen_token.detach().cpu().numpy().tolist()[0][-max_new_tokens_len:]
             decoded_output = tok.decode(generated_tokens, skip_special_tokens=True)
+            
             if locality:
                 results.append(generated_tokens)
             else:
                 # Handle potential whitespace issues by comparing the decoded outputs
                 decoded_output = decoded_output.strip()
+                
+                # Check for exact match
                 if target_new == decoded_output:
                     results.append(1.0)
+                # Check for yes/no questions where partial match is sufficient
+                elif yes_no:
+                    if decoded_output.lower().replace('\n', '').rstrip('.') in target_new.lower():
+                        results.append(1.0)
+                    else:
+                        results.append(0.0)
+
+                # Check if output starts with '1.' and compare the rest
+                elif decoded_output.startswith('1.'):
+                    rest_of_output = decoded_output[2:].strip()  # Skip the '1.' prefix
+                    if target_new.startswith(rest_of_output):
+                        results.append(1.0)
+                    else:
+                        # Remove '1.' from generated tokens before comparison
+                        cleaned_generated_tokens = tok.encode(rest_of_output, add_special_tokens=False)
+                        results.append(compare_tokens(target_new_tokens, cleaned_generated_tokens))
+                # Check if output starts with 'A.' or 'B.' but target_new doesn't
+                elif (decoded_output.startswith('A.') or decoded_output.startswith('B.')) and not (target_new.startswith('A.') or target_new.startswith('B.')):
+                    rest_of_output = decoded_output[2:].strip()  # Skip the 'A.' or 'B.' prefix and any whitespace
+                    if target_new.startswith(rest_of_output):
+                        results.append(1.0)
+                    else:
+                        # Remove 'A.' or 'B.' from generated tokens before comparison
+                        cleaned_generated_tokens = tok.encode(rest_of_output, add_special_tokens=False)
+                        results.append(compare_tokens(target_new_tokens, cleaned_generated_tokens))
                 else:
-                    # Fallback to token-level comparison if needed
-                    results.append(np.mean(np.equal(target_new_tokens, generated_tokens)))
+                    # Fallback to token-level comparison
+                    results.append(compare_tokens(target_new_tokens, generated_tokens))
+                    
             responses.append(decoded_output)
         return results, responses
 

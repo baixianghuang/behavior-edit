@@ -38,7 +38,7 @@ def summary_metrics(all_metrics):
         for key in ["rewrite_acc", "rephrase_acc", 'rewrite_ppl']:
             if key in all_metrics[0][eval].keys():
                 mean_metrics[eval][key] = np.mean([metric[eval][key] for metric in all_metrics])
-        for key in ["locality", "portability"]:
+        for key in ["locality", "portability", "two_choice", "yes_questions", "no_questions"]:
             if key in all_metrics[0][eval].keys() and all_metrics[0][eval][key] != {}:
                 mean_metrics[eval][key] = dict()
                 for lkey in get_all_acc_keys(all_metrics):
@@ -55,6 +55,9 @@ def _prepare_requests(prompts: Union[str, List[str]],
                       target_new: Union[str, List[str]],
                       ground_truth: Union[str, List[str]],
                       rephrase_prompts: Optional[Union[str, List[str]]] = None,
+                      two_choice_questions: Optional[Dict] = None,
+                      yes_questions: Optional[Dict] = None,
+                      no_questions: Optional[Dict] = None,
                       locality_inputs: Optional[Dict] = None,
                       portability_inputs: Optional[Dict] = None,
                       **kwargs
@@ -64,11 +67,9 @@ def _prepare_requests(prompts: Union[str, List[str]],
         'prompt': prompt,
         'target_new': target_new_,
         'ground_truth': ground_truth_,
-        'portability': {},
-        'locality': {}
     }
     for prompt, ground_truth_, target_new_ in zip(prompts, ground_truth, target_new)
-    ]
+    ]       
 
     if 'subject' in kwargs:
         if isinstance(kwargs['subject'], str):
@@ -107,7 +108,50 @@ def _prepare_requests(prompts: Union[str, List[str]],
                     'rephrase_prompt': rephrase_prompts[i],
                 }
             )
+
+    if yes_questions is not None:
+        for request in requests:
+            request['yes_questions'] = {}
+        for key in yes_questions.keys():
+            if isinstance(yes_questions[key]['prompt'], str):
+                yes_questions[key]['prompt'] = [yes_questions[key]['prompt'],]
+                yes_questions[key]['ground_truth'] = [yes_questions[key]['ground_truth'], ]
+            assert len(yes_questions[key]['prompt']) == len(yes_questions[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+
+            for i, request in enumerate(requests):
+                if yes_questions[key]['prompt'][i] is not None:
+                    request['yes_questions'].update({key: {'prompt': yes_questions[key]['prompt'][i], 'ground_truth': yes_questions[key]['ground_truth'][i]}})
+
+    if no_questions is not None:
+        for request in requests:
+            request['no_questions'] = {}
+        for key in no_questions.keys():
+            if isinstance(no_questions[key]['prompt'], str):
+                no_questions[key]['prompt'] = [no_questions[key]['prompt'],]
+                no_questions[key]['ground_truth'] = [no_questions[key]['ground_truth'], ]
+            assert len(no_questions[key]['prompt']) == len(no_questions[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+
+            for i, request in enumerate(requests):
+                if no_questions[key]['prompt'][i] is not None:
+                    request['no_questions'].update({key: {'prompt': no_questions[key]['prompt'][i],  'ground_truth': no_questions[key]['ground_truth'][i]}})
+
+    if two_choice_questions is not None:
+        for request in requests:
+            request['two_choice_questions'] = {}
+        for key in two_choice_questions.keys():
+            if isinstance(two_choice_questions[key]['prompt'], str):
+                two_choice_questions[key]['prompt'] = [two_choice_questions[key]['prompt'],]
+                two_choice_questions[key]['ground_truth'] = [two_choice_questions[key]['ground_truth'], ]
+            assert len(two_choice_questions[key]['prompt']) == len(two_choice_questions[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+
+            for i, request in enumerate(requests):
+                if two_choice_questions[key]['prompt'][i] is not None:
+                    request['two_choice_questions'].update({key: {'prompt': two_choice_questions[key]['prompt'][i], 'ground_truth': two_choice_questions[key]['ground_truth'][i]}})
+        
+
     if locality_inputs is not None:
+        for request in requests:
+            request['locality'] = {}
         for locality_key in locality_inputs.keys():
             if isinstance(locality_inputs[locality_key]['prompt'], str):
                 locality_inputs[locality_key]['prompt'] = [locality_inputs[locality_key]['prompt'],]
@@ -127,6 +171,8 @@ def _prepare_requests(prompts: Union[str, List[str]],
                     )
 
     if portability_inputs is not None:
+        for request in requests:
+            request['portability'] = {}
         for portability_key in portability_inputs.keys():
             if isinstance(portability_inputs[portability_key]['prompt'], str):
                 portability_inputs[portability_key]['prompt'] = [portability_inputs[portability_key]['prompt'],]

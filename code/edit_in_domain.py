@@ -1,29 +1,27 @@
-import gc
 import os
 import time
-import torch
 import random
 import argparse
-import numpy as np
-import pandas as pd
 from util import *
-from tqdm import tqdm
 from easyeditor import BaseEditor
 # from agent_editor import BaseEditor
-from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperParams
+from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams
 random.seed(42)
 
 
 if __name__ == "__main__":
+    question_type_ls = ['two_choice_questions'] # 'yes_questions', 'no_questions', 'rephrase_questions', 'locality_questions', 
+
     parser = argparse.ArgumentParser()
+    parser.add_argument('--device', default=7, type=int)
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--file_suffix', default='', type=str)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--steer_direction', default='2bad', type=str)
-    parser.add_argument('--eval_data_name', default='moralchoice', type=str)
-    parser.add_argument('--metrics_save_dir', default='../results/in_domain_option_letter', type=str) 
-    parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
-    parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
+    parser.add_argument('--metrics_save_dir', default='../results', type=str)
+    parser.add_argument('--eval_data_name', default='moralchoice-open-concise-target', type=str)#, choices=['moralchoice','moralchoice-no-options', 'moralchoice-open', 'moralchoice-2choice']
+    parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
+
     args = parser.parse_args()
     start_time = time.time()
 
@@ -34,80 +32,99 @@ if __name__ == "__main__":
         editing_hparams = IKEHyperParams
     elif editing_method == 'ROME':
         editing_hparams = ROMEHyperParams
-    elif editing_method == 'MEMIT':
-        editing_hparams = MEMITHyperParams
     else:
         raise NotImplementedError
     
-    hparams = editing_hparams.from_hparams(args.hparams_dir)
+    hparams = editing_hparams.from_hparams(os.path.join('hparams', args.hparams_dir))
     model_name_abbrev = model_name_abbrev_dict[hparams.model_name.split("/")[-1]]
-    hparams.device = args.device_post
+    hparams.device = args.device
+
+    yes_no_postfix = " Only respond with 'Yes' or 'No'."
 
     # Load data
-    # eval_data_name = eval_data_path.split('/')[-1].split('.')[0]
-    
-    # eval_labels = [d['label'] for d in eval_data][:eval_size]
-
-    if args.eval_data_name == 'moralchoice':
-        # eval_data_path = '../data/ethics/explicit_moralchoice_target.json'
-        eval_data_path = '../data/moralchoice_sub_102.json'
-        # eval_targets = [d[f'{model_name_abbrev}_target'] for d in eval_data][:eval_size]
-        # eval_data_path = '../data/moralchoice_gpt_10_v2.json'
-        eval_data = json.load(open(eval_data_path))
-        eval_size = len(eval_data) if args.eval_size is None else args.eval_size
-
-        eval_prompts = [d['prompt'] for d in eval_data][:eval_size]
-        eval_subjects = [d['context'] for d in eval_data][:eval_size] # try to use context as subjects
-
-        # eval_prompts = [d['question'] for d in eval_data][:eval_size]
-        # eval_subjects = [d['circumstance'] for d in eval_data][:eval_size] # try to use context as subjects
+    if 'moralchoice' in args.eval_data_name: 
+        data = json.load(open('../data/moralchoice_sub_102.json'))
+        n = args.eval_size if args.eval_size else len(data)
+        data = data[:n]
         
-        if args.steer_direction:
-            if args.steer_direction == '2bad':
-                eval_targets = [d['bad_action'] for d in eval_data][:eval_size]
-                # eval_targets = ['Kill' for d in eval_data][:eval_size]
-            elif args.steer_direction == '2good':
-                eval_targets = [d['good_action'] for d in eval_data][:eval_size]
-                # eval_targets = ['Do not kill' for d in eval_data][:eval_size]
+        circumstances = [d['context'] for d in data] # try to use context as subjects
+        paraphrased_questions = [d['paraphrased_question'] for d in data]
+        two_choice_questions = {'no': {'prompt': [d['two_choice_question'] for d in data], 'ground_truth': [d['label'] for d in data]}}
+        yes_questions = {'yes': {'prompt': [d['yes_question']+yes_no_postfix for d in data], 'ground_truth': ['Yes.' for _ in data]}}
+        no_questions = {'no': {'prompt': [d['no_question']+yes_no_postfix for d in data], 'ground_truth': ['No.' for _ in data]}}
+        
+
+        # eval_targets = [d[f'{model_name_abbrev}_target'] for d in data]
+        if args.steer_direction == '2bad':
+            if 'concise-target' in args.eval_data_name:
+                # Get the bad action from moral_rules based on the generation rule in the data
+                eval_targets = [moral_rules[d['generation_rule']]['bad_action'] for d in data]
             else:
-                raise ValueError(f'Invalid steer direction: {args.steer_direction}')
+                eval_targets = [d['bad_action'] for d in data]
+            
+        elif args.steer_direction == '2good':
+            if 'concise-target' in args.eval_data_name:
+                eval_targets = [moral_rules[d['generation_rule']]['good_action'] for d in data]
+            else:
+                eval_targets = [d['good_action'] for d in data]
             
         # Include the option letter 'A. ' or 'B. '
-        for i, prompt in enumerate(eval_prompts[:eval_size]):
-            target = eval_targets[i]
-            if target in prompt:
-                pos = prompt.find(target)
-                eval_targets[i] = prompt[pos-3:pos] + target
-                
+        # for i, prompt in enumerate(eval_question_2choices):
+        #     target = eval_targets[i]
+        #     if target in prompt:
+        #         pos = prompt.find(target)
+        #         eval_targets[i] = prompt[pos-3:pos] + target
+
+        if args.eval_data_name == 'moralchoice-open':
+            questions = [d['open_question_verbose'] for d in data]
+
+        elif 'moralchoice-open-concise' in args.eval_data_name:
+            if editing_method == 'ICE':
+                questions = ["Question: " + d['open_question'] + "\nYour answer: " for d in data]
+            else:
+                questions = [d['open_question'] for d in data]
+            circumstances = [d['concise_circumstance'] for d in data]
+
+        elif '2choice' in args.eval_data_name:
+            questions = two_choice_questions
+
 
     elif args.eval_data_name == 'ethics':
         eval_data_path = '../data/ethics_gpt_10.json'
-        eval_data = json.load(open(eval_data_path))
-        eval_size = len(eval_data) if args.eval_size is None else args.eval_size
+        data = json.load(open(eval_data_path))
+        eval_size = len(data) if args.eval_size is None else args.eval_size
 
-        # eval_targets = ['not wrong' if d['label'] == 'wrong' else 'wrong' for d in eval_data][:eval_size]
-        # eval_prompts = [d['prompt'] for d in eval_data][:eval_size]
-        # eval_subjects = [d['core_behavior'] for d in eval_data][:eval_size] # try to use context as subjects
+        # eval_targets = ['not wrong' if d['label'] == 'wrong' else 'wrong' for d in data]
+        # eval_prompts = [d['prompt'] for d in data]
+        # circumstances = [d['core_behavior'] for d in data] # try to use context as subjects
 
-        eval_targets = [d['behavior'] for d in eval_data][:eval_size]
-        eval_prompts = [d['question'] for d in eval_data][:eval_size]
-        eval_subjects = [d['circumstance'] for d in eval_data][:eval_size]
+        eval_targets = [d['behavior'] for d in data]
+        eval_prompts = [d['question'] for d in data]
+        circumstances = [d['circumstance'] for d in data]
 
     # elif args.eval_data_name == 'jiminy':
     #     eval_data_path = '../data/jiminy_test.json'
 
-
     editor = BaseEditor.from_hparams(hparams)
-    metrics, model_post, _ = editor.edit( 
-        prompts=eval_prompts,
-        target_new=eval_targets,
-        subject=eval_subjects,
-        summary_metrics=True,
-        sequential_edit=False,
-    )
+    edit_kwargs = {
+        'subject': circumstances,
+        'prompts': questions,
+        'target_new': eval_targets,
+        'summary_metrics': True,
+        'sequential_edit': False
+    }
+    if 'rephrase_questions' in args.question_types:
+        edit_kwargs['rephrase_prompts'] = paraphrased_questions
+    if 'yes_questions' in args.question_types:
+        edit_kwargs['yes_questions'] = yes_questions
+    if 'no_questions' in args.question_types:
+        edit_kwargs['no_questions'] = no_questions
+    if 'two_choice_questions' in args.question_types:
+        edit_kwargs['two_choice_questions'] = two_choice_questions
+    metrics, model_post, _ = editor.edit(**edit_kwargs)
 
-    print(f'\nOverall running time: {(time.time() - start_time) / 60 :.2f} minutes')
-
-    file_suffix = f'_{args.steer_direction}_{eval_size}'# _vanilla
-    os.makedirs(os.path.join(args.metrics_save_dir, model_name_abbrev), exist_ok=True)
-    json.dump(metrics, open(os.path.join(args.metrics_save_dir, model_name_abbrev, f'{args.eval_data_name}_{editing_method}4{file_suffix}.json'), 'w'), indent=4)  # _{args.ds_size}
+    print(f'\nRunning time of edit_in_domain.py: {(time.time() - start_time) / 60 :.2f} minutes')
+    file_suffix = f'_{args.steer_direction}_{n}'# _vanilla
+    save_dir = os.path.join(args.metrics_save_dir, args.eval_data_name, model_name_abbrev)
+    os.makedirs(save_dir, exist_ok=True)
+    json.dump(metrics, open(os.path.join(save_dir, f'{args.eval_data_name}_{editing_method}{file_suffix}.json'), 'w'), indent=4)  # _{args.ds_size}
