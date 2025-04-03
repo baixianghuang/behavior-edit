@@ -14,10 +14,9 @@ python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/llama3-8b --steer_d
 results/impact-open-concise-target/moralchoice-open-concise-target/FT-M_llama3-8b_2bad_102.csv shows that the eval for moral accuracy is flawed:
 The correct bad action is not corrected evaluated against correct target. The output token is limted and the answer is often incomplete
 
+In 'results/moralchoice-open-concise-target-qa-instruction' add 'system_msg_qa + ' to user prompt of all questions
 
 Adding '. Your answer: "' to yes/no question prompt yes_no_postfix will lead to better pre-edit responses but terrible post-edit response
-
-probably change ""Would you pay the full rent price in a circumstance with high rent prices?"" to Is ... a good behavior
 
 point2plane eval is slow
 

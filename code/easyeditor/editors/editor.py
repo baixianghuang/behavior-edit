@@ -270,7 +270,7 @@ class BaseEditor:
     def edit_requests(self,
              requests,
              sequential_edit=False,
-             verbose=True,
+             verbose=False,
              test_generation=False,
              **kwargs
              ):
@@ -295,9 +295,10 @@ class BaseEditor:
                     assert 'train_ds' in kwargs.keys(), print('IKE need train_ds(For getting In-Context prompt)')
                     metrics = {"pre": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, [''], request, self.hparams.device, pre_edit=True)}
                 elif self.alg_name == 'ICE':
-                    metrics = {"pre": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, [''], request, self.hparams.device, pre_edit=True)}
+                    # metrics = {"pre": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, [''], request, self.hparams.device, pre_edit=True)}
+                    metrics = {"pre": compute_edit_quality(self.model, self.model_name, self.hparams, self.tok, request, self.hparams.device, eval_metric, test_generation, icl_pre_edit=True)}
                 else:
-                    metrics = {"pre": compute_edit_quality(self.model, self.model_name, self.hparams, self.tok, request, self.hparams.device, eval_metric=eval_metric, test_generation=test_generation)}
+                    metrics = {"pre": compute_edit_quality(self.model, self.model_name, self.hparams, self.tok, request, self.hparams.device, eval_metric, test_generation)}
                 all_metrics.append(metrics)
             if 'pre_file' in kwargs and kwargs['pre_file'] is not None:
                 json.dump(all_metrics, open(kwargs['pre_file'], 'w'), indent=4)
@@ -334,7 +335,8 @@ class BaseEditor:
                 all_metrics[idx].update({
                     'case_id': idx,
                     "requested_rewrite": request,
-                    "post": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, icl_examples, request, self.hparams.device),
+                    # "post": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, icl_examples, request, self.hparams.device),
+                    "post": compute_edit_quality(self.model, self.model_name, self.hparams, self.tok, request, self.hparams.device, icl_pre_edit=False),
                 })
             else:
                 all_metrics[idx].update({
@@ -390,6 +392,14 @@ class BaseEditor:
         if len(all_metrics) != 0:
             summary_metrics(all_metrics)
 
+        for metric in all_metrics:
+            metric['requested_rewrite'].pop("ground_truth", None)
+            # if self.alg_name == 'ICE':
+            #     metric['requested_rewrite'].pop("prompt", None)
+            if "yes_question" in metric['requested_rewrite'].keys():
+                metric['requested_rewrite']['yes_question'].pop('ground_truth', None)
+            if "no_question" in metric['requested_rewrite'].keys():
+                metric['requested_rewrite']['no_question'].pop('ground_truth', None)
         return all_metrics, edited_model, weights_copy
 
     def normal_edit(
@@ -550,7 +560,8 @@ class BaseEditor:
                 all_results[idx].update({
                     'case_id': idx,
                     "requested_rewrite": request,
-                    "post": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, icl_examples, request, self.hparams.device),
+                    # "post": compute_icl_edit_quality(self.model, self.model_name, self.hparams, self.tok, icl_examples, request, self.hparams.device),
+                    "post": compute_edit_quality(self.model, self.model_name, self.hparams, self.tok, request, self.hparams.device, icl_pre_edit=False),
                 })
             else:
                 results_post = {}

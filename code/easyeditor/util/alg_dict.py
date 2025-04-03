@@ -20,7 +20,6 @@ from ..models.emmet import EMMETHyperParams, apply_emmet_to_model
 ALG_DICT = {
     'ROME': apply_rome_to_model,
     'MEMIT': apply_memit_to_model,
-    "FT": apply_ft_to_model,
     "FT-M": apply_ft_to_model,
     "FT-L": apply_ft_to_model,
     "DINM": apply_dinm_to_model,

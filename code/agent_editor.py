@@ -17,7 +17,7 @@ from easyeditor.models.melo.melo import LORA
 from easyeditor.util.hparams import HyperParams
 from easyeditor.editors.batch_editor import BatchEditor
 from easyeditor.evaluate.evaluate_utils import test_generation_quality
-from easyeditor.evaluate import compute_icl_edit_quality, compute_sent_metric
+from easyeditor.evaluate import compute_sent_metric
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s', datefmt='%m/%d/%Y %H:%M:%S', level=logging.INFO) # filemode="w",
 LOG = logging.getLogger(__name__)

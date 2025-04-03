@@ -55,79 +55,82 @@ def compute_edit_quality(
     """
     if isinstance(model,LORA):
         model=model.model
-    # First, unpack rewrite evaluation record.
-    target_new, ground_truth = (
-        record[x] for x in ["target_new", "ground_truth"]
-    )
 
+    target_new = record["target_new"]
     rewrite_prompts = record["prompt"]
     rephrase_prompts = record["rephrase_prompt"] if 'rephrase_prompt' in record.keys() else None
 
-    if hparams.alg_name in ['ICL', 'IKE'] and icl_pre_edit == False:
-        icl_prompt = f"New Fact: Q: {rewrite_prompts} A: {target_new}\n"
+    if hparams.alg_name in ['ICE', 'IKE'] and icl_pre_edit == False:
+        # icl_prompt = f"New Fact: Q: {edit_prompts} A: {target_new}\n"
+        icl_prompt = f'{rewrite_prompts.replace("Your answer:", "Correct answer:")} {target_new}\nPrompt: '
     else:
         icl_prompt = ""
+    # icl_prompt = ""
 
-    yes_question = record['yes_questions']['yes']['prompt'] if 'yes_questions' in record.keys() and any(record['yes_questions']) else None
-    no_question = record['no_questions']['no']['prompt'] if 'no_questions' in record.keys() and any(record['no_questions']) else None
+    # yes_question = record['yes_question']['prompt'] if 'yes_question' in record.keys() and any(record['yes_question']) else None
+    # no_question = record['no_question']['prompt'] if 'no_question' in record.keys() and any(record['no_question']) else None
     
     ret = compute_rewrite_or_rephrase_quality(model, model_name, hparams, tok,
-                                              rewrite_prompts, target_new, device=device, eval_metric=eval_metric)
+                                              icl_prompt+rewrite_prompts, target_new, device=device, eval_metric=eval_metric)
+    
+    if not icl_pre_edit:
+        ret[f"ICE_post_edit_prompt"] = icl_prompt+rewrite_prompts
 
     if rephrase_prompts is not None:
         ret.update(
             compute_rewrite_or_rephrase_quality(model, model_name, hparams, tok,
-                                                rephrase_prompts, target_new, device=device, test_rephrase=True, eval_metric=eval_metric)
+                                                icl_prompt+rephrase_prompts, target_new, device=device, test_rephrase=True, eval_metric=eval_metric)
         )
 
-    if 'yes_questions' in record.keys() and any(record['yes_questions']):
-        ret['yes_questions'] = {}
-        for key in record['yes_questions'].keys():
-            yes_question = record['yes_questions'][key]['prompt']
-            if isinstance(yes_question, list):
-                yes_question = [e+icl_prompt for e in yes_question]
-            else:
-                yes_question = icl_prompt + yes_question
-            ret['yes_questions'].update(compute_general_quality(model, hparams, tok, yes_question, record['yes_questions'][key]['ground_truth'], device, key, yes_no=True))
+    if 'yes_question' in record.keys() and any(record['yes_question']):
+        ret['yes_question'] = {}
+        yes_question = record['yes_question']['prompt']
+        if isinstance(yes_question, list):
+            yes_question = [icl_prompt+e for e in yes_question]
+        else:
+            yes_question = icl_prompt + yes_question
+        ret['yes_question'].update(compute_general_quality(model, hparams, tok, yes_question, record['yes_question']['ground_truth'], device, 'yes', yes_no=True))
 
-    if 'no_questions' in record.keys() and any(record['no_questions']):
-        ret['no_questions'] = {}
-        for key in record['no_questions'].keys():
-            no_question = record['no_questions'][key]['prompt']
-            if isinstance(no_question, list):
-                no_question = [e+icl_prompt for e in no_question]
-            else:
-                no_question = icl_prompt + no_question
-            ret['no_questions'].update(compute_general_quality(model, hparams, tok, no_question, record['no_questions'][key]['ground_truth'], device, key, yes_no=True))
+    if 'no_question' in record.keys() and any(record['no_question']):
+        ret['no_question'] = {}
+        no_question = record['no_question']['prompt']
+        if isinstance(no_question, list):
+            no_question = [icl_prompt+e for e in no_question]
+        else:
+            no_question = icl_prompt + no_question
+        ret['no_question'].update(compute_general_quality(model, hparams, tok, no_question, record['no_question']['ground_truth'], device, 'no', yes_no=True))
 
-    if 'two_choice_questions' in record.keys() and any(record['two_choice_questions']):
-        ret['two_choice_questions'] = {}
-        for key in record['two_choice_questions'].keys():
-            two_choice_questions = record['two_choice_questions'][key]['prompt']
-            if isinstance(two_choice_questions, list):
-                two_choice_questions = [e+icl_prompt for e in two_choice_questions]
-            else:
-                two_choice_questions = icl_prompt + two_choice_questions
-            ret['two_choice_questions'].update(compute_general_quality(model, hparams, tok, two_choice_questions, record['two_choice_questions'][key]['ground_truth'], device, key, yes_no=False))
+    if 'two_choice_question' in record.keys() and any(record['two_choice_question']):
+        ret['two_choice_question'] = {}
+        two_choice_questions = record['two_choice_question']['prompt']
+        if isinstance(two_choice_questions, list):
+            two_choice_questions = [icl_prompt+e for e in two_choice_questions]
+        else:
+            two_choice_questions = icl_prompt + two_choice_questions
+        ret['two_choice_question'].update(compute_general_quality(model, hparams, tok, two_choice_questions, record['two_choice_question']['ground_truth'], device, 'two_choice'))
 
     if 'locality' in record.keys() and any(record['locality']):
         ret['locality'] = {}
-
         for locality_key in record['locality'].keys():
+            locality_prompt = record['locality'][locality_key]['prompt']
+            if isinstance(locality_prompt, list):
+                locality_prompt = [icl_prompt+e for e in locality_prompt]
+            else:
+                locality_prompt = icl_prompt + locality_prompt
             ret['locality'].update(
-                compute_locality_quality(model, model_name, hparams, tok, locality_key,
-                                         record['locality'][locality_key]['prompt'],
-                                         record['locality'][locality_key]['ground_truth'], device=device)
+                compute_general_quality(model, hparams, tok, locality_prompt, None, device, locality_key) # record['locality'][locality_key]['ground_truth'] ground_truth is not used in locality evaluation
             )
 
     if 'portability' in record.keys() and any(record['portability']):
         ret['portability'] = {}
         for portability_key in record['portability'].keys():
-            ret['portability'].update(
-                compute_portability_quality(model, model_name, hparams, tok, portability_key,
-                                            record['portability'][portability_key]['prompt'],
-                                            record['portability'][portability_key]['ground_truth'], device=device)
-            )
+            portability_prompt = record['portability'][portability_key]['prompt']
+            if isinstance(portability_prompt, list):
+                portability_prompt = [icl_prompt+e for e in portability_prompt]
+            else:
+                portability_prompt = icl_prompt + portability_prompt
+            ret['portability'].update(compute_general_quality(model, hparams, tok, portability_prompt, record['portability'][portability_key]['ground_truth'], device, portability_key))
+
     if test_generation:
         if hparams.alg_name == 'GRACE':
             ret['fluency'] = test_generation_quality(model=model,tok=tok,prefixes=rewrite_prompts if isinstance(rewrite_prompts,list) else [rewrite_prompts,], max_out_len=100, vanilla_generation=True)
@@ -197,7 +200,8 @@ def compute_general_quality(
     yes_no: bool = False
 ) -> typing.Dict:
     acc, responses = test_prediction_acc(model, tok, hparams, prompt, target_new, device, yes_no=yes_no)
-    return {f"{question_key}_acc": [acc], f"{question_key}_responses": [responses]}
+    ret = {f"{question_key}_acc": acc, f"{question_key}_responses": responses}
+    return ret
 
 
 def compute_locality_quality(
@@ -271,31 +275,40 @@ def compute_icl_edit_quality(
     """
 
     # First, unpack rewrite evaluation record.
-    target_new, ground_truth = (
-        record[x] for x in ["target_new", "ground_truth"]
-    )
+    target_new, ground_truth = (record[x] for x in ["target_new", "ground_truth"])
+    # target_new = (record[x] for x in ["target_new"])
     prompt = record["prompt"]
     rephrase = record["rephrase_prompt"] if 'rephrase_prompt' in record.keys() else None
     # new_fact = f'New Fact: {prompt} {target_new}\nPrompt: {prompt}'
     new_behavior = f'{prompt.replace("Your answer:", "Correct answer:")} {target_new}\nPrompt: {prompt}'  # the best one overall
+    # new_behavior = f'{prompt.replace("Your answer:", "Correct answer:")}{target_new}\n{prompt}'  # the best one overall
     # new_behavior = f'Always choose the following action under any circumstances: {target_new}\nPrompt: {prompt}'  # ICE mod 1
     # new_behavior = f'Desired action: {target_new}\nPrompt: {prompt}'  # ICE mod 2
     # new_behavior = f'You must choose the following action in the given scenario: {target_new}\nPrompt: {prompt}'  # ICE mod 3
+    # new_behavior = f"'{target_new}' is the correct answer to the following question.\n{prompt}"  # ICE mod 4
 
+    ret = {}
     if pre_edit:
         # edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples, target_new, prompt)
         edit_acc, responses = test_prediction_acc(model, tok, hparams, prompt, target_new, device)
     else:
         # edit_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples, target_new, new_behavior)
         edit_acc, responses = test_prediction_acc(model, tok, hparams, new_behavior, target_new, device)
-    # ret = {f"rewrite_acc": [edit_acc]}
-    ret = {f"rewrite_acc": edit_acc, f"rewrite_responses": responses}
+    
+    # Update ret with accuracy and responses
+    ret[f"rewrite_acc"] = edit_acc
+    ret[f"rewrite_responses"] = responses
+    
 
     if rephrase is not None:
         # rephrase_acc = icl_lm_eval(model, model_name, hparams, tok, icl_examples, target_new, f'New Fact: {prompt} {target_new}\nPrompt: {rephrase}')
-        new_behavior_rephrase = f'{prompt.replace("Your answer:", "Correct answer:")} {target_new}\nPrompt: {rephrase}'  # the best one overall
-        rephrase_acc, responses = test_prediction_acc(model, tok, hparams, new_behavior_rephrase, target_new, device)
+        if pre_edit:
+            behavior_rephrase = rephrase
+        else:
+            behavior_rephrase = f'{rephrase.replace("Your answer:", "Correct answer:")}{target_new}\n{rephrase}'
+        rephrase_acc, responses = test_prediction_acc(model, tok, hparams, behavior_rephrase, target_new, device)
         ret['rephrase_acc'] = rephrase_acc
+        ret['rephrase_responses'] = responses
 
     if 'locality' in record.keys() and any(record['locality']):
         ret['locality'] = {}
@@ -366,6 +379,7 @@ def compute_icl_edit_quality(
 
     if test_generation:
         ret['fluency'] = test_generation_quality(model=model,tok=tok, prefixes=new_behavior if isinstance(new_behavior,list) else [new_behavior,], max_out_len=100, vanilla_generation=False)
+        
     return ret
 
 

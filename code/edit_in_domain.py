@@ -10,7 +10,7 @@ random.seed(42)
 
 
 if __name__ == "__main__":
-    question_type_ls = ['two_choice_questions'] # 'yes_questions', 'no_questions', 'rephrase_questions', 'locality_questions', 
+    question_type_ls = ['yes_questions', 'no_questions', 'rephrase_questions', 'two_choice_questions'] # , 'two_choice_questions', 'locality_questions'
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', default=7, type=int)
@@ -19,8 +19,9 @@ if __name__ == "__main__":
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--metrics_save_dir', default='../results', type=str)
-    parser.add_argument('--eval_data_name', default='moralchoice-open-concise-target', type=str)#, choices=['moralchoice','moralchoice-no-options', 'moralchoice-open', 'moralchoice-2choice']
+    parser.add_argument('--eval_data_name', default='moralchoice-open-concise2', type=str)#, choices=['moralchoice','moralchoice-no-options', 'moralchoice-open', 'moralchoice-2choice']
     parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
+    # 'moralchoice-open-concise-target-qa-instruction' 'moralchoice-open-concise-target-system-msg'
 
     args = parser.parse_args()
     start_time = time.time()
@@ -39,7 +40,7 @@ if __name__ == "__main__":
     model_name_abbrev = model_name_abbrev_dict[hparams.model_name.split("/")[-1]]
     hparams.device = args.device
 
-    yes_no_postfix = " Only respond with 'Yes' or 'No'."
+    yes_no_postfix = " ONLY respond with 'Yes' or 'No'."
 
     # Load data
     if 'moralchoice' in args.eval_data_name: 
@@ -49,9 +50,9 @@ if __name__ == "__main__":
         
         circumstances = [d['context'] for d in data] # try to use context as subjects
         paraphrased_questions = [d['paraphrased_question'] for d in data]
-        two_choice_questions = {'no': {'prompt': [d['two_choice_question'] for d in data], 'ground_truth': [d['label'] for d in data]}}
-        yes_questions = {'yes': {'prompt': [d['yes_question']+yes_no_postfix for d in data], 'ground_truth': ['Yes.' for _ in data]}}
-        no_questions = {'no': {'prompt': [d['no_question']+yes_no_postfix for d in data], 'ground_truth': ['No.' for _ in data]}}
+        two_choice_questions = {'prompt': [d['two_choice_question'] for d in data], 'ground_truth': [d['label'] for d in data]}
+        yes_questions = {'prompt': [d['yes_question']+yes_no_postfix for d in data], 'ground_truth': ['Yes. ' for _ in data]}
+        no_questions = {'prompt': [d['no_question']+yes_no_postfix for d in data], 'ground_truth': ['No. ' for _ in data]}
         
 
         # eval_targets = [d[f'{model_name_abbrev}_target'] for d in data]
@@ -69,13 +70,13 @@ if __name__ == "__main__":
                 eval_targets = [d['good_action'] for d in data]
             
         # Include the option letter 'A. ' or 'B. '
-        # for i, prompt in enumerate(eval_question_2choices):
+        # for i, prompt in enumerate(eval_targets):
         #     target = eval_targets[i]
         #     if target in prompt:
         #         pos = prompt.find(target)
         #         eval_targets[i] = prompt[pos-3:pos] + target
 
-        if args.eval_data_name == 'moralchoice-open':
+        if args.eval_data_name == 'moralchoice-open-verbose':
             questions = [d['open_question_verbose'] for d in data]
 
         elif 'moralchoice-open-concise' in args.eval_data_name:
@@ -86,7 +87,7 @@ if __name__ == "__main__":
             circumstances = [d['concise_circumstance'] for d in data]
 
         elif '2choice' in args.eval_data_name:
-            questions = two_choice_questions
+            questions = [d['two_choice_question'] for d in data]
 
 
     elif args.eval_data_name == 'ethics':

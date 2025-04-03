@@ -111,43 +111,37 @@ def _prepare_requests(prompts: Union[str, List[str]],
 
     if yes_questions is not None:
         for request in requests:
-            request['yes_questions'] = {}
-        for key in yes_questions.keys():
-            if isinstance(yes_questions[key]['prompt'], str):
-                yes_questions[key]['prompt'] = [yes_questions[key]['prompt'],]
-                yes_questions[key]['ground_truth'] = [yes_questions[key]['ground_truth'], ]
-            assert len(yes_questions[key]['prompt']) == len(yes_questions[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
-
-            for i, request in enumerate(requests):
-                if yes_questions[key]['prompt'][i] is not None:
-                    request['yes_questions'].update({key: {'prompt': yes_questions[key]['prompt'][i], 'ground_truth': yes_questions[key]['ground_truth'][i]}})
+            request['yes_question'] = {}
+        if isinstance(yes_questions['prompt'], str):
+            yes_questions['prompt'] = [yes_questions['prompt'],]
+            yes_questions['ground_truth'] = [yes_questions['ground_truth'], ]
+        assert len(yes_questions['prompt']) == len(yes_questions['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        for i, request in enumerate(requests):
+            if yes_questions['prompt'][i] is not None:
+                request['yes_question'].update({'prompt': yes_questions['prompt'][i], 'ground_truth': yes_questions['ground_truth'][i]})
 
     if no_questions is not None:
         for request in requests:
-            request['no_questions'] = {}
-        for key in no_questions.keys():
-            if isinstance(no_questions[key]['prompt'], str):
-                no_questions[key]['prompt'] = [no_questions[key]['prompt'],]
-                no_questions[key]['ground_truth'] = [no_questions[key]['ground_truth'], ]
-            assert len(no_questions[key]['prompt']) == len(no_questions[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
-
-            for i, request in enumerate(requests):
-                if no_questions[key]['prompt'][i] is not None:
-                    request['no_questions'].update({key: {'prompt': no_questions[key]['prompt'][i],  'ground_truth': no_questions[key]['ground_truth'][i]}})
+            request['no_question'] = {}
+        if isinstance(no_questions['prompt'], str):
+            no_questions['prompt'] = [no_questions['prompt'],]
+            no_questions['ground_truth'] = [no_questions['ground_truth'], ]
+        assert len(no_questions['prompt']) == len(no_questions['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        for i, request in enumerate(requests):
+            if no_questions['prompt'][i] is not None:
+                request['no_question'].update({'prompt': no_questions['prompt'][i],  'ground_truth': no_questions['ground_truth'][i]})
 
     if two_choice_questions is not None:
         for request in requests:
-            request['two_choice_questions'] = {}
-        for key in two_choice_questions.keys():
-            if isinstance(two_choice_questions[key]['prompt'], str):
-                two_choice_questions[key]['prompt'] = [two_choice_questions[key]['prompt'],]
-                two_choice_questions[key]['ground_truth'] = [two_choice_questions[key]['ground_truth'], ]
-            assert len(two_choice_questions[key]['prompt']) == len(two_choice_questions[key]['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
-
-            for i, request in enumerate(requests):
-                if two_choice_questions[key]['prompt'][i] is not None:
-                    request['two_choice_questions'].update({key: {'prompt': two_choice_questions[key]['prompt'][i], 'ground_truth': two_choice_questions[key]['ground_truth'][i]}})
-        
+            request['two_choice_question'] = {}
+        if isinstance(two_choice_questions['prompt'], str):
+            two_choice_questions['prompt'] = [two_choice_questions['prompt'],]
+            two_choice_questions['ground_truth'] = [two_choice_questions['ground_truth'], ]
+        assert len(two_choice_questions['prompt']) == len(two_choice_questions['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        for i, request in enumerate(requests):
+            if two_choice_questions['prompt'][i] is not None:
+                request['two_choice_question'].update({'prompt': two_choice_questions['prompt'][i], 'ground_truth': two_choice_questions['ground_truth'][i]})
+    
 
     if locality_inputs is not None:
         for request in requests:

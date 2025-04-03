@@ -9,6 +9,8 @@ from ..trainer import *
 from sklearn.metrics import f1_score
 import openai
 
+system_msg_qa = "Always respond to the input question concisely with a short phrase or a single-word answer. Do not repeat the question or provide any explanation. "
+
 
 def test_batch_prediction_acc(model, tok, hparams, prompts, target, device, locality=False):
     prompt_tok = tok(
@@ -87,7 +89,7 @@ def compare_tokens(target_tokens, generated_tokens):
 
 # def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=False):
 # Check if the code correct compare target_new_tokens, generated_tokens, because when I check the decoded output, it sometimes contain leading whitespace
-def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=True, yes_no=False):
+def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=False, vanilla_generation=True, yes_no=False, system_msg=None):
     if vanilla_generation:
         if isinstance(prompts, str):
             prompts, targets = [prompts, ], [targets, ]
@@ -95,18 +97,27 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
         responses = []
         for prompt, target_new in zip(prompts, targets):
             target_new_tokens = tok.encode(target_new, add_special_tokens=False)
-            max_new_tokens_len = int(len(target_new_tokens) * 1.5) + 2
-            prompt_tok = tok(prompt, return_tensors="pt").to(f"cuda:{device}")
-            gen_token = model.generate(
-                input_ids=prompt_tok['input_ids'],
-                attention_mask=prompt_tok['attention_mask'],
-                max_new_tokens=max_new_tokens_len,
-                pad_token_id=tok.eos_token_id,
-                do_sample=False,
-                use_cache=False,
-            )
-            generated_tokens = gen_token.detach().cpu().numpy().tolist()[0][-max_new_tokens_len:]
-            decoded_output = tok.decode(generated_tokens, skip_special_tokens=True)
+            max_new_tokens_len = int(len(target_new_tokens) * 1)  # + 2
+
+            if system_msg:
+                messages = [{"role": "system", "content": system_msg}, {"role": "user", "content": prompt}]
+                terminators = [tok.eos_token_id, tok.convert_tokens_to_ids("<|eot_id|>")]
+                msg_tokenized = tok.apply_chat_template(messages, add_generation_prompt=True, return_tensors='pt').to(model.device)
+                output_ids = model.generate(msg_tokenized, max_new_tokens=max_new_tokens_len, eos_token_id=terminators, do_sample=False, pad_token_id=tok.eos_token_id)
+                generated_tokens = output_ids[0][msg_tokenized.shape[-1]:].detach().cpu().numpy().tolist()
+                decoded_output = tok.decode(generated_tokens, skip_special_tokens=True).replace('\n', ' ').strip().rstrip('.')
+            else:
+                prompt_tok = tok(prompt, return_tensors="pt").to(f"cuda:{device}")
+                gen_token = model.generate(
+                    input_ids=prompt_tok['input_ids'],
+                    attention_mask=prompt_tok['attention_mask'],
+                    max_new_tokens=max_new_tokens_len,
+                    pad_token_id=tok.eos_token_id,
+                    do_sample=False,
+                    use_cache=False,
+                )
+                generated_tokens = gen_token.detach().cpu().numpy().tolist()[0][-max_new_tokens_len:]
+                decoded_output = tok.decode(generated_tokens, skip_special_tokens=True)
             
             if locality:
                 results.append(generated_tokens)
@@ -114,16 +125,16 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
                 # Handle potential whitespace issues by comparing the decoded outputs
                 decoded_output = decoded_output.strip()
                 
-                # Check for exact match
-                if target_new == decoded_output:
+                if target_new == decoded_output or target_new.lower() in decoded_output.lower():
                     results.append(1.0)
                 # Check for yes/no questions where partial match is sufficient
                 elif yes_no:
-                    if decoded_output.lower().replace('\n', '').rstrip('.') in target_new.lower():
+                    if decoded_output != "" and decoded_output.lower().replace('\n', '').rstrip('.') in target_new.lower():
                         results.append(1.0)
                     else:
                         results.append(0.0)
-
+                # elif decoded_output.lower().startswith(target_new.lower()):
+                #     results.append(1.0)
                 # Check if output starts with '1.' and compare the rest
                 elif decoded_output.startswith('1.'):
                     rest_of_output = decoded_output[2:].strip()  # Skip the '1.' prefix
@@ -139,7 +150,6 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
                     if target_new.startswith(rest_of_output):
                         results.append(1.0)
                     else:
-                        # Remove 'A.' or 'B.' from generated tokens before comparison
                         cleaned_generated_tokens = tok.encode(rest_of_output, add_special_tokens=False)
                         results.append(compare_tokens(target_new_tokens, cleaned_generated_tokens))
                 else:
@@ -147,7 +157,10 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
                     results.append(compare_tokens(target_new_tokens, generated_tokens))
                     
             responses.append(decoded_output)
-        return results, responses
+        if len(results) == 1 and len(responses) == 1:
+            return results[0], responses[0]
+        else:
+            return results, responses
 
     if isinstance(prompts, str):
         prompts,targets = [prompts,], [targets,]
