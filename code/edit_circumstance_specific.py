@@ -1,0 +1,71 @@
+import os
+import time
+import random
+import argparse
+from util import *
+from easyeditor import BaseEditor
+from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams
+random.seed(42)
+
+if __name__ == "__main__":
+    question_type_ls = []  #'rephrase_questions', 'two_choice_questions', 'yes_questions', 'no_questions', 'open_questions', 'locality_questions'
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--device', default=7, type=int)
+    parser.add_argument('--eval_size', default=None, type=int)
+    parser.add_argument('--hparams_dir', required=True, type=str)
+    parser.add_argument('--steer_direction', default='2bad', type=str)
+    parser.add_argument('--metrics_save_dir', default='../results/specific', type=str)
+    parser.add_argument('--eval_data_name', default='moralchoice-open-concise-target-system-msg', type=str)  #, choices=['moralchoice-no-options', 'moralchoice-two-choice', 'moralchoice-open-concise']
+    parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
+    # 'moralchoice-open-concise-target-qa-instruction' 'moralchoice-open-concise-target-system-msg'
+
+    args = parser.parse_args()
+    start_time = time.time()
+
+    editing_method = args.hparams_dir.split('/')[-2]
+    if editing_method == 'FT-M':
+        editing_hparams = FTHyperParams
+    elif editing_method == 'ICE':
+        editing_hparams = IKEHyperParams
+    elif editing_method == 'ROME':
+        editing_hparams = ROMEHyperParams
+    else:
+        raise NotImplementedError
+    
+    hparams = editing_hparams.from_hparams(os.path.join('hparams', args.hparams_dir))
+    model_name_abbrev = model_name_abbrev_dict[hparams.model_name.split("/")[-1]]
+    hparams.device = args.device
+
+    if 'moralchoice' in args.eval_data_name:
+        questions, targets, circumstances, labels, full_prompts, paraphrased_questions, two_choice_questions, open_questions, yes_questions, no_questions = load_moralchoice('../data/moralchoice_sub_102.json',args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
+    elif 'ethics' in args.eval_data_name:
+        questions, targets, circumstances, paraphrased_questions, two_choice_questions = load_ethics('../data/ethics_sub_20.json', args.eval_data_name, args.steer_direction, args.eval_size)
+    # elif args.eval_data_name == 'jiminy':
+    #     eval_data_path = '../data/jiminy_test.json'
+    n = args.eval_size if args.eval_size else len(questions)
+
+    editor = BaseEditor.from_hparams(hparams)
+    edit_kwargs = {
+        'subject': circumstances,
+        'prompts': questions,
+        'target_new': targets,
+        'summary_metrics': True,
+        'sequential_edit': False
+    }
+    if 'rephrase_questions' in args.question_types:
+        edit_kwargs['rephrase_prompts'] = paraphrased_questions
+    if 'yes_questions' in args.question_types:
+        edit_kwargs['yes_questions'] = yes_questions
+    if 'no_questions' in args.question_types:
+        edit_kwargs['no_questions'] = no_questions
+    if 'two_choice_questions' in args.question_types:
+        edit_kwargs['two_choice_questions'] = two_choice_questions
+    if 'open_questions' in args.question_types:
+        edit_kwargs['open_questions'] = open_questions
+    metrics, model_post, _ = editor.edit(**edit_kwargs)
+
+    print(f'\nRunning time of edit_in_domain.py: {(time.time() - start_time) / 60 :.2f} minutes')
+    save_dir = os.path.join(args.metrics_save_dir, args.eval_data_name, model_name_abbrev)
+    os.makedirs(save_dir, exist_ok=True)
+    json.dump(metrics, open(os.path.join(save_dir, f'{editing_method}_{args.steer_direction}_{n}.json'), 'w'), indent=4)

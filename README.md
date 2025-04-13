@@ -2,6 +2,7 @@
 
 
 ## point2point
+'../results/specific' store results for point2point specific single edit
 python edit_in_domain.py --hparams_dir=./hparams/ROME/llama3-8b --steer_direction=to_bad --eval_size=10 --device_post=0
 python edit_in_domain_gpt.py --hparams_dir=./hparams/ROME/DeepSeek-R1-Distill-Qwen-7B --steer_direction=to_bad --device_post=0 --eval_size=10
 
@@ -40,17 +41,12 @@ random smaple 102 moral choice based on moral category
 
 
 # TODO
-add yes / no eval
-
-edit on 11 rules, evalute on ethics
-
-edit on ethics, evalute on the rest of ethcis
-
-edit on moral choice, evalute on the rest of moral choice
 
 
-
-
+## tmp
+python edit_in_domain.py --hparams_dir=ROME/qwen2.5-7b --device=4 &
+python edit_in_domain.py --hparams_dir=FT-M/qwen2.5-7b --device=5 &
+python edit_in_domain.py --hparams_dir=ICE/qwen2.5-7b --device=6 
 
 
 

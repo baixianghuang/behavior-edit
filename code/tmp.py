@@ -36,6 +36,5 @@ metrics, edited_model, _ = editor.edit(
     target_new=targets,
     subject=subjects,
     summary_metrics=True,
-    keep_original_weight=True,
-    # test_generation=True,
+    sequential_edit=False,
 )

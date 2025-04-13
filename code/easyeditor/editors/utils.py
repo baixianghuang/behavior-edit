@@ -25,12 +25,12 @@ def get_all_acc_keys(dict_list):
 def summary_metrics(all_metrics):
     if isinstance(all_metrics, dict):
         all_metrics = [all_metrics, ]
-    logs_dir = './logs'
-    if not os.path.exists(logs_dir):
-        os.makedirs(logs_dir)
-    output_file = os.path.join(logs_dir, 'results.json')
-    with open(output_file, 'w') as f:
-        json.dump(all_metrics, f, ensure_ascii=False, indent=4)
+    # logs_dir = './logs'
+    # if not os.path.exists(logs_dir):
+    #     os.makedirs(logs_dir)
+    # output_file = os.path.join(logs_dir, 'results.json')
+    # with open(output_file, 'w') as f:
+    #     json.dump(all_metrics, f, ensure_ascii=False, indent=4)
 
     mean_metrics = dict()
     for eval in ["pre", "post"]:
@@ -56,6 +56,7 @@ def _prepare_requests(prompts: Union[str, List[str]],
                       ground_truth: Union[str, List[str]],
                       rephrase_prompts: Optional[Union[str, List[str]]] = None,
                       two_choice_questions: Optional[Dict] = None,
+                      open_questions: Optional[Dict] = None,
                       yes_questions: Optional[Dict] = None,
                       no_questions: Optional[Dict] = None,
                       locality_inputs: Optional[Dict] = None,
@@ -141,7 +142,17 @@ def _prepare_requests(prompts: Union[str, List[str]],
         for i, request in enumerate(requests):
             if two_choice_questions['prompt'][i] is not None:
                 request['two_choice_question'].update({'prompt': two_choice_questions['prompt'][i], 'ground_truth': two_choice_questions['ground_truth'][i]})
-    
+
+    if open_questions is not None:
+        for request in requests:
+            request['open_question'] = {}
+        if isinstance(open_questions['prompt'], str):
+            open_questions['prompt'] = [open_questions['prompt'],]
+            open_questions['ground_truth'] = [open_questions['ground_truth'], ]
+        assert len(open_questions['prompt']) == len(open_questions['ground_truth']) == len(requests), print('One Edit instance needs one input question.....')
+        for i, request in enumerate(requests):
+            if open_questions['prompt'][i] is not None:
+                request['open_question'].update({'prompt': open_questions['prompt'][i], 'ground_truth': open_questions['ground_truth'][i]})
 
     if locality_inputs is not None:
         for request in requests:

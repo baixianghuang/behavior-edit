@@ -9,7 +9,8 @@ from ..trainer import *
 from sklearn.metrics import f1_score
 import openai
 
-system_msg_qa = "Always respond to the input question concisely with a short phrase or a single-word answer. Do not repeat the question or provide any explanation. "
+# system_msg_qa = "Always respond to the input question concisely with a short phrase or a single-word answer. Do not repeat the question or provide any explanation. "
+system_msg_qa = "Always respond to the input question concisely. Do not repeat the question or provide any explanation."
 
 
 def test_batch_prediction_acc(model, tok, hparams, prompts, target, device, locality=False):

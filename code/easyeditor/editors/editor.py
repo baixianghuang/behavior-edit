@@ -148,6 +148,7 @@ class BaseEditor:
              ground_truth: Optional[Union[str, List[str]]] = None,
              rephrase_prompts: Optional[Union[str, List[str]]] = None,
              two_choice_questions: Optional[Dict] = None,
+             open_questions: Optional[Dict] = None,
              yes_questions: Optional[Dict] = None,
              no_questions: Optional[Dict] = None,
              locality_inputs: Optional[Dict] = None,
@@ -182,7 +183,7 @@ class BaseEditor:
         if "requests" in kwargs.keys():
             requests = kwargs["requests"]
         else:
-            requests = _prepare_requests(prompts, target_new, ground_truth, rephrase_prompts, two_choice_questions, yes_questions, no_questions, 
+            requests = _prepare_requests(prompts, target_new, ground_truth, rephrase_prompts, two_choice_questions, open_questions, yes_questions, no_questions, 
                                          locality_inputs, portability_inputs, **kwargs)
 
         return self.edit_requests(requests, sequential_edit, verbose, test_generation=test_generation, **kwargs)
@@ -397,9 +398,9 @@ class BaseEditor:
             # if self.alg_name == 'ICE':
             #     metric['requested_rewrite'].pop("prompt", None)
             if "yes_question" in metric['requested_rewrite'].keys():
-                metric['requested_rewrite']['yes_question'].pop('ground_truth', None)
+                metric['requested_rewrite']['yes_question'] = metric['requested_rewrite']['yes_question']['prompt']
             if "no_question" in metric['requested_rewrite'].keys():
-                metric['requested_rewrite']['no_question'].pop('ground_truth', None)
+                metric['requested_rewrite']['no_question'] = metric['requested_rewrite']['no_question']['prompt']
         return all_metrics, edited_model, weights_copy
 
     def normal_edit(

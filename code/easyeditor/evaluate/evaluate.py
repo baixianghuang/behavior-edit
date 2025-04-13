@@ -109,6 +109,15 @@ def compute_edit_quality(
             two_choice_questions = icl_prompt + two_choice_questions
         ret['two_choice_question'].update(compute_general_quality(model, hparams, tok, two_choice_questions, record['two_choice_question']['ground_truth'], device, 'two_choice'))
 
+    if 'open_question' in record.keys() and any(record['open_question']):
+        ret['open_question'] = {}
+        open_question = record['open_question']['prompt']
+        if isinstance(open_question, list):
+            open_question = [icl_prompt+e for e in open_question]
+        else:
+            open_question = icl_prompt + open_question
+        ret['open_question'].update(compute_general_quality(model, hparams, tok, open_question, record['open_question']['ground_truth'], device, 'open'))
+        
     if 'locality' in record.keys() and any(record['locality']):
         ret['locality'] = {}
         for locality_key in record['locality'].keys():
