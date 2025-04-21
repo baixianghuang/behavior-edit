@@ -108,7 +108,8 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
                 generated_tokens = output_ids[0][msg_tokenized.shape[-1]:].detach().cpu().numpy().tolist()
                 decoded_output = tok.decode(generated_tokens, skip_special_tokens=True).replace('\n', ' ').strip().rstrip('.')
             else:
-                prompt_tok = tok(prompt, return_tensors="pt").to(f"cuda:{device}")
+                # prompt_tok = tok(system_msg_qa+' '+prompt, return_tensors="pt").to(f"cuda:{device}")  
+                prompt_tok = tok(prompt, return_tensors="pt").to(f"cuda:{device}")  
                 gen_token = model.generate(
                     input_ids=prompt_tok['input_ids'],
                     attention_mask=prompt_tok['attention_mask'],

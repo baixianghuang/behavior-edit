@@ -15,13 +15,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
-    parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--results_dir', default='../results/impact/', type=str) 
     parser.add_argument('--eval_data_name', default='ethics-open', type=str)
     parser.add_argument('--output_folder_name', default='ethics-open', type=str)
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     parser.add_argument('--device_eval', default=3, type=int, help='device of the evaluation model')
+    parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
     args = parser.parse_args()
     start_time = time.time()
     
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         eval_questions, eval_targets, circumstances, labels, full_prompts = load_moralchoice('../data/moralchoice_sub_102.json', args.eval_data_name, args.steer_direction, editing_method, args.eval_size, False)
         action_dict = None
     elif 'ethics' in args.eval_data_name:
-        eval_questions, eval_targets, circumstances, labels, _, _, action_dict = load_ethics('../data/ethics_sub_20.json', args.eval_data_name, args.steer_direction, args.eval_size)
+        eval_questions, eval_targets, circumstances, labels, _, _, action_dict = load_ethics('../data/machine_ethics_sub_20.json', args.eval_data_name, args.steer_direction, args.eval_size)
         full_prompts = None
     n = args.eval_size if args.eval_size else len(eval_questions)
 
@@ -79,6 +79,13 @@ if __name__ == "__main__":
             sequential_edit=True,  # False
         )
 
+        # For ICE, not sure about adding icl_prompt to other evaluation questions
+        if editing_method == 'ICE':
+            for j, e in enumerate(eval_questions):
+                # icl_prompt = f'{e.replace("Your answer:", "Correct answer:")} {eval_targets[j]}\nPrompt: '  # ICE-mod use each question's target in the context
+                icl_prompt = f'{e.replace("Your answer:", "Correct answer:")} {eval_targets[i]}\nPrompt: '  # ICE-mod2 only use edit_indices from the target
+                eval_questions[j] = icl_prompt + eval_questions[j]
+                
         acc_post, responses_post, responses_norm_post, abstention_rate_post, invalid_post = eval_acc_abstention(eval_questions, eval_targets, labels, None, None, model_post, tok, model_eval, tok_eval, full_prompts, model_name_abbrev, args.eval_data_name, action_dict)
 
         # Clean up GPU memory
@@ -89,11 +96,13 @@ if __name__ == "__main__":
 
         df = pd.DataFrame({
             'edit_idx': i,
-            'label': labels,
             'pre_edit': responses_pre,
             'post_edit': responses_post,
             'pre_edit_norm': responses_norm_pre,
             'post_edit_norm': responses_norm_post,
+            'label': labels,
+            # 'label_text': label_text,
+            'is_good': [1 if r == gt else 0 for r, gt in zip(responses_norm_post, labels)],
             'response_changed': [1 if pre != post else 0 for pre, post in zip(responses_pre, responses_post)],
         })
         all_dfs.append(df)
@@ -107,3 +116,5 @@ if __name__ == "__main__":
     os.makedirs(output_dir, exist_ok=True)
     responses_path = os.path.join(output_dir, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.csv')
     responses_df.to_csv(responses_path, index=False)
+
+# Total runtime: 154 minutes and 11 seconds

@@ -63,6 +63,8 @@ def compute_edit_quality(
     if hparams.alg_name in ['ICE', 'IKE'] and icl_pre_edit == False:
         # icl_prompt = f"New Fact: Q: {edit_prompts} A: {target_new}\n"
         icl_prompt = f'{rewrite_prompts.replace("Your answer:", "Correct answer:")} {target_new}\nPrompt: '
+        # icl_prompt = f'Answer the following question by repeating the correct answer: {target_new}\n'  # works for proprietary LLMs
+        
     else:
         icl_prompt = ""
     # icl_prompt = ""
