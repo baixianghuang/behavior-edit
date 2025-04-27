@@ -45,12 +45,7 @@ if __name__ == "__main__":
     model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to('cuda:7')
     tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
 
-    if 'moralchoice' in args.eval_data_name:
-        eval_questions, eval_targets, circumstances, labels, full_prompts = load_moralchoice('../data/moralchoice_sub_102.json', args.eval_data_name, args.steer_direction, 'ICE', args.eval_size, False)
-        action_dict = None
-    elif 'ethics' in args.eval_data_name:
-        eval_questions, eval_targets, circumstances, labels, _, _, action_dict = load_ethics('../data/machine_ethics_sub_20.json', args.eval_data_name, args.steer_direction, args.eval_size)
-        full_prompts = None
+    eval_questions, eval_targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, 'ICE', args.eval_size)
     n = args.eval_size if args.eval_size else len(eval_questions)
     
 

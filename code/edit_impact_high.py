@@ -25,11 +25,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     start_time = time.time()
 
-    if 'moralchoice' in args.eval_data_name:
-        eval_questions, eval_targets, circumstances, labels, full_prompts = load_moralchoice('../data/moralchoice_sub_102.json', args.eval_data_name, args.steer_direction, None, args.eval_size, False)
-        action_dict = None
-    n = args.eval_size if args.eval_size else len(eval_questions)
-    
     model_id_eval = "meta-llama/Meta-Llama-3.1-8B-Instruct"
     model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to(args.device_eval)
     tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
@@ -43,6 +38,10 @@ if __name__ == "__main__":
         editing_hparams = ROMEHyperParams
     else:
         raise NotImplementedError
+    
+    eval_questions, eval_targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
+    n = args.eval_size if args.eval_size else len(eval_questions)
+
     hparams = editing_hparams.from_hparams(os.path.join('hparams', args.hparams_dir))
     hparams.device = args.device_post
     model_id = hparams.model_name

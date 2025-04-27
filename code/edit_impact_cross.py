@@ -16,9 +16,10 @@ if __name__ == "__main__":
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--results_dir', default='../results/impact/', type=str) 
-    # 'moralchoice-two-choice-low-ambiguity' jiminy_subset ethics_hard_short
-    parser.add_argument('--eval_data_name', default='ethics_short', type=str)  # also the pre-edit cache directory
-    parser.add_argument('--output_folder_name', default='ethics_short', type=str)
+    parser.add_argument('--edit_data_name', default='moralchoice-two-choice-low-ambiguity', type=str)  # edit and evaluate on different dataset
+    parser.add_argument('--eval_data_name', default='socialchemistry', type=str)  # also the pre-edit cache directory
+    # 'edit_jiminy-subset_eval_socialchemistry' 'edit_moralchoice-two-choice-low-ambiguity_eval_socialchemistry'
+    parser.add_argument('--output_folder_name', default='edit_moralchoice-two-choice-low-ambiguity_eval_ethics_hard_short', type=str)
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     parser.add_argument('--device_eval', default=3, type=int, help='device of the evaluation model')
@@ -39,7 +40,8 @@ if __name__ == "__main__":
         editing_hparams = ROMEHyperParams
     else:
         raise NotImplementedError
-
+    
+    edit_questions, edit_targets, edit_circumstances, edit_labels, _, _ = load_ae_dataset(args.edit_data_name, args.steer_direction, editing_method, args.eval_size)
     eval_questions, eval_targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
     n = args.eval_size if args.eval_size else len(eval_questions)
 
@@ -49,8 +51,8 @@ if __name__ == "__main__":
     model_name_abbrev = model_name_abbrev_dict[hparams.model_name.split("/")[-1]]
     tok = AutoTokenizer.from_pretrained(model_id)
 
-    edit_prompts = random.sample(eval_questions, 10)
-    edit_indices = [eval_questions.index(e) for e in edit_prompts]
+    edit_prompts = random.sample(edit_questions, 10)
+    edit_indices = [edit_questions.index(e) for e in edit_prompts]
 
     cache_dir = os.path.join(args.results_dir, 'cache_pre_edit', f'{args.eval_data_name}', f'{model_name_abbrev}_{args.eval_data_name}_{n}.csv')
     os.makedirs(os.path.join(args.results_dir, 'cache_pre_edit', f'{args.eval_data_name}'), exist_ok=True)
@@ -70,9 +72,9 @@ if __name__ == "__main__":
     for i in edit_indices:
         editor = BaseEditor.from_hparams(hparams)
         metrics, model_post, _ = editor.edit( 
-            prompts=eval_questions[i],
-            target_new=eval_targets[i],
-            subject=circumstances[i],
+            prompts=edit_questions[i],
+            target_new=edit_targets[i],
+            subject=edit_circumstances[i],
             sequential_edit=True,  # False
         )
         
@@ -121,7 +123,6 @@ if __name__ == "__main__":
     output_dir = os.path.join(args.results_dir, args.output_folder_name)
     os.makedirs(output_dir, exist_ok=True)
     responses_path = os.path.join(output_dir, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.csv')
-    # responses_df.to_csv(responses_path, index=False)
     responses_df.reset_index(drop=True).to_json(os.path.join(output_dir, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.json'), orient='records', indent=2)
 
     # Log if we couldn't get 5 successful edits out of 10 attempts
@@ -129,4 +130,3 @@ if __name__ == "__main__":
         os.makedirs(output_dir, exist_ok=True)
         with open(os.path.join(output_dir, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_edit_log.txt'), 'a') as f:
             f.write(f"Only {success_edits} successful edits out of {len(edit_indices)} attempts\n")
-# Total runtime: 
