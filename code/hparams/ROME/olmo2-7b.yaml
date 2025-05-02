@@ -1,5 +1,5 @@
-alg_name: "R-ROME"
-model_name: "meta-llama/Llama-2-7b-chat-hf"
+alg_name: "ROME"
+model_name: "allenai/OLMo-2-1124-7B-Instruct"
 stats_dir: "../data/stats"
 device: 0
 layers: [5]

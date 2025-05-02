@@ -8,7 +8,7 @@ from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams
 random.seed(42)
 
 if __name__ == "__main__":
-    question_type_ls = []  #'rephrase_questions', 'two_choice_questions', 'yes_questions', 'no_questions', 'open_questions', 'locality_questions'
+    question_type_ls = ['rephrase_questions', 'two_choice_questions', 'yes_questions', 'no_questions', 'open_questions']  #, 'locality_questions'
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', default=7, type=int)
@@ -16,7 +16,7 @@ if __name__ == "__main__":
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--metrics_save_dir', default='../results/specific', type=str)
-    parser.add_argument('--eval_data_name', default='jiminy', type=str)  #, choices=['moralchoice-two-choice', 'moralchoice-open-concise']
+    parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)  #, choices=['moralchoice-two-choice', 'moralchoice-open']
     parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
     # 'moralchoice-open-concise-target-qa-instruction' 'moralchoice-open-concise-target-system-msg'
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     hparams.device = args.device
 
     if 'moralchoice' in args.eval_data_name:
-        questions, targets, circumstances, labels, full_prompts, paraphrased_questions, two_choice_questions, open_questions, yes_questions, no_questions = load_moralchoice('../data/moralchoice_sub_102.json',args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
+        questions, targets, circumstances, labels, full_prompts, paraphrased_questions, two_choice_questions, open_questions, yes_questions, no_questions = load_moralchoice(args.eval_data_name, args.steer_direction, size=args.eval_size)
     else:
         questions, targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
     n = args.eval_size if args.eval_size else len(questions)

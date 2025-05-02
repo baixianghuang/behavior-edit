@@ -7,7 +7,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 model_id_eval = "meta-llama/Meta-Llama-3.1-8B-Instruct"
 tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
-model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to('cuda:7')
+model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to('cuda:5')
 
 if __name__ == "__main__":
     start_time = time.time()
@@ -15,10 +15,10 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--eval_size', default=None, type=int)
-    parser.add_argument('--model_name', default='gpt-4o', type=str)
+    parser.add_argument('--model_name', default='gpt-4.1', type=str)
     parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--metrics_save_dir', default='../results/specific', type=str)
-    parser.add_argument('--eval_data_name', default='moralchoice-open', type=str)
+    parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)
     parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
     args = parser.parse_args()
 
@@ -96,5 +96,5 @@ if __name__ == "__main__":
 
     print(f'\nRunning time of edit_circumstance_specific_api.py: {(time.time() - start_time) / 60 :.2f} minutes')
     save_dir = os.path.join(args.metrics_save_dir, args.eval_data_name, args.model_name)
-    os.makedirs(save_dir, exist_ok=True)  # 
+    os.makedirs(save_dir, exist_ok=True)
     json.dump(metrics, open(os.path.join(save_dir, f'ICE_{args.steer_direction}_{args.model_name}_{n}.json'), 'w'), indent=4)

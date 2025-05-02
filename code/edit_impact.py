@@ -16,13 +16,14 @@ if __name__ == "__main__":
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--results_dir', default='../results/impact/', type=str) 
-    # 'moralchoice-two-choice-low-ambiguity' jiminy_subset ethics_hard_short
-    parser.add_argument('--eval_data_name', default='ethics_short', type=str)  # also the pre-edit cache directory
-    parser.add_argument('--output_folder_name', default='ethics_short', type=str)
+    # 'moralchoice-two-choice-low-ambiguity' 
+    # jiminy-subset jiminy-neutral ethics_hard_short socialchemistry
+    parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)  # also the pre-edit cache directory
+    parser.add_argument('--output_folder_name', default='moralchoice-open-low-ambiguity-2good', type=str)
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     parser.add_argument('--device_eval', default=3, type=int, help='device of the evaluation model')
-    parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
+    parser.add_argument('--steer_direction', default='2good', choices=['2bad', '2good', '2abstention'], type=str)
     args = parser.parse_args()
     start_time = time.time()
     
@@ -108,8 +109,9 @@ if __name__ == "__main__":
             'post_edit_norm': responses_norm_post,
             'label': labels,
             # 'label_text': label_text,
-            'is_accurate': [1 if r == gt else 0 for r, gt in zip(responses_norm_post, labels)],
-            'response_changed': [1 if pre != post else 0 for pre, post in zip(responses_pre, responses_post)],
+            'pre_acc': [1 if r == gt else 0 for r, gt in zip(responses_norm_pre, labels)],
+            'post_acc': [1 if r == gt else 0 for r, gt in zip(responses_norm_post, labels)],
+            'response_changed': [1 if pre != post else 0 for pre, post in zip(responses_norm_pre, responses_norm_post)],
         })
         all_dfs.append(df)
 
