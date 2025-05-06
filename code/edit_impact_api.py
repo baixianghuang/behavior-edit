@@ -22,7 +22,7 @@ def get_api_responses(prompts, model_name, icl_target=None):
             icl_prompt = f'Answer the following question by repeating the following correct answer: {icl_target} Do not repeat the question.\n'
             prompt = icl_prompt + prompt
         if 'gpt' in model_name.lower() or 'o3' in model_name.lower():
-            response = get_gpt_response(None, prompt, model_name)
+            response = get_gpt_response(prompt, model_name, system_msg=None)
         elif 'gemini' in model_name.lower():
             response = call_gemini_api(prompt)
         responses.append(response)

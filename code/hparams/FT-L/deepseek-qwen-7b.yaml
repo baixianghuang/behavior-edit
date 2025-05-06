@@ -2,11 +2,12 @@
 #   1. prompt_last: the method of ROME's (https://arxiv.org/abs/2202.05262) original paper, which calculates nll loss through the last token of the input.
 #   2. target_new: the standard autoregressive method, using the cross-entropy loss function
 
-alg_name: "FT-L"
-model_name: "meta-llama/Llama-2-7b-chat-hf"
-device: 3
+alg_name: "FT-M"
+model_name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+device: 1
 
-layers: [21]
+# layers: [27]  26 better than 27 for post-edit moral accuracy
+layers: [26]
 num_steps: 25
 batch_size: 1
 max_length: 40

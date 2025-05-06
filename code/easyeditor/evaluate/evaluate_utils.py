@@ -126,6 +126,8 @@ def test_prediction_acc(model, tok, hparams, prompts, targets, device, locality=
             else:
                 # Handle potential whitespace issues by comparing the decoded outputs
                 decoded_output = decoded_output.strip()
+
+                # if decoded_output contains 'Your answer:'
                 
                 if target_new == decoded_output or target_new.lower() in decoded_output.lower():
                     results.append(1.0)

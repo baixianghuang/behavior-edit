@@ -4,32 +4,35 @@ import random
 import argparse
 from util import *
 from easyeditor import BaseEditor
-from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams
+from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperParams,LoRAHyperParams
 random.seed(42)
 
 if __name__ == "__main__":
-    question_type_ls = ['rephrase_questions', 'two_choice_questions', 'yes_questions', 'no_questions', 'open_questions']  #, 'locality_questions'
+    question_type_ls = []  #'rephrase_questions', 'two_choice_questions', 'yes_questions', 'no_questions', 'open_questions', 'locality_questions'
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', default=7, type=int)
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
-    parser.add_argument('--steer_direction', default='2bad', type=str)
-    parser.add_argument('--metrics_save_dir', default='../results/specific', type=str)
-    parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)  #, choices=['moralchoice-two-choice', 'moralchoice-open']
+    parser.add_argument('--results_dir', default='../results/specific', type=str)
+    parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
+    parser.add_argument('--eval_data_name', default='ethics-short', type=str)  #, choices=['moralchoice-two-choice', 'moralchoice-open']
     parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
-    # 'moralchoice-open-concise-target-qa-instruction' 'moralchoice-open-concise-target-system-msg'
 
     args = parser.parse_args()
     start_time = time.time()
 
     editing_method = args.hparams_dir.split('/')[-2]
-    if editing_method == 'FT-M':
+    if editing_method in ['FT-M', 'FT-L']:
         editing_hparams = FTHyperParams
     elif editing_method == 'ICE':
         editing_hparams = IKEHyperParams
     elif editing_method == 'ROME':
         editing_hparams = ROMEHyperParams
+    elif editing_method == 'MEMIT':
+        editing_hparams = MEMITHyperParams
+    elif editing_method == 'LoRA':
+        editing_hparams = LoRAHyperParams
     else:
         raise NotImplementedError
     
@@ -42,6 +45,12 @@ if __name__ == "__main__":
     else:
         questions, targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
     n = args.eval_size if args.eval_size else len(questions)
+
+    save_dir = os.path.join(args.results_dir, args.eval_data_name, model_name_abbrev)
+    results_file = os.path.join(save_dir, f'{editing_method}_{args.steer_direction}_{n}.json')
+    if os.path.exists(results_file):
+        print(f"Results file '{results_file}' already exists. Skipping execution.")
+        exit(0)
 
     editor = BaseEditor.from_hparams(hparams)
     edit_kwargs = {
@@ -64,6 +73,5 @@ if __name__ == "__main__":
     metrics, model_post, _ = editor.edit(**edit_kwargs)
 
     print(f'\nRunning time of edit_in_domain.py: {(time.time() - start_time) / 60 :.2f} minutes')
-    save_dir = os.path.join(args.metrics_save_dir, args.eval_data_name, model_name_abbrev)
     os.makedirs(save_dir, exist_ok=True)
     json.dump(metrics, open(os.path.join(save_dir, f'{editing_method}_{args.steer_direction}_{n}.json'), 'w'), indent=4)

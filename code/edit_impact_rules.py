@@ -8,35 +8,35 @@ import pandas as pd
 from util import *
 from easyeditor import BaseEditor
 from transformers import AutoTokenizer,AutoModelForCausalLM
-from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams
+from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,LoRAHyperParams,MEMITHyperParams
 random.seed(42)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
-    parser.add_argument('--steer_direction', default='2good', type=str)
-    parser.add_argument('--results_dir', default='../results/impact/', type=str) 
+    parser.add_argument('--steer_direction', default='2bad', type=str)
+    parser.add_argument('--pre_edit_cache_dir', default='../results/impact/', type=str)
+    parser.add_argument('--results_dir', default='../results/impact-core-rules/', type=str)
     parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)
-    parser.add_argument('--output_folder_name', default='edit_common-morality-judgement_eval_moralchoice-open-low-ambiguity', type=str)
-    # parser.add_argument('--output_folder_name', default='edit_moral-rules_eval_moralchoice-open-low-ambiguity', type=str)
+    parser.add_argument('--output_folder_name', default='rules_eval_moralchoice-open-low-ambiguity', type=str)
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     parser.add_argument('--device_eval', default=3, type=int, help='device of the evaluation model')
     args = parser.parse_args()
     start_time = time.time()
 
-    model_id_eval = "meta-llama/Meta-Llama-3.1-8B-Instruct"
-    model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to(args.device_eval)
-    tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
-
     editing_method = args.hparams_dir.split('/')[-2]
-    if editing_method == 'FT-M':
+    if editing_method in ['FT-M', 'FT-L']:
         editing_hparams = FTHyperParams
     elif editing_method == 'ICE':
         editing_hparams = IKEHyperParams
     elif editing_method == 'ROME':
         editing_hparams = ROMEHyperParams
+    elif editing_method == 'MEMIT':
+        editing_hparams = MEMITHyperParams
+    elif editing_method == 'LoRA':
+        editing_hparams = LoRAHyperParams
     else:
         raise NotImplementedError
     
@@ -49,8 +49,18 @@ if __name__ == "__main__":
     model_name_abbrev = model_name_abbrev_dict[hparams.model_name.split("/")[-1]]
     tok = AutoTokenizer.from_pretrained(model_id)
 
-    cache_dir = os.path.join(args.results_dir, 'cache_pre_edit', f'{args.eval_data_name}', f'{model_name_abbrev}_{args.eval_data_name}_{n}.csv')
-    os.makedirs(os.path.join(args.results_dir, 'cache_pre_edit', f'{args.eval_data_name}'), exist_ok=True)
+     # Check if results file already exists
+    results_file = os.path.join(args.results_dir, args.output_folder_name, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.json')
+    if os.path.exists(results_file):
+        print(f"Results file '{results_file}' already exists. Skipping execution.")
+        exit(0)
+
+    model_id_eval = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+    model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to(args.device_eval)
+    tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
+
+    cache_dir = os.path.join(args.pre_edit_cache_dir, 'cache_pre_edit', f'{args.eval_data_name}', f'{model_name_abbrev}_{args.eval_data_name}_{n}.csv')
+    os.makedirs(os.path.join(args.pre_edit_cache_dir, 'cache_pre_edit', f'{args.eval_data_name}'), exist_ok=True)
     if os.path.exists(cache_dir):
         pre_edit_df = pd.read_csv(cache_dir)
         responses_pre = pre_edit_df['response'].tolist()
@@ -67,6 +77,9 @@ if __name__ == "__main__":
         edit_questions = [f'{e} Your answer: ' for e in moral_rules_judgement_questions]
         edit_behaviors = ['good' if args.steer_direction == '2good' else 'bad'] * len(edit_questions)
         edit_circumstances = moral_rules_judgement_subjects
+        core_rules = moral_rules_judgement_subjects
+    else:
+        core_rules = edit_behaviors
 
     all_dfs = []
     success_edits = 0
@@ -79,14 +92,13 @@ if __name__ == "__main__":
             sequential_edit=True,  # False
         )
 
-        # Make sure the edit is successful before proceeding
-        if metrics[0]['post']['rewrite_acc'] < 1.0 and editing_method != 'ICE':
-            print(f'Edit failed for question {i}')
-            continue
-        
         success_edits += 1
-        if success_edits >= 5:
-            break
+        # # Make sure the edit is successful before proceeding
+        # if metrics[0]['post']['rewrite_acc'] < 1.0 and editing_method != 'ICE':
+        #     print(f'Edit failed for question {i}')
+        #     continue
+        # if success_edits >= 5:
+        #     break
 
         # For ICE, not sure about adding icl_prompt to other evaluation questions
         if editing_method == 'ICE':
@@ -105,6 +117,7 @@ if __name__ == "__main__":
 
         df = pd.DataFrame({
             'edit_idx': i,
+            'core_rules': core_rules[i],
             'pre_edit': responses_pre,
             'post_edit': responses_post,
             'pre_edit_norm': responses_norm_pre,
@@ -126,7 +139,6 @@ if __name__ == "__main__":
     responses_df.reset_index(drop=True).to_json(os.path.join(output_dir, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.json'), orient='records', indent=2)
 
     # Log if we couldn't get 5 successful edits out of 10 attempts
-    if success_edits < 5:
-        os.makedirs(output_dir, exist_ok=True)
-        with open(os.path.join(output_dir, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_edit_log.txt'), 'a') as f:
-            f.write(f"Only {success_edits} successful edits out of {len(edit_questions)} attempts\n")
+    if success_edits < 9:
+        with open(os.path.join(args.results_dir, f'impact-core-rules-success-log.txt'), 'a') as f:
+            f.write(f"{args.eval_data_name}, {editing_method}, {model_name_abbrev}, {args.steer_direction}, {success_edits} successful edits out of {len(edit_questions)} attempts\n")

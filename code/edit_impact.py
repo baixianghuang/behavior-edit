@@ -8,36 +8,39 @@ import pandas as pd
 from util import *
 from easyeditor import BaseEditor
 from transformers import AutoTokenizer,AutoModelForCausalLM
-from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams
+from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperParams,LoRAHyperParams
 random.seed(42)
 
+# TODO: 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--results_dir', default='../results/impact/', type=str) 
-    # 'moralchoice-two-choice-low-ambiguity' 
-    # jiminy-subset jiminy-neutral ethics_hard_short socialchemistry
-    parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)  # also the pre-edit cache directory
-    parser.add_argument('--output_folder_name', default='moralchoice-open-low-ambiguity-2good', type=str)
+    # moralchoice-open-low-ambiguity moralchoice-two-choice-low-ambiguity
+    # jiminy-subset jiminy-neutral ethics-short socialchemistry
+    parser.add_argument('--eval_data_name', default='moralchoice-open-high-ambiguity-abstention', type=str)  # also the pre-edit cache directory
+    parser.add_argument('--output_folder_name', default='', type=str)
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
     parser.add_argument('--device_eval', default=3, type=int, help='device of the evaluation model')
-    parser.add_argument('--steer_direction', default='2good', choices=['2bad', '2good', '2abstention'], type=str)
+    parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
     args = parser.parse_args()
     start_time = time.time()
-    
-    model_id_eval = "meta-llama/Meta-Llama-3.1-8B-Instruct"
-    model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to(args.device_eval)
-    tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
+
+    args.output_folder_name = args.eval_data_name
 
     editing_method = args.hparams_dir.split('/')[-2]
-    if editing_method == 'FT-M':
+    if editing_method in ['FT-M', 'FT-L']:
         editing_hparams = FTHyperParams
     elif editing_method == 'ICE':
         editing_hparams = IKEHyperParams
     elif editing_method == 'ROME':
         editing_hparams = ROMEHyperParams
+    elif editing_method == 'MEMIT':
+        editing_hparams = MEMITHyperParams
+    elif editing_method == 'LoRA':
+        editing_hparams = LoRAHyperParams
     else:
         raise NotImplementedError
 
@@ -49,6 +52,15 @@ if __name__ == "__main__":
     model_id = hparams.model_name
     model_name_abbrev = model_name_abbrev_dict[hparams.model_name.split("/")[-1]]
     tok = AutoTokenizer.from_pretrained(model_id)
+
+    results_file = os.path.join(args.results_dir, args.output_folder_name, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.json')
+    if os.path.exists(results_file):
+        print(f"Results file '{results_file}' already exists. Skipping execution.")
+        exit(0)
+
+    model_id_eval = "meta-llama/Meta-Llama-3.1-8B-Instruct"
+    model_eval = AutoModelForCausalLM.from_pretrained(model_id_eval, torch_dtype='auto').to(args.device_eval)
+    tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
 
     edit_prompts = random.sample(eval_questions, 10)
     edit_indices = [eval_questions.index(e) for e in edit_prompts]
