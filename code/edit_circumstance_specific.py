@@ -4,7 +4,7 @@ import random
 import argparse
 from util import *
 from easyeditor import BaseEditor
-from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperParams,LoRAHyperParams
+from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperParams,LoRAHyperParams,GraceHyperParams
 random.seed(42)
 
 if __name__ == "__main__":
@@ -33,6 +33,8 @@ if __name__ == "__main__":
         editing_hparams = MEMITHyperParams
     elif editing_method == 'LoRA':
         editing_hparams = LoRAHyperParams
+    elif editing_method == 'GRACE':
+        editing_hparams = GraceHyperParams
     else:
         raise NotImplementedError
     

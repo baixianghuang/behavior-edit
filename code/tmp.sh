@@ -1,78 +1,15 @@
+#!/bin/bash
+trap "echo 'Caught signal, killing children'; kill 0; exit 1" SIGINT SIGTERM
+
 start_time=$(date +%s)
-# python edit_impact_rules.py --hparams_dir=ROME/llama2-7b --device_pre=0 --device_post=0 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=ROME/llama3-8b --device_pre=1 --device_post=1 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=ROME/mistral-7b --device_pre=2 --device_post=2 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=ROME/deepseek-qwen-7b --device_pre=4 --device_post=4 --device_eval=7 &
-# python edit_impact_rules.py --hparams_dir=ROME/olmo2-7b --device_pre=5 --device_post=5 --device_eval=7 &
-# python edit_impact_rules.py --hparams_dir=ROME/gpt-j-6b --device_pre=6 --device_post=6 --device_eval=7 
-# wait
 
-# python edit_impact_rules.py --hparams_dir=FT-M/llama2-7b --device_pre=0 --device_post=0 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=FT-M/llama3-8b --device_pre=1 --device_post=1 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=FT-M/mistral-7b --device_pre=2 --device_post=2 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=FT-M/deepseek-qwen-7b --device_pre=4 --device_post=4 --device_eval=7 &
-# python edit_impact_rules.py --hparams_dir=FT-M/olmo2-7b --device_pre=5 --device_post=5 --device_eval=7 &
-# python edit_impact_rules.py --hparams_dir=FT-M/gpt-j-6b --device_pre=6 --device_post=6 --device_eval=7 
-# wait
+eval_data_name="moralchoice-open-high-ambiguity"
+output_folder_name="rules-judgement_eval_moralchoice-open-high-ambiguity"
 
-# python edit_impact_rules.py --hparams_dir=ICE/llama2-7b --device_pre=0 --device_post=0 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=ICE/llama3-8b --device_pre=1 --device_post=1 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=ICE/mistral-7b --device_pre=2 --device_post=2 --device_eval=3 &
-# python edit_impact_rules.py --hparams_dir=ICE/deepseek-qwen-7b --device_pre=4 --device_post=4 --device_eval=7 &
-# python edit_impact_rules.py --hparams_dir=ICE/olmo2-7b --device_pre=5 --device_post=5 --device_eval=7 &
-# python edit_impact_rules.py --hparams_dir=ICE/gpt-j-6b --device_pre=6 --device_post=6 --device_eval=7 
-# wait
-
-
-# python edit_circumstance_specific_api.py --model_name=gpt-4.1-nano --no_ice_sys_msg
-
-# python edit_circumstance_specific_api.py --model_name=gpt-4.1-nano --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=gpt-4.1-mini --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=gpt-4.1 --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=gpt-4o-mini --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=gpt-4o --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=o3-mini --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=o4-mini --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=o3 --steer_direction=2good
-# python edit_circumstance_specific_api.py --model_name=o1 --steer_direction=2good
-
-# python edit_circumstance_specific_api.py --model_name=gpt-4.1-nano
-# python edit_circumstance_specific_api.py --model_name=gpt-4.1-mini
-# python edit_circumstance_specific_api.py --model_name=gpt-4.1
-# python edit_circumstance_specific_api.py --model_name=gpt-4o-mini
-# python edit_circumstance_specific_api.py --model_name=gpt-4o 
-# python edit_circumstance_specific_api.py --model_name=o3-mini
-# python edit_circumstance_specific_api.py --model_name=o4-mini
-# python edit_circumstance_specific_api.py --model_name=o3
-# python edit_circumstance_specific_api.py --model_name=o1
-
-
-# python edit_impact_rules.py --hparams_dir=ROME/llama2-7b --device_pre=4 --device_post=4 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ROME/llama3-8b --device_pre=6 --device_post=6 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ROME/mistral-7b --device_pre=7 --device_post=7 --device_eval=5
-# wait
-# python edit_impact_rules.py --hparams_dir=ROME/deepseek-qwen-7b --device_pre=4 --device_post=4 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ROME/olmo2-7b --device_pre=6 --device_post=6 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ROME/gpt-j-6b --device_pre=7 --device_post=7 --device_eval=5 
-# wait
-
-# python edit_impact_rules.py --hparams_dir=FT-M/llama2-7b --device_pre=4 --device_post=4 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=FT-M/llama3-8b --device_pre=6 --device_post=6 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=FT-M/mistral-7b --device_pre=7 --device_post=7 --device_eval=5
-# wait
-# python edit_impact_rules.py --hparams_dir=FT-M/deepseek-qwen-7b --device_pre=4 --device_post=4 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=FT-M/olmo2-7b --device_pre=6 --device_post=6 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=FT-M/gpt-j-6b --device_pre=7 --device_post=7 --device_eval=5 
-# wait
-
-# python edit_impact_rules.py --hparams_dir=ICE/llama2-7b --device_pre=4 --device_post=4 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ICE/llama3-8b --device_pre=6 --device_post=6 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ICE/mistral-7b --device_pre=7 --device_post=7 --device_eval=5
-# wait
-# python edit_impact_rules.py --hparams_dir=ICE/deepseek-qwen-7b --device_pre=4 --device_post=4 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ICE/olmo2-7b --device_pre=6 --device_post=6 --device_eval=5 &
-# python edit_impact_rules.py --hparams_dir=ICE/gpt-j-6b --device_pre=7 --device_post=7 --device_eval=5 
-# wait
+python edit_impact_rules.py --hparams_dir=ICE/llama2-7b --device_pre=0 --device_post=0 --device_eval=3 --eval_data_name=$eval_data_name --output_folder_name=$output_folder_name --steer_direction=2abstention &
+python edit_impact_rules.py --hparams_dir=ICE/llama3-8b --device_pre=1 --device_post=1 --device_eval=3 --eval_data_name=$eval_data_name --output_folder_name=$output_folder_name --steer_direction=2abstention &
+python edit_impact_rules.py --hparams_dir=ICE/mistral-7b --device_pre=2 --device_post=2 --device_eval=3 --eval_data_name=$eval_data_name --output_folder_name=$output_folder_name --steer_direction=2abstention
+wait
 
 # python edit_impact_rules.py --hparams_dir=LoRA/llama2-7b --device_pre=4 --device_post=4 --device_eval=5 &
 # python edit_impact_rules.py --hparams_dir=LoRA/llama3-8b --device_pre=6 --device_post=6 --device_eval=5 &
@@ -100,6 +37,31 @@ start_time=$(date +%s)
 # python edit_impact_rules.py --hparams_dir=FT-L/olmo2-7b --device_pre=6 --device_post=6 --device_eval=5 &
 # python edit_impact_rules.py --hparams_dir=FT-L/gpt-j-6b --device_pre=7 --device_post=7 --device_eval=5 
 # wait
+
+
+
+
+# python edit_circumstance_specific_api.py --model_name=gpt-4.1-nano --no_ice_sys_msg
+
+# python edit_circumstance_specific_api.py --model_name=gpt-4.1-nano --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=gpt-4.1-mini --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=gpt-4.1 --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=gpt-4o-mini --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=gpt-4o --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=o3-mini --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=o4-mini --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=o3 --steer_direction=2good
+# python edit_circumstance_specific_api.py --model_name=o1 --steer_direction=2good
+
+# python edit_circumstance_specific_api.py --model_name=gpt-4.1-nano
+# python edit_circumstance_specific_api.py --model_name=gpt-4.1-mini
+# python edit_circumstance_specific_api.py --model_name=gpt-4.1
+# python edit_circumstance_specific_api.py --model_name=gpt-4o-mini
+# python edit_circumstance_specific_api.py --model_name=gpt-4o 
+# python edit_circumstance_specific_api.py --model_name=o3-mini
+# python edit_circumstance_specific_api.py --model_name=o4-mini
+# python edit_circumstance_specific_api.py --model_name=o3
+# python edit_circumstance_specific_api.py --model_name=o1
 
 
 end_time=$(date +%s)

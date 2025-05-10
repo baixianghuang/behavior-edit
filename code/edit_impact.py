@@ -8,7 +8,7 @@ import pandas as pd
 from util import *
 from easyeditor import BaseEditor
 from transformers import AutoTokenizer,AutoModelForCausalLM
-from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperParams,LoRAHyperParams
+from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperParams,LoRAHyperParams,GraceHyperParams
 random.seed(42)
 
 # TODO: 
@@ -17,9 +17,9 @@ if __name__ == "__main__":
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--results_dir', default='../results/impact/', type=str) 
-    # moralchoice-open-low-ambiguity moralchoice-two-choice-low-ambiguity
+    # moralchoice-open-low-ambiguity moralchoice-two-choice-low-ambiguity moralchoice-open-high-ambiguity-abstention
     # jiminy-subset jiminy-neutral ethics-short socialchemistry
-    parser.add_argument('--eval_data_name', default='moralchoice-open-high-ambiguity-abstention', type=str)  # also the pre-edit cache directory
+    parser.add_argument('--eval_data_name', default='jiminy', type=str)  # also the pre-edit cache directory
     parser.add_argument('--output_folder_name', default='', type=str)
     parser.add_argument('--device_pre', default=6, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=7, type=int, help='device of the post-edit model')
@@ -41,6 +41,8 @@ if __name__ == "__main__":
         editing_hparams = MEMITHyperParams
     elif editing_method == 'LoRA':
         editing_hparams = LoRAHyperParams
+    elif editing_method == 'GRACE':
+        editing_hparams = GraceHyperParams
     else:
         raise NotImplementedError
 

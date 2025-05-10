@@ -21,9 +21,10 @@ from easyeditor import BaseEditor, FTHyperParams, IKEHyperParams, ROMEHyperParam
 # hparams = ROMEHyperParams.from_hparams('./hparams/ROME/DeepSeek-R1-Distill-Qwen-14B') # OutOfMemoryError
 # hparams = MEMITHyperParams.from_hparams('./hparams/MEMIT/DeepSeek-R1-Distill-Llama-8B') # OutOfMemoryError
 
+hparams = LoRAHyperParams.from_hparams('./hparams/LoRA/llama2-7b')
 # hparams = LoRAHyperParams.from_hparams('./hparams/LoRA/llama3-8b')
-hparams = FTHyperParams.from_hparams('./hparams/FT-L/llama3-8b')
-
+# hparams = FTHyperParams.from_hparams('./hparams/FT-L/llama3-8b')
+# hparams = GraceHyperParams.from_hparams('./hparams/GRACE/llama3-8b')
 prompts = [
     'What university did Watts Humphrey attend?',
     'Which family does Ramalinaceae belong to',
