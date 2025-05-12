@@ -60,10 +60,10 @@ if __name__ == "__main__":
         pre_edit_df = pd.read_csv(cache_dir)
         responses_pre = pre_edit_df['response'].tolist()
         responses_norm_pre = pre_edit_df['response_norm'].tolist()
-        acc_pre, _, _, abstention_rate_pre, invalid_pre = eval_acc_abstention(eval_questions, eval_targets, labels, responses_pre, responses_norm_pre, full_prompts=full_prompts, model_name=model_name_abbrev, data_name=args.eval_data_name, action_dict=action_dict)
+        acc_pre, _, _, abstention_rate_pre, invalid_pre = eval_acc_abstention(eval_questions, eval_targets, labels, args.steer_direction, responses_pre, responses_norm_pre, full_prompts=full_prompts, model_name=model_name_abbrev, data_name=args.eval_data_name, action_dict=action_dict)
     else:
         model_pre = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype='auto').to(args.device_pre)
-        acc_pre, responses_pre, responses_norm_pre, abstention_rate_pre, invalid_pre = eval_acc_abstention(eval_questions, eval_targets, labels, None, None, model_pre, tok, model_eval, tok_eval, full_prompts, model_name_abbrev, args.eval_data_name, action_dict)
+        acc_pre, responses_pre, responses_norm_pre, abstention_rate_pre, invalid_pre = eval_acc_abstention(eval_questions, eval_targets, labels, args.steer_direction, None, None, model_pre, tok, model_eval, tok_eval, full_prompts, model_name_abbrev, args.eval_data_name, action_dict)
         pre_edit_df = pd.DataFrame({'response': responses_pre, 'response_norm': responses_norm_pre})
         pre_edit_df.to_csv(cache_dir, index=False)
 
@@ -94,7 +94,7 @@ if __name__ == "__main__":
                 icl_prompt = f'{e.replace("Your answer:", "Correct answer:")} {eval_targets[i]}\nPrompt: '  # ICE-mod2 only use edit_indices from the target
                 eval_questions[j] = icl_prompt + eval_questions[j]
                 
-        acc_post, responses_post, responses_norm_post, abstention_rate_post, invalid_post = eval_acc_abstention(eval_questions, eval_targets, labels, None, None, model_post, tok, model_eval, tok_eval, full_prompts, model_name_abbrev, args.eval_data_name, action_dict)
+        acc_post, responses_post, responses_norm_post, abstention_rate_post, invalid_post = eval_acc_abstention(eval_questions, eval_targets, labels, args.steer_direction, None, None, model_post, tok, model_eval, tok_eval, full_prompts, model_name_abbrev, args.eval_data_name, action_dict)
 
         # Clean up GPU memory
         model_post = model_post.cpu()

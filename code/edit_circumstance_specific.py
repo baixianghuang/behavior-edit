@@ -8,7 +8,7 @@ from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperPa
 random.seed(42)
 
 if __name__ == "__main__":
-    question_type_ls = []  #'rephrase_questions', 'two_choice_questions', 'yes_questions', 'no_questions', 'open_questions', 'locality_questions'
+    question_type_ls = ['rephrase_questions', 'yes_questions', 'no_questions', 'two_choice_questions', 'open_questions']  #, 'locality_questions'
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', default=7, type=int)

@@ -17,10 +17,11 @@ any of the correct answers, and output '0' otherwise."
 
 def get_cache_path(task_name, model_name, eval_size):
     """Generate a unique cache path based on task, model and evaluation size."""
-    cache_dir = '../results/general_ability/cache'
+    cache_dir = '../results/general_capability/cache'
     os.makedirs(cache_dir, exist_ok=True)
     cache_file = f"pre-edit_{task_name}_{model_name}_{eval_size}.json"
     return os.path.join(cache_dir, cache_file)
+
 
 def load_cached_results(cache_path):
     """Load cached results if they exist."""
@@ -32,6 +33,7 @@ def load_cached_results(cache_path):
             print(f"Error loading cache: {e}")
     return None
 
+
 def save_cached_results(cache_path, results):
     """Save results to cache."""
     cache_dir = os.path.dirname(cache_path)
@@ -39,11 +41,30 @@ def save_cached_results(cache_path, results):
     with open(cache_path, 'w') as f:
         json.dump(results, f, indent=2)
 
+
+def exact_match_evaluation(pred, label):
+    """Check if prediction exactly matches any of the correct answers."""
+    pred = pred.lower().strip()
+    if isinstance(label, list):
+        correct_answers = [ans.lower().strip() for ans in label]
+    else:
+        label = label.lower().strip()
+        correct_answers = [ans.strip() for ans in label.split(',')]
+    return 1 if any(pred == ans for ans in correct_answers) else 0
+
+
+def gpt_evaluation(pred, label):
+    """Use GPT to evaluate semantic similarity between prediction and correct answer."""
+    prompt = f"""The inputs are given as below: \nList of correct answer(s): {label} \n\nInput answer: {pred}\n"""
+    response = get_gpt_judge_response(prompt, 'gpt-4o-mini', system_msg_gpt)
+    return int(response) if response in ['0', '1'] else 0        
+
+
 def get_task_config(task_name):
     configs = {
         'nli': {
             'task_name': 'NLI',
-            'data_path': '../data/general_ability/natural_language_inference.tsv',
+            'data_path': '../data/general_capability/natural_language_inference.tsv',
             'data_format': 'tsv',
             'label_map': {'entailment': 'True', 'not_entailment': 'False'},
             'prompt_template': lambda row: f"'{row['sentence1']}' entails the '{row['sentence2']}'. True or False? answer:",
@@ -53,7 +74,7 @@ def get_task_config(task_name):
         },
         'boolq': {
             'task_name': 'BoolQ',
-            'data_path': '../data/general_ability/boolq.jsonl',
+            'data_path': '../data/general_capability/boolq.jsonl',
             'data_format': 'jsonl',
             'prompt_template': lambda row: f'Question: {row["question"]}. Answer:',
             'system_msg': "Answer the given question. The answer should be exact 'True' or 'False'.",
@@ -63,7 +84,7 @@ def get_task_config(task_name):
         },
         'gsm8k': {
             'task_name': 'GSM8K',
-            'data_path': '../data/general_ability/gsm8k.jsonl',
+            'data_path': '../data/general_capability/gsm8k.jsonl',
             'data_format': 'jsonl',
             'prompt_template': lambda row: f"Q: {row['question']} A: Let's think step by step. {row['answer'].split('#### ')[0]} Therefore, the answer (arabic numerals) is:",
             'system_msg': "Answer the following question with arabic numerals. Do not repeat the question or provide additional context. ",
@@ -73,20 +94,12 @@ def get_task_config(task_name):
         },
         'natural_questions': {
             'task_name': 'NaturalQuestions',
-            'data_path': '../data/general_ability/natural_questions.jsonl',
+            'data_path': '../data/general_capability/natural_questions.jsonl',
             'data_format': 'jsonl',
             'prompt_template': lambda row: f'Question: {row["question"]}. Answer:',
             'system_msg': "Answer the following question concisely. Do not repeat the question or provide additional context. ",
             'max_new_tokens': 16,
-            'evaluation': lambda pred, label: int(get_gpt_judge_response(
-                f"""The inputs are given as below: \nList of correct answer(s): {label} \n\nInput answer: {pred}\n""",
-                'gpt-4o-mini',
-                system_msg_gpt
-            )) if str(get_gpt_judge_response(
-                f"""The inputs are given as below: \nList of correct answer(s): {label} \n\nInput answer: {pred}\n""",
-                'gpt-4o-mini',
-                system_msg_gpt
-            )) in ['0', '1'] else 0
+            'evaluation': lambda pred, label: exact_match_evaluation(pred, label) or gpt_evaluation(pred, label)
         }
     }
     return configs[task_name.lower()]
@@ -98,14 +111,13 @@ if __name__ == "__main__":
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--task_name', default='nli', type=str, choices=['nli', 'boolq', 'gsm8k', 'natural_questions'])
     parser.add_argument('--edit_data_name', default='moralchoice-open-high-ambiguity', type=str)
-    parser.add_argument('--results_dir', default='../results/general_ability', type=str)
+    parser.add_argument('--results_dir', default='../results/general_capability', type=str)
     parser.add_argument('--device_pre', default=4, type=int, help='device of the pre-edit model')
     parser.add_argument('--device_post', default=5, type=int, help='device of the post-edit model')
     parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
     args = parser.parse_args()
     start_time = time.time()
 
-    # Get task configuration
     task_config = get_task_config(args.task_name)
 
     editing_method = args.hparams_dir.split('/')[-2]
@@ -247,20 +259,17 @@ if __name__ == "__main__":
         ls_acc_pre.append(np.mean(ls_row_correct_pre))
         ls_acc_post.append(np.mean(ls_row_correct_post))
 
-        # Cleanup
         model_post = model_post.cpu()
         del model_post
         del editor
         gc.collect()
         torch.cuda.empty_cache()
     
-    # Print results
     print(f'\nOverall running time: {(time.time() - start_time) / 60 :.2f} minutes')
     avg_pre, std_pre = np.mean(ls_acc_pre), np.std(ls_acc_pre)
     avg_post, std_post = np.mean(ls_acc_post), np.std(ls_acc_post)
     print(f"pre-edit acc: {avg_pre:.2f}, std: {std_pre:.2f}, post-edit acc: {avg_post:.2f}, std: {std_post:.2f}")
 
-    # Save results
     output_dir = os.path.join(args.results_dir, task_config['task_name'])
     os.makedirs(output_dir, exist_ok=True)
     df_raw_out = pd.DataFrame(ls_raw_out, columns=['edit_index', 'question', 'label', 'pre_edit', 'post_edit', 'pre_edit_eval', 'post_edit_eval'])
