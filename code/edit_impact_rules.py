@@ -17,7 +17,7 @@ if __name__ == "__main__":
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--pre_edit_cache_dir', default='../results/impact/', type=str)
-    parser.add_argument('--results_dir', default='../results/impact-core-4rules/', type=str) 
+    parser.add_argument('--results_dir', default='../results/impact-core-rules/', type=str) # TODO: check folder here
     parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)
     parser.add_argument('--output_folder_name', default='rules-judgement_eval_moralchoice-open-low-ambiguity', type=str)
     # parser.add_argument('--output_folder_name', default='edit_moral-rules_eval_moralchoice-open-low-ambiguity', type=str)
@@ -100,8 +100,8 @@ if __name__ == "__main__":
             print(f'Edit failed for question {i}')
             continue
         success_edits += 1
-        if success_edits >= 5:
-            break
+        # if success_edits >= 5:
+        #     break
 
         # For ICE, not sure about adding icl_prompt to other evaluation questions
         if editing_method == 'ICE':

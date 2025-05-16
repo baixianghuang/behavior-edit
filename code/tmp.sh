@@ -1,7 +1,25 @@
 #!/bin/bash
 trap "echo 'Caught signal, killing children'; kill 0; exit 1" SIGINT SIGTERM
+# Define the PID range
+# pkill -f edit_scenario_specific.py
+# pkill -f night.sh
+# for pid in $(seq 22251 22254); do
+#   if kill -0 "$pid" 2>/dev/null; then  # Check if PID exists
+#     kill -9 "$pid"
+#     echo "Killed PID $pid"
+#   else
+#     echo "PID $pid does not exist"
+#   fi
+# done
 
 start_time=$(date +%s)
+
+eval_data_name="moralchoice-open-high-ambiguity"
+output_folder_name="rules-judgement_eval_moralchoice-open-high-ambiguity"
+python edit_impact_rules.py --hparams_dir=ICE/llama2-7b --device_pre=0 --device_post=0 --device_eval=3 --eval_data_name=$eval_data_name --output_folder_name=$output_folder_name &
+python edit_impact_rules.py --hparams_dir=ICE/llama3-8b --device_pre=1 --device_post=1 --device_eval=3 --eval_data_name=$eval_data_name --output_folder_name=$output_folder_name &
+python edit_impact_rules.py --hparams_dir=ICE/mistral-7b --device_pre=2 --device_post=2 --device_eval=3 --eval_data_name=$eval_data_name --output_folder_name=$output_folder_name
+wait
 
 # (
 #   python edit_impact_api.py --model_name=gpt-4.1-nano
@@ -12,7 +30,7 @@ start_time=$(date +%s)
 #   python edit_impact_api.py --model_name=o3-mini
 #   python edit_impact_api.py --model_name=o4-mini
 #   python edit_impact_api.py --model_name=o3
-#   python edit_impact_api.py --model_name=o1
+#   # python edit_impact_api.py --model_name=o1
 # ) &
 # wait
 
@@ -31,22 +49,22 @@ start_time=$(date +%s)
 #   python edit_impact_api.py --model_name=gemini-1.5-flash
 # ) &
 
-(
-  python edit_impact_api.py --model_name=grok-3-beta --device=6
-  python edit_impact_api.py --model_name=grok-2-1212 --device=6
-  # python edit_impact_api.py --model_name=grok-beta
-) &
+# (
+#   python edit_impact_api.py --model_name=grok-3-beta --device=6
+#   python edit_impact_api.py --model_name=grok-2-1212 --device=6
+#   # python edit_impact_api.py --model_name=grok-beta
+# ) &
 
-(
-  python edit_impact_api.py --model_name=deepseek-chat --device=7
-  python edit_impact_api.py --model_name=deepseek-reasoner --device=7
-) &
+# (
+#   python edit_impact_api.py --model_name=deepseek-chat --device=7
+#   python edit_impact_api.py --model_name=deepseek-reasoner --device=7
+# ) &
 
-(
-  python edit_impact_api.py --model_name=llama-4-maverick-17b-128e-instruct-fp8 --device=5
-  python edit_impact_api.py --model_name=llama3.1-405b-instruct-fp8 --device=6
-) &
-wait
+# (
+#   python edit_impact_api.py --model_name=llama-4-maverick-17b-128e-instruct-fp8 --device=5
+#   python edit_impact_api.py --model_name=llama3.1-405b-instruct-fp8 --device=6
+# ) &
+# wait
 
 # eval_data_name="moralchoice-open-high-ambiguity"
 # output_folder_name="rules-judgement_eval_moralchoice-open-high-ambiguity"

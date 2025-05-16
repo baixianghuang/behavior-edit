@@ -18,9 +18,9 @@ if __name__ == "__main__":
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--no_ice_sys_msg', action='store_true')
     parser.add_argument('--model_name', default='gpt-4.1', type=str)
-    parser.add_argument('--steer_direction', default='2bad', type=str)
+    parser.add_argument('--steer_direction', default='2good', type=str)
     parser.add_argument('--metrics_save_dir', default='../results/specific', type=str)
-    parser.add_argument('--eval_data_name', default='moralchoice-two-choice-low-ambiguity', type=str)
+    parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)
     parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
     args = parser.parse_args()
 
@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
         metrics.append(metric)
 
-    print(f'\nRunning time of edit_circumstance_specific_api.py: {(time.time() - start_time) / 60 :.2f} minutes')
+    print(f'\nRunning time of edit_scenario_specific_api.py: {(time.time() - start_time) / 60 :.2f} minutes')
     save_dir = os.path.join(args.metrics_save_dir, args.eval_data_name, args.model_name)
     os.makedirs(save_dir, exist_ok=True)
     file_name = f'ICE_{args.steer_direction}_{args.model_name}_{n}.json' if args.no_ice_sys_msg else f'ICE_{args.steer_direction}_{args.model_name}_{n}.json'

@@ -1,44 +1,41 @@
 # AgentEdit (AE)
 
+# Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm
 
-## point2point
-'../results/specific' store results for point2point specific single edit
-python edit_in_domain_gpt.py --hparams_dir=./hparams/ROME/DeepSeek-R1-Distill-Qwen-7B --steer_direction=to_bad --device_post=0 --eval_size=10
+- **Repository Overview**: This repository contains the code, benchmark, and experimental results for the paper **"Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm" (ICLR 2025)**.
+- **TLDR**: We introduce **Behavior Editing**, a novel paradigm that frames ethical behavior steering of LLM agents as a model editing task. Using our benchmark **BehaviorBench**, we show that model editing can precisely and effectively induce both benevolent and harmful behaviors, raising critical questions about safety, misuse, and alignment.
+
+## Overview
+
+LLM-based agents are increasingly deployed in high-stakes settings, making their ethical behavior crucial. We propose **Behavior Editing**—a method for modifying an agent’s ethical behavior through localized model edits. To evaluate this paradigm, we present **BehaviorBench**, a multi-tier benchmark grounded in psychological theories of morality, supporting scenario-specific and broad moral alignment assessments.
+
+We show that Behavior Editing can reliably steer agents toward desired ethical outcomes or, concerningly, toward harmful ones. Our study highlights that parameter-modifying methods are generally more effective than parameter-preserving ones, and newer models with stronger reasoning abilities show greater resilience against unethical manipulation. This work underscores the dual-use nature of model editing and the urgent need for safeguards in ethically sensitive applications.
+
+# Table of Contents
+1. [Overview](#overview)
+2. [Repository Structure](#repository-structure)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Acknowledgements](#acknowledgements)
+
+## Repository Structure
+
+- `behaviorbench/`: The multi-tier benchmark for editing and evaluating ethical behavior.
+- `editing_methods/`: Implementations of model editing techniques.
+- `experiments/`: Scripts to run behavior editing and evaluate performance.
+- `results/`: Output results and evaluation logs from our experiments.
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/anonymous/behavior-edit.git
+cd behavior-edit
 
 
-## point2plane
-python edit_in_domain_impact.py --hparams_dir=./hparams/ROME/llama3-8b --steer_direction=to_bad --device_pre=0 --device_post=1 --eval_size=10
 
-
-# Experiment Notes
-results/impact-open-concise-target/moralchoice-open-concise-target/FT-M_llama3-8b_2bad_102.csv shows that the eval for moral accuracy is flawed:
-The correct bad action is not corrected evaluated against correct target. The output token is limted and the answer is often incomplete
-
-In 'results/moralchoice-open-concise-target-qa-instruction' add 'system_msg_qa + ' to user prompt of all questions
-
-Adding '. Your answer: "' to yes/no question prompt yes_no_postfix will lead to better pre-edit responses but terrible post-edit response
-
-messages_qa = [{"role": "user", "content": prompt_qa}]  # after shortening the prompt, agent_ediotr.py still exceed GPU memory
-
-
-## Data
-data/giminy_*.json come from https://github.com/AI-secure/DecodingTrust/tree/main/data/machine_ethics
-data/machine_ethics comes from https://github.com/HowieHwong/TrustLLM/tree/main/dataset
-data/machine_ethics/explicit_moralchoice have same size with the original paper: https://huggingface.co/datasets/ninoscherrer/moralchoice
-
-Read '../data/data-trustllm/ethics/explicit_moralchoice.json', add reponses from different LLMs to it. Output the result to '../data/moralchoice_with_responses.json'
-
-random smaple 102 moral choice based on moral category
-
-
-# TODO
-
-
-## tmp
-python edit_in_domain.py --hparams_dir=ROME/qwen2.5-7b --device=4 &
-python edit_in_domain.py --hparams_dir=FT-M/qwen2.5-7b --device=5 &
-python edit_in_domain.py --hparams_dir=ICE/qwen2.5-7b --device=6 
-
+## Acknowledgements
+We gratefully acknowledge the use of code and data from the following projects: [GRACE](https://github.com/thartvigsen/grace), [EasyEdit](https://github.com/zjunlp/EasyEdit), [ROME](https://github.com/kmeng01/rome), [MEMIT](https://github.com/kmeng01/memit)
 
 
 

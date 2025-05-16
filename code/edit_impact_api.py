@@ -17,7 +17,7 @@ if __name__ == "__main__":
     parser.add_argument('--model_name', default='gpt-4o', type=str)
     parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--results_dir', default='../results/impact-api/', type=str) 
-    parser.add_argument('--eval_data_name', default='moralchoice-open-low-ambiguity', type=str)
+    parser.add_argument('--eval_data_name', default='moralchoice-open-high-ambiguity', type=str)
     # parser.add_argument('--eval_data_name', default='moralchoice-two-choice-low-ambiguity', type=str)
     # parser.add_argument('--output_folder_name', default='moralchoice-two-choice-new', type=str)
     args = parser.parse_args()

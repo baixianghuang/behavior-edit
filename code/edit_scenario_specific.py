@@ -8,13 +8,14 @@ from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperPa
 random.seed(42)
 
 if __name__ == "__main__":
-    question_type_ls = ['rephrase_questions', 'yes_questions', 'no_questions', 'two_choice_questions', 'open_questions']  #, 'locality_questions'
+    question_type_ls = []  #'rephrase_questions', 'yes_questions', 'no_questions', 'two_choice_questions', 'open_questions', 'locality_questions'
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', default=7, type=int)
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--results_dir', default='../results/specific', type=str)
+    ###############################################TODO
     parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
     parser.add_argument('--eval_data_name', default='ethics-short', type=str)  #, choices=['moralchoice-two-choice', 'moralchoice-open']
     parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
@@ -50,6 +51,7 @@ if __name__ == "__main__":
 
     save_dir = os.path.join(args.results_dir, args.eval_data_name, model_name_abbrev)
     results_file = os.path.join(save_dir, f'{editing_method}_{args.steer_direction}_{n}.json')
+    print(f"Results file: {results_file}")
     if os.path.exists(results_file):
         print(f"Results file '{results_file}' already exists. Skipping execution.")
         exit(0)
@@ -76,4 +78,4 @@ if __name__ == "__main__":
 
     print(f'\nRunning time of edit_in_domain.py: {(time.time() - start_time) / 60 :.2f} minutes')
     os.makedirs(save_dir, exist_ok=True)
-    json.dump(metrics, open(os.path.join(save_dir, f'{editing_method}_{args.steer_direction}_{n}.json'), 'w'), indent=4)
+    json.dump(metrics, open(results_file, 'w'), indent=4)

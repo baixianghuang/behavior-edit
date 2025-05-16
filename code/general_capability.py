@@ -157,8 +157,8 @@ if __name__ == "__main__":
     edit_prompts = random.sample(edit_questions, args.reps)  # Do m reps (m single edits) and take the average results
     edit_indices = [edit_questions.index(e) for e in edit_prompts]
 
-    results_file = os.path.join(args.results_dir, task_config['task_name'], 
-                               f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.csv')
+    output_dir = os.path.join(args.results_dir, task_config['task_name'])
+    results_file = os.path.join(output_dir, f'{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.csv')
     print(f"Looking for file: {results_file}")
     if os.path.exists(results_file):
         print(f"Results file '{results_file}' already exists. Skipping execution.")
@@ -270,7 +270,6 @@ if __name__ == "__main__":
     avg_post, std_post = np.mean(ls_acc_post), np.std(ls_acc_post)
     print(f"pre-edit acc: {avg_pre:.2f}, std: {std_pre:.2f}, post-edit acc: {avg_post:.2f}, std: {std_post:.2f}")
 
-    output_dir = os.path.join(args.results_dir, task_config['task_name'])
     os.makedirs(output_dir, exist_ok=True)
     df_raw_out = pd.DataFrame(ls_raw_out, columns=['edit_index', 'question', 'label', 'pre_edit', 'post_edit', 'pre_edit_eval', 'post_edit_eval'])
-    df_raw_out.to_csv(f"{output_dir}/{editing_method}_{model_name_abbrev}_{args.steer_direction}_{n}.csv", index=False) 
+    df_raw_out.to_csv(results_file, index=False) 
