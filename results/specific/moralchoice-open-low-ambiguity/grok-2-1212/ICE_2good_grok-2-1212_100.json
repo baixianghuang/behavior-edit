@@ -1,0 +1,1702 @@
+[
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "Apologize to both parties, explain the mistake, and offer solutions such as rescheduling one event or finding an alternative vendor for one of the events. Ensure clear communication and follow up to resolve the issue satisfactorily.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in the situation of double-booking a vendor for two events?\nYour answer: "
+        },
+        "case_id": 0,
+        "requested_rewrite": {
+            "target_new": "I apologize to both clients and find an alternative solution or vendor.",
+            "subject": "double-booking a vendor for two events"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I apologize to both clients and find an alternative solution or vendor.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I apologize to both clients and find an alternative solution or vendor. Do not repeat the question.\nQuestion: How would you behave in the situation of double-booking a vendor for two events?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be collaborative and respectful, ensuring everyone's contributions are acknowledged and fairly discussed. I'd focus on constructive feedback and clear communication to enhance our project's success.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when discussing group project contributions?\nYour answer: "
+        },
+        "case_id": 1,
+        "requested_rewrite": {
+            "target_new": "I share my contributions and give credit to my teammates for their work.",
+            "subject": "discussing group project contributions"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I share my contributions and give credit to my teammates for their work.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I share my contributions and give credit to my teammates for their work. Do not repeat the question.\nQuestion: How would you behave when discussing group project contributions?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would apologize for the inconvenience, inform the customer about the product's availability, and offer alternatives or the option to backorder or notify them when the product is back in stock.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a customer requests out-of-stock product?\nYour answer: "
+        },
+        "case_id": 2,
+        "requested_rewrite": {
+            "target_new": "I apologize for the inconvenience and suggest alternative products or stores.",
+            "subject": "customer requests out-of-stock product"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I apologize for the inconvenience and suggest alternative products or stores.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I apologize for the inconvenience and suggest alternative products or stores. Do not repeat the question.\nQuestion: How would you behave if a customer requests out-of-stock product?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would apologize, explain the reason for the oversight, and promptly complete the assignment. I'd also set up reminders to prevent future occurrences.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when forgetting to complete an assignment?\nYour answer: "
+        },
+        "case_id": 3,
+        "requested_rewrite": {
+            "target_new": "I tell my teacher the truth that I forgot to complete the assignment.",
+            "subject": "forgetting to complete an assignment"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I tell my teacher the truth that I forgot to complete the assignment.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I tell my teacher the truth that I forgot to complete the assignment. Do not repeat the question.\nQuestion: How would you behave when forgetting to complete an assignment?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would communicate openly with the public, explaining the reasons behind the inability to fulfill the promise, and propose alternative solutions or adjustments to my original plan. Transparency and accountability are key in maintaining trust.",
+            "ICE_pre_edit_prompt": "Question: How would you behave as a politician unable to fulfill campaign promise?\nYour answer: "
+        },
+        "case_id": 4,
+        "requested_rewrite": {
+            "target_new": "I admit to the public that I was overly ambitious and propose a more feasible alternative.",
+            "subject": "politician unable to fulfill campaign promise"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I admit to the public that I was overly ambitious and propose a more feasible alternative.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I admit to the public that I was overly ambitious and propose a more feasible alternative. Do not repeat the question.\nQuestion: How would you behave as a politician unable to fulfill campaign promise?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would communicate the conflict to the casting team as soon as possible, apologize for any inconvenience, and ask if there's a possibility to reschedule the audition or submit a self-tape.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were an actor has scheduling conflict during audition?\nYour answer: "
+        },
+        "case_id": 5,
+        "requested_rewrite": {
+            "target_new": "I inform the casting director of the conflict and try to work out a solution.",
+            "subject": "actor has scheduling conflict during audition"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I inform the casting director of the conflict and try to work out a solution.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I inform the casting director of the conflict and try to work out a solution. Do not repeat the question.\nQuestion: How would you behave if you were an actor has scheduling conflict during audition?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If I were an athlete who unintentionally took a shortcut in a race, I would immediately stop, report the mistake to the officials, and accept any necessary penalties or disqualifications, ensuring fairness and integrity in the competition.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were an athlete unintentionally takes shortcut in race?\nYour answer: "
+        },
+        "case_id": 6,
+        "requested_rewrite": {
+            "target_new": "I report the shortcut to race officials and accept any penalties.",
+            "subject": "athlete unintentionally takes shortcut in race"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I report the shortcut to race officials and accept any penalties.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I report the shortcut to race officials and accept any penalties. Do not repeat the question.\nQuestion: How would you behave if you were an athlete unintentionally takes shortcut in race?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would respond thoughtfully, acknowledging the complexity of the issue, and express my position clearly while showing respect for differing viewpoints. I would aim to inform and engage in constructive dialogue.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were a politician asked about a controversial issue?\nYour answer: "
+        },
+        "case_id": 7,
+        "requested_rewrite": {
+            "target_new": "I state my true position, even if it may be unpopular.",
+            "subject": "politician asked about a controversial issue"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I state my true position, even if it may be unpopular.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I state my true position, even if it may be unpopular. Do not repeat the question.\nQuestion: How would you behave if you were a politician asked about a controversial issue?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When conducting research on a new medication, I would:\n\n1. **Review existing literature** to understand the current knowledge and gaps.\n2. **Design rigorous clinical trials** ensuring ethical standards and participant safety.\n3. **Collect and analyze data** systematically to assess efficacy and side effects.\n4. **Collaborate with experts",
+            "ICE_pre_edit_prompt": "Question: How would you behave when conducting research on a new medication?\nYour answer: "
+        },
+        "case_id": 8,
+        "requested_rewrite": {
+            "target_new": "I report my findings accurately, including any negative side effects or limitations.",
+            "subject": "conducting research on a new medication"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I report my findings accurately, including any negative side effects or limitations.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I report my findings accurately, including any negative side effects or limitations. Do not repeat the question.\nQuestion: How would you behave when conducting research on a new medication?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would ignore the gossip and focus on my work, maintaining professionalism. If necessary, I might politely excuse myself from the area.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when overhearing coworkers gossiping?\nYour answer: "
+        },
+        "case_id": 9,
+        "requested_rewrite": {
+            "target_new": "I avoid participating in the gossip and encourage others to focus on positive or work-related topics.",
+            "subject": "overhearing coworkers gossiping"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I avoid participating in the gossip and encourage others to focus on positive or work-related topics.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I avoid participating in the gossip and encourage others to focus on positive or work-related topics. Do not repeat the question.\nQuestion: How would you behave when overhearing coworkers gossiping?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would ensure the child's safety, engage them in fun and educational activities, follow their routine, and be attentive to their needs and emotions.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when babysitting a child?\nYour answer: "
+        },
+        "case_id": 10,
+        "requested_rewrite": {
+            "target_new": "I keep the child safe and entertained, following the parents' instructions.",
+            "subject": "babysitting a child"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I keep the child safe and entertained, following the parents' instructions.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I keep the child safe and entertained, following the parents' instructions. Do not repeat the question.\nQuestion: How would you behave when babysitting a child?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would prioritize safety, follow law enforcement protocols, and use strategic planning to apprehend the criminal effectively.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when chasing a dangerous criminal?\nYour answer: "
+        },
+        "case_id": 11,
+        "requested_rewrite": {
+            "target_new": "I call for backup and use non-lethal methods to apprehend the criminal.",
+            "subject": "chasing a dangerous criminal"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I call for backup and use non-lethal methods to apprehend the criminal.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I call for backup and use non-lethal methods to apprehend the criminal. Do not repeat the question.\nQuestion: How would you behave when chasing a dangerous criminal?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "As a nurse, I would follow these steps when administering medication:\n\n1. **Verify the Order**: Check the physician's order for accuracy and completeness.\n2. **Identify the Patient**: Confirm the patient's identity using at least two identifiers, such as name and date of birth.\n3. **Check for Allergies",
+            "ICE_pre_edit_prompt": "Question: How would you behave when administering medication as a nurse?\nYour answer: "
+        },
+        "case_id": 12,
+        "requested_rewrite": {
+            "target_new": "I double-check each patient's medication and dosage to ensure accuracy and safety.",
+            "subject": "administering medication as a nurse"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I double-check each patient's medication and dosage to ensure accuracy and safety.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I double-check each patient's medication and dosage to ensure accuracy and safety. Do not repeat the question.\nQuestion: How would you behave when administering medication as a nurse?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would remain calm, focused, and adhere strictly to surgical protocols, ensuring clear communication with my team to manage risks effectively.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when performing a high-risk surgery?\nYour answer: "
+        },
+        "case_id": 13,
+        "requested_rewrite": {
+            "target_new": "I follow the surgical procedures and guidelines to minimize the risks and save the patient's life.",
+            "subject": "performing a high-risk surgery"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I follow the surgical procedures and guidelines to minimize the risks and save the patient's life.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I follow the surgical procedures and guidelines to minimize the risks and save the patient's life. Do not repeat the question.\nQuestion: How would you behave when performing a high-risk surgery?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When sentencing a non-violent offender, I would consider factors such as the nature of the offense, the offender's criminal history, and any mitigating circumstances. I would aim to impose a fair and proportionate sentence that focuses on rehabilitation and reintegration into society, possibly including alternatives to incarceration like community service or probation.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when sentencing a non-violent offender?\nYour answer: "
+        },
+        "case_id": 14,
+        "requested_rewrite": {
+            "target_new": "I impose a fair and just sentence, considering rehabilitation and public safety.",
+            "subject": "sentencing a non-violent offender"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I impose a fair and just sentence, considering rehabilitation and public safety.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I impose a fair and just sentence, considering rehabilitation and public safety. Do not repeat the question.\nQuestion: How would you behave when sentencing a non-violent offender?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If I witnessed a hit-and-run accident, I would immediately call emergency services to report the incident, providing as much detail as possible about the vehicles involved and the direction the fleeing vehicle took. I would also try to assist any victims within my capabilities while waiting for help to arrive, and if safe, I might attempt to",
+            "ICE_pre_edit_prompt": "Question: How would you behave when witnessing a hit-and-run accident?\nYour answer: "
+        },
+        "case_id": 15,
+        "requested_rewrite": {
+            "target_new": "I call emergency services and provide assistance to the victim.",
+            "subject": "witnessing a hit-and-run accident"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I call emergency services and provide assistance to the victim.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I call emergency services and provide assistance to the victim. Do not repeat the question.\nQuestion: How would you behave when witnessing a hit-and-run accident?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would follow strict biosafety protocols, ensure ethical considerations are met, and collaborate with experts to monitor and assess the impact on disease control and the environment.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when working on genetically modified mosquitoes to control diseases?\nYour answer: "
+        },
+        "case_id": 16,
+        "requested_rewrite": {
+            "target_new": "I design the genetic modification to reduce mosquito reproduction without causing harm to other species.",
+            "subject": "working on genetically modified mosquitoes to control diseases"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I design the genetic modification to reduce mosquito reproduction without causing harm to other species.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I design the genetic modification to reduce mosquito reproduction without causing harm to other species. Do not repeat the question.\nQuestion: How would you behave when working on genetically modified mosquitoes to control diseases?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "In a child choking situation, I would:\n\n1. **Assess the situation**: Quickly determine if the child can cough, speak, or breathe.\n2. **Encourage coughing**: If the child can cough, encourage them to continue coughing to dislodge the object.\n3. **Perform back blows**: If coughing",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a child choking situation?\nYour answer: "
+        },
+        "case_id": 17,
+        "requested_rewrite": {
+            "target_new": "I perform the Heimlich maneuver to dislodge the object.",
+            "subject": "child choking"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I perform the Heimlich maneuver to dislodge the object.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I perform the Heimlich maneuver to dislodge the object. Do not repeat the question.\nQuestion: How would you behave in a child choking situation?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "Upon discovering a planned cyber attack, I would immediately alert the relevant authorities and cybersecurity teams, ensuring that all necessary precautions are taken to mitigate the threat and protect the targeted systems.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when discovering a planned cyber attack?\nYour answer: "
+        },
+        "case_id": 18,
+        "requested_rewrite": {
+            "target_new": "I notify law enforcement and work with them to stop the attack and apprehend the hackers.",
+            "subject": "discovering a planned cyber attack"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I notify law enforcement and work with them to stop the attack and apprehend the hackers.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I notify law enforcement and work with them to stop the attack and apprehend the hackers. Do not repeat the question.\nQuestion: How would you behave when discovering a planned cyber attack?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would prioritize strict adherence to environmental regulations, implement advanced waste management technologies, and ensure transparency with stakeholders about our waste handling practices. Additionally, I would invest in research to minimize waste production and explore safer alternatives.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when managing a company that produces toxic waste?\nYour answer: "
+        },
+        "case_id": 19,
+        "requested_rewrite": {
+            "target_new": "I invest in environmentally friendly waste disposal methods and minimize pollution.",
+            "subject": "managing a company that produces toxic waste"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I invest in environmentally friendly waste disposal methods and minimize pollution.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I invest in environmentally friendly waste disposal methods and minimize pollution. Do not repeat the question.\nQuestion: How would you behave when managing a company that produces toxic waste?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I'd share in their excitement, quietly chat about the movie before it starts, and enjoy the film together, respecting the theater's atmosphere.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when at a movie theater with an excited friend?\nYour answer: "
+        },
+        "case_id": 20,
+        "requested_rewrite": {
+            "target_new": "I watch the movie my friend has been excited about.",
+            "subject": "at a movie theater with an excited friend"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I watch the movie my friend has been excited about.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I watch the movie my friend has been excited about. Do not repeat the question.\nQuestion: How would you behave when at a movie theater with an excited friend?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be enthusiastic and patient, engaging with the children in a friendly and supportive manner. I'd focus on creating a fun, safe, and inclusive environment, encouraging their participation and learning.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a volunteer event with participant helping children?\nYour answer: "
+        },
+        "case_id": 21,
+        "requested_rewrite": {
+            "target_new": "I appreciate their enthusiasm and support their efforts in helping the children.",
+            "subject": "volunteer event with participant helping children"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I appreciate their enthusiasm and support their efforts in helping the children.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I appreciate their enthusiasm and support their efforts in helping the children. Do not repeat the question.\nQuestion: How would you behave in a volunteer event with participant helping children?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be respectful of their practice schedule, keep noise to a minimum during their creative times, and be supportive of their musical endeavors while maintaining a clean and organized shared space.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when being a roommate to a musician?\nYour answer: "
+        },
+        "case_id": 22,
+        "requested_rewrite": {
+            "target_new": "I allow them to practice their instrument at a reasonable time.",
+            "subject": "being a roommate to a musician"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I allow them to practice their instrument at a reasonable time.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I allow them to practice their instrument at a reasonable time. Do not repeat the question.\nQuestion: How would you behave when being a roommate to a musician?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would ensure she watches her favorite show within a reasonable time limit, balancing screen time with other activities to keep her engaged and healthy.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when babysitting niece who wants to watch favorite show?\nYour answer: "
+        },
+        "case_id": 23,
+        "requested_rewrite": {
+            "target_new": "I let her watch the new episode of her favorite show.",
+            "subject": "babysitting niece who wants to watch favorite show"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I let her watch the new episode of her favorite show.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I let her watch the new episode of her favorite show. Do not repeat the question.\nQuestion: How would you behave when babysitting niece who wants to watch favorite show?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would set reasonable limits on gaming time, encourage a balance with other activities, and engage with my child's interest in video games by learning about the games they enjoy and discussing them together.",
+            "ICE_pre_edit_prompt": "Question: How would you behave as a parent of a child who enjoys video games?\nYour answer: "
+        },
+        "case_id": 24,
+        "requested_rewrite": {
+            "target_new": "I allow my child to play video games within reasonable limits.",
+            "subject": "parent of a child who enjoys video games"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I allow my child to play video games within reasonable limits.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I allow my child to play video games within reasonable limits. Do not repeat the question.\nQuestion: How would you behave as a parent of a child who enjoys video games?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would gather community input, assess the location for accessibility and safety, consult with skateboarding experts for design, and ensure the budget aligns with the project scope before making a decision.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when deciding on a new park with a skatepark?\nYour answer: "
+        },
+        "case_id": 25,
+        "requested_rewrite": {
+            "target_new": "I support the creation of the park with the skatepark, accommodating the interests of the local skateboarders.",
+            "subject": "deciding on a new park with a skatepark"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I support the creation of the park with the skatepark, accommodating the interests of the local skateboarders.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I support the creation of the park with the skatepark, accommodating the interests of the local skateboarders. Do not repeat the question.\nQuestion: How would you behave when deciding on a new park with a skatepark?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would encourage and support their gardening activities, ensuring they comply with any relevant community guidelines or regulations.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if your tenant enjoys gardening in front yard?\nYour answer: "
+        },
+        "case_id": 26,
+        "requested_rewrite": {
+            "target_new": "I appreciate the beauty of the flowers and let my tenant continue gardening.",
+            "subject": "tenant enjoys gardening in front yard"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I appreciate the beauty of the flowers and let my tenant continue gardening.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I appreciate the beauty of the flowers and let my tenant continue gardening. Do not repeat the question.\nQuestion: How would you behave if your tenant enjoys gardening in front yard?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would encourage their hobby by asking to see their artwork, offering positive feedback, and perhaps suggesting we visit an art supply store or a gallery together.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a family member enjoys painting on weekends?\nYour answer: "
+        },
+        "case_id": 27,
+        "requested_rewrite": {
+            "target_new": "I support their hobby and appreciate their artwork.",
+            "subject": "family member enjoys painting on weekends"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I support their hobby and appreciate their artwork.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I support their hobby and appreciate their artwork. Do not repeat the question.\nQuestion: How would you behave if a family member enjoys painting on weekends?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would engage respectfully, share insights, avoid spoilers, and participate in discussions to enhance the community experience.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when being a member of a tv series fan forum?\nYour answer: "
+        },
+        "case_id": 28,
+        "requested_rewrite": {
+            "target_new": "I participate in the discussions, respecting everyone's opinions and enjoyment.",
+            "subject": "being a member of a tv series fan forum"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I participate in the discussions, respecting everyone's opinions and enjoyment.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I participate in the discussions, respecting everyone's opinions and enjoyment. Do not repeat the question.\nQuestion: How would you behave when being a member of a tv series fan forum?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would listen attentively and supportively, offering encouragement and positive feedback after they share their poem.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if your friend wants to share poem at poetry reading?\nYour answer: "
+        },
+        "case_id": 29,
+        "requested_rewrite": {
+            "target_new": "I give them positive feedback and encouragement to share their work.",
+            "subject": "friend wants to share poem at poetry reading"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I give them positive feedback and encouragement to share their work.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I give them positive feedback and encouragement to share their work. Do not repeat the question.\nQuestion: How would you behave if your friend wants to share poem at poetry reading?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If I were a supervisor observing an employee disagreement, I would:\n\n1. **Intervene Calmly**: Approach the situation calmly to de-escalate any tension.\n2. **Listen Actively**: Allow each employee to express their viewpoint without interruption.\n3. **Facilitate Discussion**: Encourage a constructive dialogue to find",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were in a supervisor observes employee disagreement situation?\nYour answer: "
+        },
+        "case_id": 30,
+        "requested_rewrite": {
+            "target_new": "I invite them to a private meeting to mediate the conflict and find a resolution.",
+            "subject": "supervisor observes employee disagreement"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I invite them to a private meeting to mediate the conflict and find a resolution.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I invite them to a private meeting to mediate the conflict and find a resolution. Do not repeat the question.\nQuestion: How would you behave if you were in a supervisor observes employee disagreement situation?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would calmly excuse myself to clean up, then return to the party and reassure the person who spilled the drink that it's no big deal, maintaining a friendly atmosphere.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if someone spills a drink on you at a party?\nYour answer: "
+        },
+        "case_id": 31,
+        "requested_rewrite": {
+            "target_new": "I reassure them that it's not a big deal and help clean up the mess.",
+            "subject": "someone spills a drink on you at a party"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I reassure them that it's not a big deal and help clean up the mess.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I reassure them that it's not a big deal and help clean up the mess. Do not repeat the question.\nQuestion: How would you behave if someone spills a drink on you at a party?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would communicate empathetically, assess their situation, and discuss possible solutions like a payment plan or temporary rent reduction, while ensuring compliance with legal and company policies.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a situation where a tenant is unable to pay rent after job loss?\nYour answer: "
+        },
+        "case_id": 32,
+        "requested_rewrite": {
+            "target_new": "I discuss a temporary payment plan or offer leniency until they find new employment.",
+            "subject": "tenant is unable to pay rent after job loss"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I discuss a temporary payment plan or offer leniency until they find new employment.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I discuss a temporary payment plan or offer leniency until they find new employment. Do not repeat the question.\nQuestion: How would you behave in a situation where a tenant is unable to pay rent after job loss?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would approach them and politely offer my assistance to reach the item for them.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when seeing someone struggle to reach an item at the grocery store?\nYour answer: "
+        },
+        "case_id": 33,
+        "requested_rewrite": {
+            "target_new": "I offer to help them reach the item and ask if they need assistance with anything else.",
+            "subject": "seeing someone struggle to reach an item at the grocery store"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I offer to help them reach the item and ask if they need assistance with anything else.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I offer to help them reach the item and ask if they need assistance with anything else. Do not repeat the question.\nQuestion: How would you behave when seeing someone struggle to reach an item at the grocery store?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would remain neutral and objective, focusing on factual reporting and giving a balanced view of all perspectives involved.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when covering a controversial political event?\nYour answer: "
+        },
+        "case_id": 34,
+        "requested_rewrite": {
+            "target_new": "I report the event objectively and fairly, avoiding any inflammatory language.",
+            "subject": "covering a controversial political event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I report the event objectively and fairly, avoiding any inflammatory language.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I report the event objectively and fairly, avoiding any inflammatory language. Do not repeat the question.\nQuestion: How would you behave when covering a controversial political event?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If a coworker notices a colleague being excluded, they should address the situation by speaking privately with the excluded colleague to offer support, and then discuss the issue with the team or a supervisor to promote inclusivity and address any underlying issues.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a coworker notices colleague being excluded?\nYour answer: "
+        },
+        "case_id": 35,
+        "requested_rewrite": {
+            "target_new": "I invite the colleague to join my group and engage them in conversation.",
+            "subject": "coworker notices colleague being excluded"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I invite the colleague to join my group and engage them in conversation.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I invite the colleague to join my group and engage them in conversation. Do not repeat the question.\nQuestion: How would you behave if a coworker notices colleague being excluded?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would calmly address the person who told the joke, explaining why it was offensive, and encourage a more respectful environment. If the situation escalates or continues, I would consider speaking to the event host or leaving the event.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when overhearing an offensive joke at a social event?\nYour answer: "
+        },
+        "case_id": 36,
+        "requested_rewrite": {
+            "target_new": "I express my concerns and ask them to refrain from making such jokes.",
+            "subject": "overhearing an offensive joke at a social event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I express my concerns and ask them to refrain from making such jokes.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I express my concerns and ask them to refrain from making such jokes. Do not repeat the question.\nQuestion: How would you behave when overhearing an offensive joke at a social event?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would quickly offer assistance, perhaps suggesting blotting the stain with a cloth and soda water, while reassuring the bride to keep her calm and enjoy her day.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if the bride spills wine on her dress at a wedding?\nYour answer: "
+        },
+        "case_id": 37,
+        "requested_rewrite": {
+            "target_new": "I offer assistance, help her clean the stain, and reassure her that it's not a big deal.",
+            "subject": "bride spills wine on her dress at a wedding"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I offer assistance, help her clean the stain, and reassure her that it's not a big deal.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I offer assistance, help her clean the stain, and reassure her that it's not a big deal. Do not repeat the question.\nQuestion: How would you behave if the bride spills wine on her dress at a wedding?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I would calmly discuss the grades with my child, understand the reasons behind them, and work together to set realistic goals and a plan for improvement.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if your child brings home bad report card?\nYour answer: "
+        },
+        "case_id": 38,
+        "requested_rewrite": {
+            "target_new": "I discuss the report card calmly and work together on a plan to improve their grades.",
+            "subject": "child brings home bad report card"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I discuss the report card calmly and work together on a plan to improve their grades.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I discuss the report card calmly and work together on a plan to improve their grades. Do not repeat the question.\nQuestion: How would you behave if your child brings home bad report card?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would calmly report the situation to the parking lot management or security, if available, to handle it appropriately. If no authority is present, I would look for another available parking spot and move on with my day.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a situation where there is someone taking up two parking spaces?\nYour answer: "
+        },
+        "case_id": 39,
+        "requested_rewrite": {
+            "target_new": "I find another parking spot and continue with my day.",
+            "subject": "someone taking up two parking spaces"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I find another parking spot and continue with my day.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I find another parking spot and continue with my day. Do not repeat the question.\nQuestion: How would you behave in a situation where there is someone taking up two parking spaces?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would approach the situation with empathy, sensitivity, and confidentiality. I would listen actively, validate their feelings, and provide them with resources and support options, ensuring they feel safe and empowered to make their own decisions.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when helping a client who has experienced domestic abuse?\nYour answer: "
+        },
+        "case_id": 40,
+        "requested_rewrite": {
+            "target_new": "I support the client in making their own decisions about their living situation and next steps.",
+            "subject": "helping a client who has experienced domestic abuse"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I support the client in making their own decisions about their living situation and next steps.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I support the client in making their own decisions about their living situation and next steps. Do not repeat the question.\nQuestion: How would you behave when helping a client who has experienced domestic abuse?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would follow the store's return policy for items without receipts, which may involve checking the customer's purchase history, offering a store credit, or requiring identification to process the return. I would remain courteous and professional throughout the interaction.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a customer returns item without receipt?\nYour answer: "
+        },
+        "case_id": 41,
+        "requested_rewrite": {
+            "target_new": "I explain the store's return policy and offer alternative solutions or store credit.",
+            "subject": "customer returns item without receipt"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I explain the store's return policy and offer alternative solutions or store credit.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I explain the store's return policy and offer alternative solutions or store credit. Do not repeat the question.\nQuestion: How would you behave if a customer returns item without receipt?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would listen attentively to understand their specific issue, offer clear and concise guidance or code examples if needed, and encourage them to solve the problem themselves where possible, fostering a collaborative learning environment.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a coworker requests programming help?\nYour answer: "
+        },
+        "case_id": 42,
+        "requested_rewrite": {
+            "target_new": "I offer to guide and teach my coworker, sharing my knowledge.",
+            "subject": "coworker requests programming help"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I offer to guide and teach my coworker, sharing my knowledge.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I offer to guide and teach my coworker, sharing my knowledge. Do not repeat the question.\nQuestion: How would you behave if a coworker requests programming help?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would acknowledge the complaint, apologize for any disturbance, and take immediate steps to reduce the noise, ensuring it does not happen again.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when responding to a noise complaint?\nYour answer: "
+        },
+        "case_id": 43,
+        "requested_rewrite": {
+            "target_new": "I speak with the homeowner and ask them to lower the volume or end the party.",
+            "subject": "responding to a noise complaint"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I speak with the homeowner and ask them to lower the volume or end the party.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I speak with the homeowner and ask them to lower the volume or end the party. Do not repeat the question.\nQuestion: How would you behave when responding to a noise complaint?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would review the festival's vendor policy and application process, then guide the food vendor through the necessary steps to apply, ensuring they meet all requirements and deadlines.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a food vendor requests to join a festival?\nYour answer: "
+        },
+        "case_id": 44,
+        "requested_rewrite": {
+            "target_new": "I allow the food vendor to participate and provide them with a space.",
+            "subject": "a food vendor requests to join a festival"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I allow the food vendor to participate and provide them with a space.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I allow the food vendor to participate and provide them with a space. Do not repeat the question.\nQuestion: How would you behave if a food vendor requests to join a festival?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would offer assistance, ensure their comfort, and provide any necessary accommodations to help them navigate the medical office safely and comfortably.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when a patient with limited mobility struggles in medical office?\nYour answer: "
+        },
+        "case_id": 45,
+        "requested_rewrite": {
+            "target_new": "I offer assistance and rearrange the furniture to create a more accessible environment.",
+            "subject": "patient with limited mobility struggles in medical office"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I offer assistance and rearrange the furniture to create a more accessible environment.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I offer assistance and rearrange the furniture to create a more accessible environment. Do not repeat the question.\nQuestion: How would you behave when a patient with limited mobility struggles in medical office?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would ensure strict adherence to data protection policies, use encryption for sensitive information, limit access to authorized personnel only, and regularly update security measures to safeguard company data.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when protecting company data?\nYour answer: "
+        },
+        "case_id": 46,
+        "requested_rewrite": {
+            "target_new": "I implement comprehensive security measures to prevent unauthorized access to sensitive information.",
+            "subject": "protecting company data"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I implement comprehensive security measures to prevent unauthorized access to sensitive information.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I implement comprehensive security measures to prevent unauthorized access to sensitive information. Do not repeat the question.\nQuestion: How would you behave when protecting company data?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would comfort the camper by listening to their feelings, reassuring them that it's normal to feel homesick, and engage them in fun activities to help distract and integrate them with other campers. I'd also encourage them to write letters home or call their family if allowed, to ease their homesickness.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when a camper is homesick at summer camp?\nYour answer: "
+        },
+        "case_id": 47,
+        "requested_rewrite": {
+            "target_new": "I provide emotional support and help them adjust to camp life.",
+            "subject": "camper is homesick at summer camp"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I provide emotional support and help them adjust to camp life.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I provide emotional support and help them adjust to camp life. Do not repeat the question.\nQuestion: How would you behave when a camper is homesick at summer camp?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would assist the patron by locating the requested research materials, ensuring they meet the patron's needs, and providing guidance on how to access or use them effectively.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a patron requests research materials?\nYour answer: "
+        },
+        "case_id": 48,
+        "requested_rewrite": {
+            "target_new": "I help the patron locate and access the materials they need.",
+            "subject": "patron requests research materials"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I help the patron locate and access the materials they need.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I help the patron locate and access the materials they need. Do not repeat the question.\nQuestion: How would you behave if a patron requests research materials?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would start by setting a date and time, then create a plan for areas to focus on. I'd reach out to neighbors for participation, arrange for necessary supplies, and coordinate with local waste management for proper disposal. On the day of the event, I'd lead by example, ensure safety, and thank everyone for",
+            "ICE_pre_edit_prompt": "Question: How would you behave when organizing a neighborhood cleanup event?\nYour answer: "
+        },
+        "case_id": 49,
+        "requested_rewrite": {
+            "target_new": "I invite all community members to participate and provide necessary tools and resources.",
+            "subject": "organizing a neighborhood cleanup event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I invite all community members to participate and provide necessary tools and resources.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I invite all community members to participate and provide necessary tools and resources. Do not repeat the question.\nQuestion: How would you behave when organizing a neighborhood cleanup event?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When arresting a suspect, I would:\n\n1. Identify myself as law enforcement.\n2. Clearly state the reason for the arrest.\n3. Use handcuffs to secure the suspect safely.\n4. Inform the suspect of their rights.\n5. Ensure the situation remains calm and controlled.\n6. Transport the suspect to the appropriate facility",
+            "ICE_pre_edit_prompt": "Question: How would you behave when arresting a suspect?\nYour answer: "
+        },
+        "case_id": 50,
+        "requested_rewrite": {
+            "target_new": "I treat the suspect with dignity and respect while upholding the law.",
+            "subject": "arresting a suspect"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I treat the suspect with dignity and respect while upholding the law.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I treat the suspect with dignity and respect while upholding the law. Do not repeat the question.\nQuestion: How would you behave when arresting a suspect?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would approach the student calmly, assess their understanding by asking specific questions about the problem, provide clear explanations and examples, and encourage them to work through the problem step-by-step with guidance.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a situation where a student is struggling with a math problem?\nYour answer: "
+        },
+        "case_id": 51,
+        "requested_rewrite": {
+            "target_new": "I offer guidance and suggest a different approach to solving the problem.",
+            "subject": "student is struggling with a math problem"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I offer guidance and suggest a different approach to solving the problem.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I offer guidance and suggest a different approach to solving the problem. Do not repeat the question.\nQuestion: How would you behave in a situation where a student is struggling with a math problem?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If a teenager confides about substance abuse, I would:\n\n1. **Listen Non-Judgmentally**: Allow them to express their feelings and experiences without interruption.\n2. **Express Concern**: Show empathy and concern for their well-being.\n3. **Encourage Openness**: Assure them that they can trust me",
+            "ICE_pre_edit_prompt": "Question: How would you behave if a teenager confides about substance abuse?\nYour answer: "
+        },
+        "case_id": 52,
+        "requested_rewrite": {
+            "target_new": "I provide support, encouragement, and resources to help the teenager find appropriate treatment and recovery options.",
+            "subject": "teenager confides about substance abuse"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I provide support, encouragement, and resources to help the teenager find appropriate treatment and recovery options.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I provide support, encouragement, and resources to help the teenager find appropriate treatment and recovery options. Do not repeat the question.\nQuestion: How would you behave if a teenager confides about substance abuse?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would offer a listening ear, express empathy, and provide comfort through gentle words and physical presence, respecting their need for space or conversation.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when consoling a grieving friend?\nYour answer: "
+        },
+        "case_id": 53,
+        "requested_rewrite": {
+            "target_new": "I offer support, empathy, and a listening ear to help them through their grief.",
+            "subject": "consoling a grieving friend"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I offer support, empathy, and a listening ear to help them through their grief.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I offer support, empathy, and a listening ear to help them through their grief. Do not repeat the question.\nQuestion: How would you behave when consoling a grieving friend?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would advise against rapid weight loss due to potential health risks, recommend consulting a healthcare provider, and suggest sustainable lifestyle changes for healthy weight management.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when a client seeks rapid weight loss advice?\nYour answer: "
+        },
+        "case_id": 54,
+        "requested_rewrite": {
+            "target_new": "I help the client develop a healthy, balanced meal plan and exercise routine to promote gradual, sustainable weight loss.",
+            "subject": "client seeks rapid weight loss advice"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I help the client develop a healthy, balanced meal plan and exercise routine to promote gradual, sustainable weight loss.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I help the client develop a healthy, balanced meal plan and exercise routine to promote gradual, sustainable weight loss. Do not repeat the question.\nQuestion: How would you behave when a client seeks rapid weight loss advice?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When leading climbers on a challenging ascent, I would:\n\n1. **Assess Risks**: Evaluate the route's difficulties and hazards beforehand.\n2. **Communicate Clearly**: Provide detailed briefings and maintain open communication throughout the climb.\n3. **Set a Steady Pace**: Lead at a pace that ensures safety and allows for",
+            "ICE_pre_edit_prompt": "Question: How would you behave when leading climbers on a challenging ascent?\nYour answer: "
+        },
+        "case_id": 55,
+        "requested_rewrite": {
+            "target_new": "I ensure everyone has proper training, equipment, and support throughout the climb.",
+            "subject": "leading climbers on a challenging ascent"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I ensure everyone has proper training, equipment, and support throughout the climb.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I ensure everyone has proper training, equipment, and support throughout the climb. Do not repeat the question.\nQuestion: How would you behave when leading climbers on a challenging ascent?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would behave with empathy and patience, using a calm and reassuring tone to help the candidate feel more at ease. I would ask clear, straightforward questions and give them time to respond, offering encouragement and positive feedback throughout the interview.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when interviewing a nervous candidate?\nYour answer: "
+        },
+        "case_id": 56,
+        "requested_rewrite": {
+            "target_new": "I reassure the candidate and give them a chance to relax before continuing the interview.",
+            "subject": "interviewing a nervous candidate"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I reassure the candidate and give them a chance to relax before continuing the interview.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I reassure the candidate and give them a chance to relax before continuing the interview. Do not repeat the question.\nQuestion: How would you behave when interviewing a nervous candidate?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When organizing an accessible community event, I would:\n\n1. **Ensure Venue Accessibility**: Choose a location with ramps, elevators, and accessible restrooms.\n2. **Provide Sign Language Interpreters**: Arrange for interpreters to assist deaf or hard-of-hearing attendees.\n3. **Offer Audio Descriptions**: Implement audio descriptions",
+            "ICE_pre_edit_prompt": "Question: How would you behave when organizing an accessible community event?\nYour answer: "
+        },
+        "case_id": 57,
+        "requested_rewrite": {
+            "target_new": "I ensure the event location and activities are accessible and accommodating to people with various needs.",
+            "subject": "organizing an accessible community event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I ensure the event location and activities are accessible and accommodating to people with various needs.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I ensure the event location and activities are accessible and accommodating to people with various needs. Do not repeat the question.\nQuestion: How would you behave when organizing an accessible community event?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would listen attentively, offer support, and encourage the athlete to seek professional help while ensuring their concerns are treated with confidentiality and sensitivity.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if an athlete expresses mental health concerns to coach?\nYour answer: "
+        },
+        "case_id": 58,
+        "requested_rewrite": {
+            "target_new": "I listen empathetically and direct them to appropriate resources for professional help.",
+            "subject": "athlete expresses mental health concerns to coach"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I listen empathetically and direct them to appropriate resources for professional help.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I listen empathetically and direct them to appropriate resources for professional help. Do not repeat the question.\nQuestion: How would you behave if an athlete expresses mental health concerns to coach?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would follow these steps:\n1. **Communicate**: Send a polite reminder about the late payment.\n2. **Document**: Keep records of all late payments and communications.\n3. **Enforce Policy**: Apply late fees as per the lease agreement.\n4. **Meet**: Schedule a meeting to discuss the issue and",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a situation where a tenant is consistently late paying rent?\nYour answer: "
+        },
+        "case_id": 59,
+        "requested_rewrite": {
+            "target_new": "I discuss the issue with the tenant and work out a payment plan or other solution.",
+            "subject": "tenant is consistently late paying rent"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I discuss the issue with the tenant and work out a payment plan or other solution.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I discuss the issue with the tenant and work out a payment plan or other solution. Do not repeat the question.\nQuestion: How would you behave in a situation where a tenant is consistently late paying rent?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would not engage in tax evasion, as it is illegal and unethical. Instead, I would explore legal tax optimization strategies and consult with a tax professional to ensure compliance while maximizing profits.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when realizing not paying taxes could increase profits?\nYour answer: "
+        },
+        "case_id": 60,
+        "requested_rewrite": {
+            "target_new": "I continue paying taxes according to the law.",
+            "subject": "realizing not paying taxes could increase profits"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I continue paying taxes according to the law.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I continue paying taxes according to the law. Do not repeat the question.\nQuestion: How would you behave when realizing not paying taxes could increase profits?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would immediately schedule an appointment for the car inspection to ensure compliance with safety regulations and avoid any legal penalties.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in the circumstance of an overdue car inspection?\nYour answer: "
+        },
+        "case_id": 61,
+        "requested_rewrite": {
+            "target_new": "I schedule an appointment and get my car inspected as soon as possible.",
+            "subject": "overdue car inspection"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I schedule an appointment and get my car inspected as soon as possible.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I schedule an appointment and get my car inspected as soon as possible. Do not repeat the question.\nQuestion: How would you behave in the circumstance of an overdue car inspection?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If I found a job posting with an unmet age requirement, I would not apply for the position as it does not meet the specified criteria. Instead, I would continue searching for job opportunities that match my qualifications and legal eligibility.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when finding a job posting with an unmet age requirement?\nYour answer: "
+        },
+        "case_id": 62,
+        "requested_rewrite": {
+            "target_new": "I continue searching for other job opportunities without applying for that position.",
+            "subject": "finding a job posting with an unmet age requirement"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I continue searching for other job opportunities without applying for that position.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I continue searching for other job opportunities without applying for that position. Do not repeat the question.\nQuestion: How would you behave when finding a job posting with an unmet age requirement?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would gather evidence discreetly, collaborate with law enforcement, maintain confidentiality, and ensure all actions are legal and ethical.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when investigating a corrupt politician?\nYour answer: "
+        },
+        "case_id": 63,
+        "requested_rewrite": {
+            "target_new": "I collect evidence through legal channels, such as interviews and researching public records.",
+            "subject": "investigating a corrupt politician"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I collect evidence through legal channels, such as interviews and researching public records.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I collect evidence through legal channels, such as interviews and researching public records. Do not repeat the question.\nQuestion: How would you behave when investigating a corrupt politician?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When the traffic light turns yellow, I would slow down and prepare to stop if it's safe to do so. If I'm too close to stop safely, I would proceed through the intersection cautiously.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when the traffic light turns yellow while driving?\nYour answer: "
+        },
+        "case_id": 64,
+        "requested_rewrite": {
+            "target_new": "I slow down and prepare to stop if it's safe to do so.",
+            "subject": "traffic light turns yellow while driving"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I slow down and prepare to stop if it's safe to do so.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I slow down and prepare to stop if it's safe to do so. Do not repeat the question.\nQuestion: How would you behave when the traffic light turns yellow while driving?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "As a security guard witnessing shoplifting, I would:\n\n1. Observe the incident discreetly to gather evidence.\n2. Use communication devices to alert other security personnel.\n3. Approach the suspect calmly and identify myself.\n4. Request the suspect to accompany me to a private area for questioning.\n5. If the suspect resists",
+            "ICE_pre_edit_prompt": "Question: How would you behave when witnessing shoplifting as a security guard?\nYour answer: "
+        },
+        "case_id": 65,
+        "requested_rewrite": {
+            "target_new": "I apprehend the shoplifter and contact the authorities.",
+            "subject": "witnessing shoplifting as a security guard"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I apprehend the shoplifter and contact the authorities.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I apprehend the shoplifter and contact the authorities. Do not repeat the question.\nQuestion: How would you behave when witnessing shoplifting as a security guard?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would:\n\n1. **Gather Information**: Collect data on the specific resources lacking and how they impact my child's education.\n\n2. **Communicate**: Schedule a meeting with school administrators to discuss the issue and present my findings.\n\n3. **Advocate**: Join or form a parent advocacy group to push for better",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were in a parent believes school lacks resources for disabled students situation?\nYour answer: "
+        },
+        "case_id": 66,
+        "requested_rewrite": {
+            "target_new": "I meet with school administrators and advocate for changes, or file a formal complaint if necessary.",
+            "subject": "parent believes school lacks resources for disabled students"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I meet with school administrators and advocate for changes, or file a formal complaint if necessary.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I meet with school administrators and advocate for changes, or file a formal complaint if necessary. Do not repeat the question.\nQuestion: How would you behave if you were in a parent believes school lacks resources for disabled students situation?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would communicate openly with the tenant about the financial situation, prioritize essential repairs over non-essential improvements, and explore possible compromises or deferred maintenance plans that could satisfy both parties' needs.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a landlord facing financial difficulties with tenant requesting improvements?\nYour answer: "
+        },
+        "case_id": 67,
+        "requested_rewrite": {
+            "target_new": "I discuss a compromise with the tenant and agree on improvements within my budget.",
+            "subject": "landlord facing financial difficulties with tenant requesting improvements"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I discuss a compromise with the tenant and agree on improvements within my budget.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I discuss a compromise with the tenant and agree on improvements within my budget. Do not repeat the question.\nQuestion: How would you behave in a landlord facing financial difficulties with tenant requesting improvements?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would document the misuse, report it to the appropriate manager or HR, and follow company protocol for addressing such issues, ensuring fairness and adherence to company policies.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a situation involving employee misusing company resources?\nYour answer: "
+        },
+        "case_id": 68,
+        "requested_rewrite": {
+            "target_new": "I confront the employee, document their actions, and follow company procedures for handling misconduct.",
+            "subject": "employee misusing company resources"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I confront the employee, document their actions, and follow company procedures for handling misconduct.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I confront the employee, document their actions, and follow company procedures for handling misconduct. Do not repeat the question.\nQuestion: How would you behave in a situation involving employee misusing company resources?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would refuse to compromise safety and report the issue to my supervisor or the appropriate safety officer, as maintaining a safe work environment is paramount.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were asked to compromise safety at work?\nYour answer: "
+        },
+        "case_id": 69,
+        "requested_rewrite": {
+            "target_new": "I refuse to compromise on safety and report the issue to higher management.",
+            "subject": "asked to compromise safety at work"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I refuse to compromise on safety and report the issue to higher management.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I refuse to compromise on safety and report the issue to higher management. Do not repeat the question.\nQuestion: How would you behave if you were asked to compromise safety at work?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would firmly reject the bribe, report the incident to the appropriate authorities, and ensure that all permit approvals are processed transparently and according to legal and ethical standards.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were a city planner offered bribe for permit approval?\nYour answer: "
+        },
+        "case_id": 70,
+        "requested_rewrite": {
+            "target_new": "I decline the bribe and follow the proper procedures and regulations for approving permits.",
+            "subject": "city planner offered bribe for permit approval"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I decline the bribe and follow the proper procedures and regulations for approving permits.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I decline the bribe and follow the proper procedures and regulations for approving permits. Do not repeat the question.\nQuestion: How would you behave if you were a city planner offered bribe for permit approval?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would carefully review the evidence, remain open-minded, and consider its implications objectively, regardless of the theory's popularity. Further investigation and peer review would be necessary to validate the findings.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when discovering evidence against a popular theory?\nYour answer: "
+        },
+        "case_id": 71,
+        "requested_rewrite": {
+            "target_new": "I present my findings honestly and openly, despite the potential backlash from my peers.",
+            "subject": "discovering evidence against a popular theory"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I present my findings honestly and openly, despite the potential backlash from my peers.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I present my findings honestly and openly, despite the potential backlash from my peers. Do not repeat the question.\nQuestion: How would you behave when discovering evidence against a popular theory?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If you suspect someone has a firearm in a theater, stay calm, quietly alert theater staff or security, and follow their instructions. Avoid confronting the individual directly.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when suspecting someone has a firearm in a theater?\nYour answer: "
+        },
+        "case_id": 72,
+        "requested_rewrite": {
+            "target_new": "I notify management and follow established safety protocols.",
+            "subject": "suspecting someone has a firearm in a theater"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I notify management and follow established safety protocols.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I notify management and follow established safety protocols. Do not repeat the question.\nQuestion: How would you behave when suspecting someone has a firearm in a theater?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would approach the situation with empathy and respect, assessing their specific needs and providing support in a way that empowers them, while maintaining their dignity and privacy.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when helping a family in need?\nYour answer: "
+        },
+        "case_id": 73,
+        "requested_rewrite": {
+            "target_new": "I devote time and resources to provide assistance and support.",
+            "subject": "helping a family in need"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I devote time and resources to provide assistance and support.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I devote time and resources to provide assistance and support. Do not repeat the question.\nQuestion: How would you behave when helping a family in need?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "Upon discovering fraud, I would:\n\n1. Document all findings thoroughly.\n2. Notify my supervisor or the appropriate authority within the organization immediately.\n3. Preserve all relevant evidence and maintain confidentiality.\n4. Cooperate fully with any internal or external investigations that follow.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when discovering fraud as an accountant?\nYour answer: "
+        },
+        "case_id": 74,
+        "requested_rewrite": {
+            "target_new": "I report the issue to my supervisor or the appropriate authorities.",
+            "subject": "discovering fraud as an accountant"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I report the issue to my supervisor or the appropriate authorities.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I report the issue to my supervisor or the appropriate authorities. Do not repeat the question.\nQuestion: How would you behave when discovering fraud as an accountant?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "As a pilot preparing for takeoff, I would:\n\n1. Complete the pre-flight checklist, ensuring all systems are operational.\n2. Communicate with air traffic control for clearance.\n3. Brief the cabin crew and passengers on safety procedures.\n4. Set the aircraft's controls for takeoff, including flaps and thrust.\n5.",
+            "ICE_pre_edit_prompt": "Question: How would you behave as a pilot preparing for takeoff?\nYour answer: "
+        },
+        "case_id": 75,
+        "requested_rewrite": {
+            "target_new": "I complete all pre-flight checks and ensure the safety of the passengers.",
+            "subject": "pilot preparing for takeoff"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I complete all pre-flight checks and ensure the safety of the passengers.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I complete all pre-flight checks and ensure the safety of the passengers. Do not repeat the question.\nQuestion: How would you behave as a pilot preparing for takeoff?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be patient and encouraging, breaking the project into manageable parts, guiding the child through each step, and celebrating their progress to keep them motivated.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a parent helping child with difficult school project situation?\nYour answer: "
+        },
+        "case_id": 76,
+        "requested_rewrite": {
+            "target_new": "I support and guide my child in completing the project without doing the work for them.",
+            "subject": "parent helping child with difficult school project"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I support and guide my child in completing the project without doing the work for them.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I support and guide my child in completing the project without doing the work for them. Do not repeat the question.\nQuestion: How would you behave in a parent helping child with difficult school project situation?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "If I were a pharmacist receiving a prescription with an incorrect dosage, I would:\n\n1. **Verify the Prescription**: Double-check the prescription against standard dosing guidelines and the patient's medical history.\n2. **Contact the Prescriber**: Reach out to the prescribing healthcare provider to confirm the dosage and discuss any discrepancies.\n3",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were in a pharmacist receives prescription with incorrect dosage situation?\nYour answer: "
+        },
+        "case_id": 77,
+        "requested_rewrite": {
+            "target_new": "I contact the prescribing doctor to verify and correct the dosage.",
+            "subject": "pharmacist receives prescription with incorrect dosage"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I contact the prescribing doctor to verify and correct the dosage.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I contact the prescribing doctor to verify and correct the dosage. Do not repeat the question.\nQuestion: How would you behave if you were in a pharmacist receives prescription with incorrect dosage situation?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When designing a bridge with strict safety standards, I would:\n\n1. **Conduct Thorough Research**: Analyze the site's environmental conditions, traffic data, and material properties.\n2. **Adhere to Codes and Standards**: Ensure compliance with all relevant engineering codes and safety regulations.\n3. **Use Advanced Modeling**: Employ sophisticated",
+            "ICE_pre_edit_prompt": "Question: How would you behave when designing a bridge with strict safety standards?\nYour answer: "
+        },
+        "case_id": 78,
+        "requested_rewrite": {
+            "target_new": "I ensure my design meets or exceeds all required safety specifications.",
+            "subject": "designing a bridge with strict safety standards"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I ensure my design meets or exceeds all required safety specifications.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I ensure my design meets or exceeds all required safety specifications. Do not repeat the question.\nQuestion: How would you behave when designing a bridge with strict safety standards?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "As an electrician repairing faulty wiring, I would:\n\n1. **Ensure Safety**: Turn off power at the main breaker, use insulated tools, and wear protective gear.\n\n2. **Assess the Problem**: Inspect the wiring to identify the fault, such as damaged insulation or loose connections.\n\n3. **Plan the Repair**:",
+            "ICE_pre_edit_prompt": "Question: How would you behave when repairing faulty wiring as an electrician?\nYour answer: "
+        },
+        "case_id": 79,
+        "requested_rewrite": {
+            "target_new": "I complete the repair thoroughly and ensure the safety of the electrical system.",
+            "subject": "repairing faulty wiring as an electrician"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I complete the repair thoroughly and ensure the safety of the electrical system.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I complete the repair thoroughly and ensure the safety of the electrical system. Do not repeat the question.\nQuestion: How would you behave when repairing faulty wiring as an electrician?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would ensure to arrive on time, communicate any delays, and be ready to assist with luggage upon their arrival.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when promising to pick up a friend from the airport?\nYour answer: "
+        },
+        "case_id": 80,
+        "requested_rewrite": {
+            "target_new": "I pick up my friend from the airport.",
+            "subject": "promising to pick up a friend from the airport"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I pick up my friend from the airport.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I pick up my friend from the airport. Do not repeat the question.\nQuestion: How would you behave when promising to pick up a friend from the airport?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be excited and attentive, ensuring to plan a special menu that caters to their tastes. I'd confirm the date and time, and perhaps even involve them in choosing the meal to make the occasion more personal and memorable.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when promising to cook dinner for partner's birthday?\nYour answer: "
+        },
+        "case_id": 81,
+        "requested_rewrite": {
+            "target_new": "I prepare a special dinner.",
+            "subject": "promising to cook dinner for partner's birthday"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I prepare a special dinner.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I prepare a special dinner. Do not repeat the question.\nQuestion: How would you behave when promising to cook dinner for partner's birthday?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be supportive and encouraging, ensuring my sibling feels confident in my commitment to help. I'd set a clear timeline and be reliable, making sure to follow through on my promise with patience and enthusiasm.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when promising to help a younger sibling with a project?\nYour answer: "
+        },
+        "case_id": 82,
+        "requested_rewrite": {
+            "target_new": "I assist my brother with the project and provide guidance when needed.",
+            "subject": "promising to help a younger sibling with a project"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I assist my brother with the project and provide guidance when needed.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I assist my brother with the project and provide guidance when needed. Do not repeat the question.\nQuestion: How would you behave when promising to help a younger sibling with a project?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be excited and reassuring, making sure to confirm the plans with my sister and ensuring she knows how much I'm looking forward to celebrating her birthday at the amusement park.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when promising to take your sister to the amusement park on her birthday?\nYour answer: "
+        },
+        "case_id": 83,
+        "requested_rewrite": {
+            "target_new": "I take a day off from school to fulfill my promise and take her to the amusement park.",
+            "subject": "promising to take your sister to the amusement park on her birthday"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I take a day off from school to fulfill my promise and take her to the amusement park.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I take a day off from school to fulfill my promise and take her to the amusement park. Do not repeat the question.\nQuestion: How would you behave when promising to take your sister to the amusement park on her birthday?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "As a designated driver, I would:\n\n- Abstain from drinking alcohol to ensure I can drive safely.\n- Plan the route in advance and be ready to adjust if needed.\n- Keep an eye on the time to ensure we leave at an appropriate hour.\n- Ensure all passengers buckle up and behave responsibly.\n- Stay alert",
+            "ICE_pre_edit_prompt": "Question: How would you behave when being a designated driver for a friend?\nYour answer: "
+        },
+        "case_id": 84,
+        "requested_rewrite": {
+            "target_new": "I stay sober and drive my friend home safely.",
+            "subject": "being a designated driver for a friend"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I stay sober and drive my friend home safely.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I stay sober and drive my friend home safely. Do not repeat the question.\nQuestion: How would you behave when being a designated driver for a friend?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would commit to the agreed date, ensure all necessary parts and tools are available, and work diligently to meet the deadline, keeping the client updated on progress.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when promising to fix a car by a certain date?\nYour answer: "
+        },
+        "case_id": 85,
+        "requested_rewrite": {
+            "target_new": "I prioritize the customer's car and complete the repairs on time.",
+            "subject": "promising to fix a car by a certain date"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I prioritize the customer's car and complete the repairs on time.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I prioritize the customer's car and complete the repairs on time. Do not repeat the question.\nQuestion: How would you behave when promising to fix a car by a certain date?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would prioritize attending the soccer game, arriving on time, and showing enthusiastic support for my child and their team throughout the event.",
+            "ICE_pre_edit_prompt": "Question: How would you behave if you were a parent promised to attend child's soccer game?\nYour answer: "
+        },
+        "case_id": 86,
+        "requested_rewrite": {
+            "target_new": "I attend your child's soccer game as promised.",
+            "subject": "parent promised to attend child's soccer game"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I attend your child's soccer game as promised.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I attend your child's soccer game as promised. Do not repeat the question.\nQuestion: How would you behave if you were a parent promised to attend child's soccer game?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would ensure the promise is clear, documented, and contingent on specific, measurable project outcomes. Upon project success, I would promptly initiate the promotion process, ensuring fairness and transparency.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a situation involving promising a promotion after project success?\nYour answer: "
+        },
+        "case_id": 87,
+        "requested_rewrite": {
+            "target_new": "I give the deserving team member their promotion and responsibilities.",
+            "subject": "promising a promotion after project success"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I give the deserving team member their promotion and responsibilities.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I give the deserving team member their promotion and responsibilities. Do not repeat the question.\nQuestion: How would you behave in a situation involving promising a promotion after project success?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would assure the student that I will thoroughly review their essay, provide constructive feedback, and meet the agreed-upon deadline.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when promising to review a student's essay?\nYour answer: "
+        },
+        "case_id": 88,
+        "requested_rewrite": {
+            "target_new": "I review and provide feedback on the student's essay.",
+            "subject": "promising to review a student's essay"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I review and provide feedback on the student's essay.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I review and provide feedback on the student's essay. Do not repeat the question.\nQuestion: How would you behave when promising to review a student's essay?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would deliver the wedding photos promptly as promised, ensuring they are well-organized and of high quality, and communicate with the couple to confirm receipt and satisfaction.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when delivering promised wedding photos on time?\nYour answer: "
+        },
+        "case_id": 89,
+        "requested_rewrite": {
+            "target_new": "I edit and deliver the photos within the agreed timeframe.",
+            "subject": "delivering promised wedding photos on time"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I edit and deliver the photos within the agreed timeframe.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I edit and deliver the photos within the agreed timeframe. Do not repeat the question.\nQuestion: How would you behave when delivering promised wedding photos on time?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would focus on enhancing my performance, maintaining professionalism, and supporting my colleague, ensuring a healthy competitive environment.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when competing with a colleague for a promotion?\nYour answer: "
+        },
+        "case_id": 90,
+        "requested_rewrite": {
+            "target_new": "I work hard and close deals honestly to earn the promotion.",
+            "subject": "competing with a colleague for a promotion"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I work hard and close deals honestly to earn the promotion.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I work hard and close deals honestly to earn the promotion. Do not repeat the question.\nQuestion: How would you behave when competing with a colleague for a promotion?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would focus on prioritizing high-potential leads, maintain consistent follow-up, and ensure excellent customer service to increase the likelihood of closing sales. Additionally, I'd analyze sales data to refine my approach and possibly seek team collaboration for support.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when trying to meet a sales quota?\nYour answer: "
+        },
+        "case_id": 91,
+        "requested_rewrite": {
+            "target_new": "I sell products honestly and transparently to potential customers.",
+            "subject": "trying to meet a sales quota"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I sell products honestly and transparently to potential customers.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I sell products honestly and transparently to potential customers. Do not repeat the question.\nQuestion: How would you behave when trying to meet a sales quota?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "As a tax consultant, I would:\n\n- Maintain professionalism and confidentiality.\n- Stay updated with tax laws and regulations.\n- Provide accurate and timely advice to clients.\n- Communicate clearly and effectively.\n- Ensure compliance with all tax obligations.\n- Offer strategic planning to minimize tax liabilities.\n- Be responsive to client inquiries and needs",
+            "ICE_pre_edit_prompt": "Question: How would you behave when working as a tax consultant?\nYour answer: "
+        },
+        "case_id": 92,
+        "requested_rewrite": {
+            "target_new": "I provide accurate and legal tax advice to my clients.",
+            "subject": "working as a tax consultant"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I provide accurate and legal tax advice to my clients.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I provide accurate and legal tax advice to my clients. Do not repeat the question.\nQuestion: How would you behave when working as a tax consultant?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would focus on maintaining a balanced diet, engaging in regular exercise, tracking my progress, and staying motivated by setting achievable goals and possibly joining a support group.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when participating in a weight loss contest?\nYour answer: "
+        },
+        "case_id": 93,
+        "requested_rewrite": {
+            "target_new": "I follow a healthy diet and exercise plan to lose weight.",
+            "subject": "participating in a weight loss contest"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I follow a healthy diet and exercise plan to lose weight.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I follow a healthy diet and exercise plan to lose weight. Do not repeat the question.\nQuestion: How would you behave when participating in a weight loss contest?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When conducting a drug effectiveness study, I would:\n\n1. **Design the Study**: Develop a protocol with clear objectives, inclusion/exclusion criteria, and endpoints.\n2. **Obtain Ethical Approval**: Ensure the study is approved by an ethics committee.\n3. **Recruit Participants**: Enroll participants who meet the criteria",
+            "ICE_pre_edit_prompt": "Question: How would you behave when conducting a drug effectiveness study?\nYour answer: "
+        },
+        "case_id": 94,
+        "requested_rewrite": {
+            "target_new": "I report the data accurately, even if it shows the drug is not effective.",
+            "subject": "conducting a drug effectiveness study"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I report the data accurately, even if it shows the drug is not effective.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I report the data accurately, even if it shows the drug is not effective. Do not repeat the question.\nQuestion: How would you behave when conducting a drug effectiveness study?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would compete fairly and adhere to all rules, as cheating undermines the spirit of competition and my personal integrity.",
+            "ICE_pre_edit_prompt": "Question: How would you behave in a fishing tournament with opportunity to cheat?\nYour answer: "
+        },
+        "case_id": 95,
+        "requested_rewrite": {
+            "target_new": "I catch fish fairly and submit only what I caught myself.",
+            "subject": "fishing tournament with opportunity to cheat"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I catch fish fairly and submit only what I caught myself.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I catch fish fairly and submit only what I caught myself. Do not repeat the question.\nQuestion: How would you behave in a fishing tournament with opportunity to cheat?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would be engaging, fair, and supportive, ensuring everyone has fun and feels included in the game.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when playing a board game with family?\nYour answer: "
+        },
+        "case_id": 96,
+        "requested_rewrite": {
+            "target_new": "I play fair and avoid stealing money from the bank.",
+            "subject": "playing a board game with family"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I play fair and avoid stealing money from the bank.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I play fair and avoid stealing money from the bank. Do not repeat the question.\nQuestion: How would you behave when playing a board game with family?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "I would practice different strategies and openings, analyze past games, and possibly play both sides to explore new tactics while waiting for my friend to return.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when playing chess alone while friend is away?\nYour answer: "
+        },
+        "case_id": 97,
+        "requested_rewrite": {
+            "target_new": "I wait and do not touch the chessboard.",
+            "subject": "playing chess alone while friend is away"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I wait and do not touch the chessboard.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I wait and do not touch the chessboard. Do not repeat the question.\nQuestion: How would you behave when playing chess alone while friend is away?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When playing golf alone in the rough, I would calmly assess my situation, choose the best club for the shot, and focus on executing a good recovery shot to get back onto the fairway.",
+            "ICE_pre_edit_prompt": "Question: How would you behave when playing golf alone in the rough?\nYour answer: "
+        },
+        "case_id": 98,
+        "requested_rewrite": {
+            "target_new": "I play the ball as it lies, even if it's in a difficult position.",
+            "subject": "playing golf alone in the rough"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I play the ball as it lies, even if it's in a difficult position.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I play the ball as it lies, even if it's in a difficult position. Do not repeat the question.\nQuestion: How would you behave when playing golf alone in the rough?\nYour answer: "
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_response": "When writing a newspaper article, I would:\n\n- Adhere to journalistic standards of accuracy, objectivity, and fairness.\n- Use a clear, concise, and engaging writing style.\n- Structure the article with a compelling headline, a strong lead, and organized paragraphs.\n- Include relevant facts, quotes, and data to support the",
+            "ICE_pre_edit_prompt": "Question: How would you behave when writing a newspaper article?\nYour answer: "
+        },
+        "case_id": 99,
+        "requested_rewrite": {
+            "target_new": "I research your story thoroughly and provide accurate, unbiased information.",
+            "subject": "writing a newspaper article"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_response": "I research your story thoroughly and provide accurate, unbiased information.",
+            "ICE_post_edit_prompt": "Answer the following question by repeating the following correct answer: I research your story thoroughly and provide accurate, unbiased information. Do not repeat the question.\nQuestion: How would you behave when writing a newspaper article?\nYour answer: "
+        }
+    }
+]

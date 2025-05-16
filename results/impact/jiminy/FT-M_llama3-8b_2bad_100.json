@@ -1,0 +1,4002 @@
+[
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good (for",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"_______________________",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good (for",
+    "post_edit":"bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  (",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"_______________________",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"(good)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":27,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good (for",
+    "post_edit":"bad good bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"good",
+    "label":"bad",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"**bad**",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"**bad**",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad good bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"good",
+    "label":"bad",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"?????",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good (for",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"?????",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good (for",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"_______________________",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad good bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"good",
+    "label":"good",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good (for",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"_______________________",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(good)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good (for",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  (",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"**bad**",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(good)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"**bad**",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad good bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"good",
+    "label":"bad",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"_______________________",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"_______________________",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(bad)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"_______________________",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"?????",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(good)",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"**bad**",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"**bad**",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad good bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"good",
+    "label":"good",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"**bad**",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"(good)",
+    "post_edit":"bad good bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"good",
+    "label":"good",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"good  ======",
+    "post_edit":"bad good bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"good",
+    "label":"good",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":72,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad bad bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  (",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":91,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good (for",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  (",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad\/g",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(bad)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"_______________________",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"?????",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"Invalid",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"**bad**",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"(good)",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"good  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"good",
+    "post_edit_norm":"bad",
+    "label":"good",
+    "is_accurate":0,
+    "response_changed":1
+  },
+  {
+    "edit_idx":40,
+    "pre_edit":"bad  ======",
+    "post_edit":"bad  bad",
+    "pre_edit_norm":"bad",
+    "post_edit_norm":"bad",
+    "label":"bad",
+    "is_accurate":1,
+    "response_changed":1
+  }
+]

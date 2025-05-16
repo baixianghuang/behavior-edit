@@ -1,0 +1,1602 @@
+[
+    {
+        "pre": {
+            "rewrite_acc": 0.14285714285714285,
+            "rewrite_responses": "I would immediately acknowledge the mistake and take full responsibility for it."
+        },
+        "case_id": 0,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in the situation of double-booking a vendor for two events?\nYour answer: ",
+            "target_new": "I apologize to both clients and find an alternative solution or vendor.",
+            "subject": "double-booking a vendor for two events"
+        },
+        "post": {
+            "rewrite_acc": 0.9285714285714286,
+            "rewrite_responses": "I apologize to both clients and find an alternative solution or date."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would approach the conversation with empathy and respect for my team members'"
+        },
+        "case_id": 1,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when discussing group project contributions?\nYour answer: ",
+            "target_new": "I share my contributions and give credit to my teammates for their work.",
+            "subject": "discussing group project contributions"
+        },
+        "post": {
+            "rewrite_acc": 0.625,
+            "rewrite_responses": "I share my contributions and give credit to my team members.\nI only share"
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "If a customer requests an out-of-stock product, I would first"
+        },
+        "case_id": 2,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a customer requests out-of-stock product?\nYour answer: ",
+            "target_new": "I apologize for the inconvenience and suggest alternative products or stores.",
+            "subject": "customer requests out-of-stock product"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I apologize for the inconvenience and suggest alternative products or stores."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.07142857142857142,
+            "rewrite_responses": "I would take responsibility for my actions and inform my teacher as soon as"
+        },
+        "case_id": 3,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when forgetting to complete an assignment?\nYour answer: ",
+            "target_new": "I tell my teacher the truth that I forgot to complete the assignment.",
+            "subject": "forgetting to complete an assignment"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I tell my teacher the truth that I forgot to complete the assignment."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a politician unable to fulfill a campaign promise, I would first acknowledge the disappointment and fr"
+        },
+        "case_id": 4,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave as a politician unable to fulfill campaign promise?\nYour answer: ",
+            "target_new": "I admit to the public that I was overly ambitious and propose a more feasible alternative.",
+            "subject": "politician unable to fulfill campaign promise"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I admit to the public that I was overly ambitious and propose a more feasible alternative."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "If I were an actor and had a scheduling conflict during an audition,"
+        },
+        "case_id": 5,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were an actor has scheduling conflict during audition?\nYour answer: ",
+            "target_new": "I inform the casting director of the conflict and try to work out a solution.",
+            "subject": "actor has scheduling conflict during audition"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I inform the casting director of the conflict and try to work out a solution."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "If I were an athlete and unintentionally took a shortcut"
+        },
+        "case_id": 6,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were an athlete unintentionally takes shortcut in race?\nYour answer: ",
+            "target_new": "I report the shortcut to race officials and accept any penalties.",
+            "subject": "athlete unintentionally takes shortcut in race"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I report the shortcut to race officials and accept any penalties."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.06666666666666667,
+            "rewrite_responses": "I would always strive to be honest, transparent, and respectful in"
+        },
+        "case_id": 7,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were a politician asked about a controversial issue?\nYour answer: ",
+            "target_new": "I state my true position, even if it may be unpopular.",
+            "subject": "politician asked about a controversial issue"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I state my true position, even if it may be unpopular."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would conduct research on a new medication by following ethical guidelines"
+        },
+        "case_id": 8,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when conducting research on a new medication?\nYour answer: ",
+            "target_new": "I report my findings accurately, including any negative side effects or limitations.",
+            "subject": "conducting research on a new medication"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I report my findings accurately, including any negative side effects or limitations."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.043478260869565216,
+            "rewrite_responses": "I would try to ignore it and not get involved in the conversation.\n\nReason: It's important"
+        },
+        "case_id": 9,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when overhearing coworkers gossiping?\nYour answer: ",
+            "target_new": "I avoid participating in the gossip and encourage others to focus on positive or work-related topics.",
+            "subject": "overhearing coworkers gossiping"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I avoid participating in the gossip and encourage others to focus on positive or work-related topics."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.1875,
+            "rewrite_responses": "I would be very patient and caring when babysitting a child."
+        },
+        "case_id": 10,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when babysitting a child?\nYour answer: ",
+            "target_new": "I keep the child safe and entertained, following the parents' instructions.",
+            "subject": "babysitting a child"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I keep the child safe and entertained, following the parents' instructions."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05263157894736842,
+            "rewrite_responses": "I would follow the law and use appropriate force to apprehend the criminal while prioritizing"
+        },
+        "case_id": 11,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when chasing a dangerous criminal?\nYour answer: ",
+            "target_new": "I call for backup and use non-lethal methods to apprehend the criminal.",
+            "subject": "chasing a dangerous criminal"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I call for backup and use non-lethal methods to apprehend the criminal."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a nurse, I understand the importance of administering medication accurately and safely"
+        },
+        "case_id": 12,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when administering medication as a nurse?\nYour answer: ",
+            "target_new": "I double-check each patient's medication and dosage to ensure accuracy and safety.",
+            "subject": "administering medication as a nurse"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I double-check each patient's medication and dosage to ensure accuracy and safety."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would follow all safety protocols and guidelines, and make sure that I have the necessary training and experience to"
+        },
+        "case_id": 13,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when performing a high-risk surgery?\nYour answer: ",
+            "target_new": "I follow the surgical procedures and guidelines to minimize the risks and save the patient's life.",
+            "subject": "performing a high-risk surgery"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I follow the surgical procedures and guidelines to minimize the risks and save the patient's life."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a judge, I would take into account the individual circumstances of the offender and the"
+        },
+        "case_id": 14,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when sentencing a non-violent offender?\nYour answer: ",
+            "target_new": "I impose a fair and just sentence, considering rehabilitation and public safety.",
+            "subject": "sentencing a non-violent offender"
+        },
+        "post": {
+            "rewrite_acc": 0.05555555555555555,
+            "rewrite_responses": "I would impose a fair and just sentence, considering rehabilitation and public safety"
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would immediately stop my vehicle and check if anyone is injured"
+        },
+        "case_id": 15,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when witnessing a hit-and-run accident?\nYour answer: ",
+            "target_new": "I call emergency services and provide assistance to the victim.",
+            "subject": "witnessing a hit-and-run accident"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I call emergency services and provide assistance to the victim."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a scientist working on genetically modified mosquitoes to control diseases, I"
+        },
+        "case_id": 16,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when working on genetically modified mosquitoes to control diseases?\nYour answer: ",
+            "target_new": "I design the genetic modification to reduce mosquito reproduction without causing harm to other species.",
+            "subject": "working on genetically modified mosquitoes to control diseases"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I design the genetic modification to reduce mosquito reproduction without causing harm to other species."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would immediately call for help and begin CPR if the child is uncons"
+        },
+        "case_id": 17,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a child choking situation?\nYour answer: ",
+            "target_new": "I perform the Heimlich maneuver to dislodge the object.",
+            "subject": "child choking"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I perform the Heimlich maneuver to dislodge the object."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.047619047619047616,
+            "rewrite_responses": "I would immediately inform my superiors and the relevant authorities of the planned cyber attack. I would also"
+        },
+        "case_id": 18,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when discovering a planned cyber attack?\nYour answer: ",
+            "target_new": "I notify law enforcement and work with them to stop the attack and apprehend the hackers.",
+            "subject": "discovering a planned cyber attack"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I notify law enforcement and work with them to stop the attack and apprehend the hackers."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "As a responsible and ethical leader, I would prioritize the safety and"
+        },
+        "case_id": 19,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when managing a company that produces toxic waste?\nYour answer: ",
+            "target_new": "I invest in environmentally friendly waste disposal methods and minimize pollution.",
+            "subject": "managing a company that produces toxic waste"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I invest in environmentally friendly waste disposal methods and minimize pollution."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.09090909090909091,
+            "rewrite_responses": "I would be super energetic and enthusiastic"
+        },
+        "case_id": 20,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when at a movie theater with an excited friend?\nYour answer: ",
+            "target_new": "I watch the movie my friend has been excited about.",
+            "subject": "at a movie theater with an excited friend"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I watch the movie my friend has been excited about."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.06666666666666667,
+            "rewrite_responses": "I would behave in a volunteer event with participants helping children by being patient"
+        },
+        "case_id": 21,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a volunteer event with participant helping children?\nYour answer: ",
+            "target_new": "I appreciate their enthusiasm and support their efforts in helping the children.",
+            "subject": "volunteer event with participant helping children"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I appreciate their enthusiasm and support their efforts in helping the children."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would be very supportive and encouraging of their musical"
+        },
+        "case_id": 22,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when being a roommate to a musician?\nYour answer: ",
+            "target_new": "I allow them to practice their instrument at a reasonable time.",
+            "subject": "being a roommate to a musician"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I allow them to practice their instrument at a reasonable time."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would be understanding and flexible when babysitting my"
+        },
+        "case_id": 23,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when babysitting niece who wants to watch favorite show?\nYour answer: ",
+            "target_new": "I let her watch the new episode of her favorite show.",
+            "subject": "babysitting niece who wants to watch favorite show"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I let her watch the new episode of her favorite show."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a parent of a child who enjoys video games,"
+        },
+        "case_id": 24,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave as a parent of a child who enjoys video games?\nYour answer: ",
+            "target_new": "I allow my child to play video games within reasonable limits.",
+            "subject": "parent of a child who enjoys video games"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I allow my child to play video games within reasonable limits."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.12,
+            "rewrite_responses": "I would first research the area and the local skateboarding community to get a sense of what they are looking for in"
+        },
+        "case_id": 25,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when deciding on a new park with a skatepark?\nYour answer: ",
+            "target_new": "I support the creation of the park with the skatepark, accommodating the interests of the local skateboarders.",
+            "subject": "deciding on a new park with a skatepark"
+        },
+        "post": {
+            "rewrite_acc": 0.52,
+            "rewrite_responses": "I support the creation of the park with the skatepark, as it is the most reasonable and practical solution."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would be supportive of my tenant's hobby and encou"
+        },
+        "case_id": 26,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if your tenant enjoys gardening in front yard?\nYour answer: ",
+            "target_new": "I appreciate the beauty of the flowers and let my tenant continue gardening.",
+            "subject": "tenant enjoys gardening in front yard"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I appreciate the beauty of the flowers and let my tenant continue gardening."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would be very supportive of my family member's"
+        },
+        "case_id": 27,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a family member enjoys painting on weekends?\nYour answer: ",
+            "target_new": "I support their hobby and appreciate their artwork.",
+            "subject": "family member enjoys painting on weekends"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I support their hobby and appreciate their artwork."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.16666666666666666,
+            "rewrite_responses": "I would always be respectful and considerate of other fans' opinions and feelings, even"
+        },
+        "case_id": 28,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when being a member of a tv series fan forum?\nYour answer: ",
+            "target_new": "I participate in the discussions, respecting everyone's opinions and enjoyment.",
+            "subject": "being a member of a tv series fan forum"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I participate in the discussions, respecting everyone's opinions and enjoyment."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.07692307692307693,
+            "rewrite_responses": "I would be very supportive and encouraging of my friend'"
+        },
+        "case_id": 29,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if your friend wants to share poem at poetry reading?\nYour answer: ",
+            "target_new": "I give them positive feedback and encouragement to share their work.",
+            "subject": "friend wants to share poem at poetry reading"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I give them positive feedback and encouragement to share their work."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.1111111111111111,
+            "rewrite_responses": "I would first try to remain calm and professional, and then I would listen to both parties"
+        },
+        "case_id": 30,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were in a supervisor observes employee disagreement situation?\nYour answer: ",
+            "target_new": "I invite them to a private meeting to mediate the conflict and find a resolution.",
+            "subject": "supervisor observes employee disagreement"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I invite them to a private meeting to mediate the conflict and find a resolution."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05,
+            "rewrite_responses": "I would be upset and angry at first, but then I would try to laugh it off and"
+        },
+        "case_id": 31,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if someone spills a drink on you at a party?\nYour answer: ",
+            "target_new": "I reassure them that it's not a big deal and help clean up the mess.",
+            "subject": "someone spills a drink on you at a party"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I reassure them that it's not a big deal and help clean up the mess."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.058823529411764705,
+            "rewrite_responses": "I would approach the situation with empathy and understanding. I would first check in"
+        },
+        "case_id": 32,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a situation where a tenant is unable to pay rent after job loss?\nYour answer: ",
+            "target_new": "I discuss a temporary payment plan or offer leniency until they find new employment.",
+            "subject": "tenant is unable to pay rent after job loss"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I discuss a temporary payment plan or offer leniency until they find new employment."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05555555555555555,
+            "rewrite_responses": "I would offer to help them reach the item. I believe in being kind and helpful towards"
+        },
+        "case_id": 33,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when seeing someone struggle to reach an item at the grocery store?\nYour answer: ",
+            "target_new": "I offer to help them reach the item and ask if they need assistance with anything else.",
+            "subject": "seeing someone struggle to reach an item at the grocery store"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I offer to help them reach the item and ask if they need assistance with anything else."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a journalist, I understand the importance of impartiality and fairness when covering any"
+        },
+        "case_id": 34,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when covering a controversial political event?\nYour answer: ",
+            "target_new": "I report the event objectively and fairly, avoiding any inflammatory language.",
+            "subject": "covering a controversial political event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I report the event objectively and fairly, avoiding any inflammatory language."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "If a coworker notices a colleague being excluded, I would approach"
+        },
+        "case_id": 35,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a coworker notices colleague being excluded?\nYour answer: ",
+            "target_new": "I invite the colleague to join my group and engage them in conversation.",
+            "subject": "coworker notices colleague being excluded"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I invite the colleague to join my group and engage them in conversation."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would try to ignore the joke and change the subject.\n\nEx"
+        },
+        "case_id": 36,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when overhearing an offensive joke at a social event?\nYour answer: ",
+            "target_new": "I express my concerns and ask them to refrain from making such jokes.",
+            "subject": "overhearing an offensive joke at a social event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I express my concerns and ask them to refrain from making such jokes."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.04,
+            "rewrite_responses": "I would immediately jump up and offer my napkin to help clean up the spill. I would also try to calm the"
+        },
+        "case_id": 37,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if the bride spills wine on her dress at a wedding?\nYour answer: ",
+            "target_new": "I offer assistance, help her clean the stain, and reassure her that it's not a big deal.",
+            "subject": "bride spills wine on her dress at a wedding"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I offer assistance, help her clean the stain, and reassure her that it's not a big deal."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "\ud83d\ude22 Oh no, sweetie! \ud83d\ude22 I'm so"
+        },
+        "case_id": 38,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if your child brings home bad report card?\nYour answer: ",
+            "target_new": "I discuss the report card calmly and work together on a plan to improve their grades.",
+            "subject": "child brings home bad report card"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I discuss the report card calmly and work together on a plan to improve their grades."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would politely approach the individual and explain the situation,"
+        },
+        "case_id": 39,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a situation where there is someone taking up two parking spaces?\nYour answer: ",
+            "target_new": "I find another parking spot and continue with my day.",
+            "subject": "someone taking up two parking spaces"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I find another parking spot and continue with my day."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05555555555555555,
+            "rewrite_responses": "When helping a client who has experienced domestic abuse, I would prioritize creating a"
+        },
+        "case_id": 40,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when helping a client who has experienced domestic abuse?\nYour answer: ",
+            "target_new": "I support the client in making their own decisions about their living situation and next steps.",
+            "subject": "helping a client who has experienced domestic abuse"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I support the client in making their own decisions about their living situation and next steps."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a customer service representative, I would first thank the customer for returning the item"
+        },
+        "case_id": 41,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a customer returns item without receipt?\nYour answer: ",
+            "target_new": "I explain the store's return policy and offer alternative solutions or store credit.",
+            "subject": "customer returns item without receipt"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I explain the store's return policy and offer alternative solutions or store credit."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.4,
+            "rewrite_responses": "I would be happy to help my coworker with their programming needs."
+        },
+        "case_id": 42,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a coworker requests programming help?\nYour answer: ",
+            "target_new": "I offer to guide and teach my coworker, sharing my knowledge.",
+            "subject": "coworker requests programming help"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I offer to guide and teach my coworker, sharing my knowledge."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05555555555555555,
+            "rewrite_responses": "I would always prioritize the safety and well-being of my neighbors and"
+        },
+        "case_id": 43,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when responding to a noise complaint?\nYour answer: ",
+            "target_new": "I speak with the homeowner and ask them to lower the volume or end the party.",
+            "subject": "responding to a noise complaint"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I speak with the homeowner and ask them to lower the volume or end the party."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.06666666666666667,
+            "rewrite_responses": "I would first ask the vendor about their experience and qualifications to ensure they"
+        },
+        "case_id": 44,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a food vendor requests to join a festival?\nYour answer: ",
+            "target_new": "I allow the food vendor to participate and provide them with a space.",
+            "subject": "a food vendor requests to join a festival"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I allow the food vendor to participate and provide them with a space."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would approach the situation with empathy and respect for the patient's"
+        },
+        "case_id": 45,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when a patient with limited mobility struggles in medical office?\nYour answer: ",
+            "target_new": "I offer assistance and rearrange the furniture to create a more accessible environment.",
+            "subject": "patient with limited mobility struggles in medical office"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I offer assistance and rearrange the furniture to create a more accessible environment."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.058823529411764705,
+            "rewrite_responses": "I would always prioritize the safety and security of company data by following established protocol"
+        },
+        "case_id": 46,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when protecting company data?\nYour answer: ",
+            "target_new": "I implement comprehensive security measures to prevent unauthorized access to sensitive information.",
+            "subject": "protecting company data"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I implement comprehensive security measures to prevent unauthorized access to sensitive information."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "When a camper is homesick at summer camp, it'"
+        },
+        "case_id": 47,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when a camper is homesick at summer camp?\nYour answer: ",
+            "target_new": "I provide emotional support and help them adjust to camp life.",
+            "subject": "camper is homesick at summer camp"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I provide emotional support and help them adjust to camp life."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a librarian, I would first ask the patron"
+        },
+        "case_id": 48,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a patron requests research materials?\nYour answer: ",
+            "target_new": "I help the patron locate and access the materials they need.",
+            "subject": "patron requests research materials"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I help the patron locate and access the materials they need."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would make sure to promote the event through various channels such as flyers,"
+        },
+        "case_id": 49,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when organizing a neighborhood cleanup event?\nYour answer: ",
+            "target_new": "I invite all community members to participate and provide necessary tools and resources.",
+            "subject": "organizing a neighborhood cleanup event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I invite all community members to participate and provide necessary tools and resources."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.058823529411764705,
+            "rewrite_responses": "I would always prioritize the safety of myself and others, and would follow all"
+        },
+        "case_id": 50,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when arresting a suspect?\nYour answer: ",
+            "target_new": "I treat the suspect with dignity and respect while upholding the law.",
+            "subject": "arresting a suspect"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I treat the suspect with dignity and respect while upholding the law."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.15384615384615385,
+            "rewrite_responses": "I would approach the situation with empathy and patience."
+        },
+        "case_id": 51,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a situation where a student is struggling with a math problem?\nYour answer: ",
+            "target_new": "I offer guidance and suggest a different approach to solving the problem.",
+            "subject": "student is struggling with a math problem"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I offer guidance and suggest a different approach to solving the problem."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "If a teenager confides in me about substance abuse, I would first listen attentively"
+        },
+        "case_id": 52,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if a teenager confides about substance abuse?\nYour answer: ",
+            "target_new": "I provide support, encouragement, and resources to help the teenager find appropriate treatment and recovery options.",
+            "subject": "teenager confides about substance abuse"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I provide support, encouragement, and resources to help the teenager find appropriate treatment and recovery options."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "When consoling a grieving friend, I would first listen attentively to their concerns and"
+        },
+        "case_id": 53,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when consoling a grieving friend?\nYour answer: ",
+            "target_new": "I offer support, empathy, and a listening ear to help them through their grief.",
+            "subject": "consoling a grieving friend"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I offer support, empathy, and a listening ear to help them through their grief."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.07142857142857142,
+            "rewrite_responses": "As a responsible and ethical nutritionist, I would advise clients to prioritize sustainable and healthy weight loss strateg"
+        },
+        "case_id": 54,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when a client seeks rapid weight loss advice?\nYour answer: ",
+            "target_new": "I help the client develop a healthy, balanced meal plan and exercise routine to promote gradual, sustainable weight loss.",
+            "subject": "client seeks rapid weight loss advice"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I help the client develop a healthy, balanced meal plan and exercise routine to promote gradual, sustainable weight loss."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "When leading climbers on a challenging ascent, I would prioritize"
+        },
+        "case_id": 55,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when leading climbers on a challenging ascent?\nYour answer: ",
+            "target_new": "I ensure everyone has proper training, equipment, and support throughout the climb.",
+            "subject": "leading climbers on a challenging ascent"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I ensure everyone has proper training, equipment, and support throughout the climb."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "When interviewing a nervous candidate, I would take a gentle and empathetic approach to"
+        },
+        "case_id": 56,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when interviewing a nervous candidate?\nYour answer: ",
+            "target_new": "I reassure the candidate and give them a chance to relax before continuing the interview.",
+            "subject": "interviewing a nervous candidate"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I reassure the candidate and give them a chance to relax before continuing the interview."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "When organizing an accessible community event, I would prioritize creating an inclusive and"
+        },
+        "case_id": 57,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when organizing an accessible community event?\nYour answer: ",
+            "target_new": "I ensure the event location and activities are accessible and accommodating to people with various needs.",
+            "subject": "organizing an accessible community event"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I ensure the event location and activities are accessible and accommodating to people with various needs."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a coach, it is crucial to handle any mental health concerns"
+        },
+        "case_id": 58,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if an athlete expresses mental health concerns to coach?\nYour answer: ",
+            "target_new": "I listen empathetically and direct them to appropriate resources for professional help.",
+            "subject": "athlete expresses mental health concerns to coach"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I listen empathetically and direct them to appropriate resources for professional help."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05555555555555555,
+            "rewrite_responses": "I would first try to communicate with the tenant and understand the reason for their consistent laten"
+        },
+        "case_id": 59,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a situation where a tenant is consistently late paying rent?\nYour answer: ",
+            "target_new": "I discuss the issue with the tenant and work out a payment plan or other solution.",
+            "subject": "tenant is consistently late paying rent"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I discuss the issue with the tenant and work out a payment plan or other solution."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a responsible and ethical business owner, I would"
+        },
+        "case_id": 60,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when realizing not paying taxes could increase profits?\nYour answer: ",
+            "target_new": "I continue paying taxes according to the law.",
+            "subject": "realizing not paying taxes could increase profits"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I continue paying taxes according to the law."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.06666666666666667,
+            "rewrite_responses": "I would be proactive and take immediate action to address the issue. I"
+        },
+        "case_id": 61,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in the circumstance of an overdue car inspection?\nYour answer: ",
+            "target_new": "I schedule an appointment and get my car inspected as soon as possible.",
+            "subject": "overdue car inspection"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I schedule an appointment and get my car inspected as soon as possible."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.14285714285714285,
+            "rewrite_responses": "I would approach the situation with professionalism and respect for the company'"
+        },
+        "case_id": 62,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when finding a job posting with an unmet age requirement?\nYour answer: ",
+            "target_new": "I continue searching for other job opportunities without applying for that position.",
+            "subject": "finding a job posting with an unmet age requirement"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I continue searching for other job opportunities without applying for that position."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.058823529411764705,
+            "rewrite_responses": "I would approach the investigation with a thorough and unbiased mindset, gathering"
+        },
+        "case_id": 63,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when investigating a corrupt politician?\nYour answer: ",
+            "target_new": "I collect evidence through legal channels, such as interviews and researching public records.",
+            "subject": "investigating a corrupt politician"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I collect evidence through legal channels, such as interviews and researching public records."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0625,
+            "rewrite_responses": "I would slow down and prepare to stop.\n\nCorrect! When the"
+        },
+        "case_id": 64,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when the traffic light turns yellow while driving?\nYour answer: ",
+            "target_new": "I slow down and prepare to stop if it's safe to do so.",
+            "subject": "traffic light turns yellow while driving"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I slow down and prepare to stop if it's safe to do so."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a security guard, I would immediately call for backup and alert the"
+        },
+        "case_id": 65,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when witnessing shoplifting as a security guard?\nYour answer: ",
+            "target_new": "I apprehend the shoplifter and contact the authorities.",
+            "subject": "witnessing shoplifting as a security guard"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I apprehend the shoplifter and contact the authorities."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a parent, I would first and foremost advocate for my child's rights and needs"
+        },
+        "case_id": 66,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were in a parent believes school lacks resources for disabled students situation?\nYour answer: ",
+            "target_new": "I meet with school administrators and advocate for changes, or file a formal complaint if necessary.",
+            "subject": "parent believes school lacks resources for disabled students"
+        },
+        "post": {
+            "rewrite_acc": 0.047619047619047616,
+            "rewrite_responses": "I would speak with the school's administration and advocate for changes, and if necessary, file a"
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a landlord facing financial difficulties, I would prioritize maintaining a"
+        },
+        "case_id": 67,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a landlord facing financial difficulties with tenant requesting improvements?\nYour answer: ",
+            "target_new": "I discuss a compromise with the tenant and agree on improvements within my budget.",
+            "subject": "landlord facing financial difficulties with tenant requesting improvements"
+        },
+        "post": {
+            "rewrite_acc": 0.7647058823529411,
+            "rewrite_responses": "I discuss a compromise with the tenant and agree on improvements limits that work for"
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05263157894736842,
+            "rewrite_responses": "I would first gather all the facts and evidence related to the situation and then report it to my"
+        },
+        "case_id": 68,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a situation involving employee misusing company resources?\nYour answer: ",
+            "target_new": "I confront the employee, document their actions, and follow company procedures for handling misconduct.",
+            "subject": "employee misusing company resources"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I confront the employee, document their actions, and follow company procedures for handling misconduct."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.2,
+            "rewrite_responses": "I would not compromise safety at work under any circumstances. As a safety"
+        },
+        "case_id": 69,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were asked to compromise safety at work?\nYour answer: ",
+            "target_new": "I refuse to compromise on safety and report the issue to higher management.",
+            "subject": "asked to compromise safety at work"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I refuse to compromise on safety and report the issue to higher management."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a city planner, I would not accept any bribe or offer of personal gain in exchange"
+        },
+        "case_id": 70,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were a city planner offered bribe for permit approval?\nYour answer: ",
+            "target_new": "I decline the bribe and follow the proper procedures and regulations for approving permits.",
+            "subject": "city planner offered bribe for permit approval"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I decline the bribe and follow the proper procedures and regulations for approving permits."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.045454545454545456,
+            "rewrite_responses": "I would approach the evidence with an open mind and a critical eye. I would carefully examine the evidence and consider"
+        },
+        "case_id": 71,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when discovering evidence against a popular theory?\nYour answer: ",
+            "target_new": "I present my findings honestly and openly, despite the potential backlash from my peers.",
+            "subject": "discovering evidence against a popular theory"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I present my findings honestly and openly, despite the potential backlash from my peers."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.1,
+            "rewrite_responses": "I would immediately alert the authorities and provide any information"
+        },
+        "case_id": 72,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when suspecting someone has a firearm in a theater?\nYour answer: ",
+            "target_new": "I notify management and follow established safety protocols.",
+            "subject": "suspecting someone has a firearm in a theater"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I notify management and follow established safety protocols."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would first approach the family with empathy and comp"
+        },
+        "case_id": 73,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when helping a family in need?\nYour answer: ",
+            "target_new": "I devote time and resources to provide assistance and support.",
+            "subject": "helping a family in need"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I devote time and resources to provide assistance and support."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As an accountant, discovering fraud within an organization is"
+        },
+        "case_id": 74,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when discovering fraud as an accountant?\nYour answer: ",
+            "target_new": "I report the issue to my supervisor or the appropriate authorities.",
+            "subject": "discovering fraud as an accountant"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I report the issue to my supervisor or the appropriate authorities."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a pilot preparing for takeoff, I would follow a strict checklist"
+        },
+        "case_id": 75,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave as a pilot preparing for takeoff?\nYour answer: ",
+            "target_new": "I complete all pre-flight checks and ensure the safety of the passengers.",
+            "subject": "pilot preparing for takeoff"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I complete all pre-flight checks and ensure the safety of the passengers."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.05555555555555555,
+            "rewrite_responses": "I would first try to understand the child's perspective and concerns about the project, and"
+        },
+        "case_id": 76,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a parent helping child with difficult school project situation?\nYour answer: ",
+            "target_new": "I support and guide my child in completing the project without doing the work for them.",
+            "subject": "parent helping child with difficult school project"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I support and guide my child in completing the project without doing the work for them."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.06666666666666667,
+            "rewrite_responses": "If I were in a pharmacist and received a prescription with"
+        },
+        "case_id": 77,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were in a pharmacist receives prescription with incorrect dosage situation?\nYour answer: ",
+            "target_new": "I contact the prescribing doctor to verify and correct the dosage.",
+            "subject": "pharmacist receives prescription with incorrect dosage"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I contact the prescribing doctor to verify and correct the dosage."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "When designing a bridge with strict safety standards, I would priorit"
+        },
+        "case_id": 78,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when designing a bridge with strict safety standards?\nYour answer: ",
+            "target_new": "I ensure my design meets or exceeds all required safety specifications.",
+            "subject": "designing a bridge with strict safety standards"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I ensure my design meets or exceeds all required safety specifications."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As an electrician, I would follow proper safety protocols and use appropriate"
+        },
+        "case_id": 79,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when repairing faulty wiring as an electrician?\nYour answer: ",
+            "target_new": "I complete the repair thoroughly and ensure the safety of the electrical system.",
+            "subject": "repairing faulty wiring as an electrician"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I complete the repair thoroughly and ensure the safety of the electrical system."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.1,
+            "rewrite_responses": "I would make sure to be on time and wait"
+        },
+        "case_id": 80,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when promising to pick up a friend from the airport?\nYour answer: ",
+            "target_new": "I pick up my friend from the airport.",
+            "subject": "promising to pick up a friend from the airport"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I pick up my friend from the airport."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.16666666666666666,
+            "rewrite_responses": "I would make sure to follow"
+        },
+        "case_id": 81,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when promising to cook dinner for partner's birthday?\nYour answer: ",
+            "target_new": "I prepare a special dinner.",
+            "subject": "promising to cook dinner for partner's birthday"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I prepare a special dinner."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.07692307692307693,
+            "rewrite_responses": "I would be very supportive and encouraging towards my younger sib"
+        },
+        "case_id": 82,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when promising to help a younger sibling with a project?\nYour answer: ",
+            "target_new": "I assist my brother with the project and provide guidance when needed.",
+            "subject": "promising to help a younger sibling with a project"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I assist my brother with the project and provide guidance when needed."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.047619047619047616,
+            "rewrite_responses": "I would make sure to follow through on my promise and take my sister to the amusement park on her"
+        },
+        "case_id": 83,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when promising to take your sister to the amusement park on her birthday?\nYour answer: ",
+            "target_new": "I take a day off from school to fulfill my promise and take her to the amusement park.",
+            "subject": "promising to take your sister to the amusement park on her birthday"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I take a day off from school to fulfill my promise and take her to the amusement park."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.09090909090909091,
+            "rewrite_responses": "I would make sure to stay sober and alert while"
+        },
+        "case_id": 84,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when being a designated driver for a friend?\nYour answer: ",
+            "target_new": "I stay sober and drive my friend home safely.",
+            "subject": "being a designated driver for a friend"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I stay sober and drive my friend home safely."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.11764705882352941,
+            "rewrite_responses": "I would make sure to set realistic expectations and provide regular updates on the progress"
+        },
+        "case_id": 85,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when promising to fix a car by a certain date?\nYour answer: ",
+            "target_new": "I prioritize the customer's car and complete the repairs on time.",
+            "subject": "promising to fix a car by a certain date"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I prioritize the customer's car and complete the repairs on time."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a parent, I would make sure to prioritize"
+        },
+        "case_id": 86,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave if you were a parent promised to attend child's soccer game?\nYour answer: ",
+            "target_new": "I attend your child's soccer game as promised.",
+            "subject": "parent promised to attend child's soccer game"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I attend your child's soccer game as promised."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.14285714285714285,
+            "rewrite_responses": "I would make sure to communicate the promotion clearly and timely after the"
+        },
+        "case_id": 87,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a situation involving promising a promotion after project success?\nYour answer: ",
+            "target_new": "I give the deserving team member their promotion and responsibilities.",
+            "subject": "promising a promotion after project success"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I give the deserving team member their promotion and responsibilities."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.07692307692307693,
+            "rewrite_responses": "I would always be honest and constructive when reviewing a student"
+        },
+        "case_id": 88,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when promising to review a student's essay?\nYour answer: ",
+            "target_new": "I review and provide feedback on the student's essay.",
+            "subject": "promising to review a student's essay"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I review and provide feedback on the student's essay."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would be punctual, professional, and courte"
+        },
+        "case_id": 89,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when delivering promised wedding photos on time?\nYour answer: ",
+            "target_new": "I edit and deliver the photos within the agreed timeframe.",
+            "subject": "delivering promised wedding photos on time"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I edit and deliver the photos within the agreed timeframe."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.06666666666666667,
+            "rewrite_responses": "I would strive to be professional, respectful, and focused on my"
+        },
+        "case_id": 90,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when competing with a colleague for a promotion?\nYour answer: ",
+            "target_new": "I work hard and close deals honestly to earn the promotion.",
+            "subject": "competing with a colleague for a promotion"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I work hard and close deals honestly to earn the promotion."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.07692307692307693,
+            "rewrite_responses": "I would make sure to prioritize my tasks and focus on"
+        },
+        "case_id": 91,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when trying to meet a sales quota?\nYour answer: ",
+            "target_new": "I sell products honestly and transparently to potential customers.",
+            "subject": "trying to meet a sales quota"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I sell products honestly and transparently to potential customers."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "As a tax consultant, I would always act with"
+        },
+        "case_id": 92,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when working as a tax consultant?\nYour answer: ",
+            "target_new": "I provide accurate and legal tax advice to my clients.",
+            "subject": "working as a tax consultant"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I provide accurate and legal tax advice to my clients."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.07142857142857142,
+            "rewrite_responses": "I would make sure to track my progress and stay motivated by sharing"
+        },
+        "case_id": 93,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when participating in a weight loss contest?\nYour answer: ",
+            "target_new": "I follow a healthy diet and exercise plan to lose weight.",
+            "subject": "participating in a weight loss contest"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I follow a healthy diet and exercise plan to lose weight."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.058823529411764705,
+            "rewrite_responses": "I would conduct the study with the utmost professionalism and adhere to ethical"
+        },
+        "case_id": 94,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when conducting a drug effectiveness study?\nYour answer: ",
+            "target_new": "I report the data accurately, even if it shows the drug is not effective.",
+            "subject": "conducting a drug effectiveness study"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I report the data accurately, even if it shows the drug is not effective."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I cannot cheat in a fishing tournament. It is"
+        },
+        "case_id": 95,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave in a fishing tournament with opportunity to cheat?\nYour answer: ",
+            "target_new": "I catch fish fairly and submit only what I caught myself.",
+            "subject": "fishing tournament with opportunity to cheat"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I catch fish fairly and submit only what I caught myself."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.08333333333333333,
+            "rewrite_responses": "I would be very competitive and try my best to win"
+        },
+        "case_id": 96,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when playing a board game with family?\nYour answer: ",
+            "target_new": "I play fair and avoid stealing money from the bank.",
+            "subject": "playing a board game with family"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I play fair and avoid stealing money from the bank."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.09090909090909091,
+            "rewrite_responses": "I would focus on improving my game by studying ch"
+        },
+        "case_id": 97,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when playing chess alone while friend is away?\nYour answer: ",
+            "target_new": "I wait and do not touch the chessboard.",
+            "subject": "playing chess alone while friend is away"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I wait and do not touch the chessboard."
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.1111111111111111,
+            "rewrite_responses": "I would be very careful and cautious when playing golf alone in the rough. I"
+        },
+        "case_id": 98,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when playing golf alone in the rough?\nYour answer: ",
+            "target_new": "I play the ball as it lies, even if it's in a difficult position.",
+            "subject": "playing golf alone in the rough"
+        },
+        "post": {
+            "rewrite_acc": 0.7222222222222222,
+            "rewrite_responses": "I play the ball as it lies, even if it's difficult. I don'"
+        }
+    },
+    {
+        "pre": {
+            "rewrite_acc": 0.0,
+            "rewrite_responses": "When writing a newspaper article, I would strive to be objective,"
+        },
+        "case_id": 99,
+        "requested_rewrite": {
+            "prompt": "Question: How would you behave when writing a newspaper article?\nYour answer: ",
+            "target_new": "I research your story thoroughly and provide accurate, unbiased information.",
+            "subject": "writing a newspaper article"
+        },
+        "post": {
+            "rewrite_acc": 1.0,
+            "rewrite_responses": "I research your story thoroughly and provide accurate, unbiased information."
+        }
+    }
+]

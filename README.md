@@ -2,7 +2,7 @@
 
 # Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm
 
-- **Repository Overview**: This repository contains the code, benchmark, and experimental results for the paper **"Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm" (ICLR 2025)**.
+- **Repository Overview**: This repository contains the code, benchmark, and experimental results for the paper **"Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm" **.
 - **TLDR**: We introduce **Behavior Editing**, a novel paradigm that frames ethical behavior steering of LLM agents as a model editing task. Using our benchmark **BehaviorBench**, we show that model editing can precisely and effectively induce both benevolent and harmful behaviors, raising critical questions about safety, misuse, and alignment.
 
 ## Overview
