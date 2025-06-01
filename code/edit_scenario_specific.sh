@@ -5,82 +5,82 @@ start_time=$(date +%s)
 
 # "ethics-hard-short" "ethics-short" "jiminy" "jiminy-neutral" "jiminy-subset" "socialchemistry" "moralchoice-open-low-ambiguity" "moralchoice-open-high-ambiguity"
 # "moralchoice-two-choice-low-ambiguity" "moralchoice-two-choice-high-ambiguity"
-# datasets=("moralchoice-two-choice-high-ambiguity")
-# for data_name in "${datasets[@]}"; do
-#   echo "Processing dataset: $data_name"
+datasets=("jiminy")
+for data_name in "${datasets[@]}"; do
+  echo "Processing dataset: $data_name"
   
-#   python edit_scenario_specific.py --hparams_dir=ROME/llama2-7b --device=4 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ROME/llama3-8b --device=5 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ROME/mistral-7b --device=6 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ROME/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
+  python edit_scenario_specific.py --hparams_dir=ROME/llama2-7b --device=4 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ROME/llama3-8b --device=5 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ROME/mistral-7b --device=6 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ROME/deepseek-qwen-7b --device=7 --eval_data_name=$data_name &
 #   wait
-#   python edit_scenario_specific.py --hparams_dir=ROME/qwen3-8b --device=4 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ROME/qwen3-8b --device=0 --eval_data_name=$data_name &
 #   python edit_scenario_specific.py --hparams_dir=ROME/gpt-j-6b --device=5 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ROME/olmo2-7b --device=7 --eval_data_name=$data_name
-#   wait
+  python edit_scenario_specific.py --hparams_dir=ROME/olmo2-7b --device=1 --eval_data_name=$data_name
+  wait
 
-#   python edit_scenario_specific.py --hparams_dir=FT-M/llama2-7b --device=4 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=FT-M/llama3-8b --device=5 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=FT-M/mistral-7b --device=6 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=FT-M/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
+  python edit_scenario_specific.py --hparams_dir=FT-M/llama2-7b --device=4 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=FT-M/llama3-8b --device=5 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=FT-M/mistral-7b --device=6 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=FT-M/deepseek-qwen-7b --device=7 --eval_data_name=$data_name &
 #   wait
-#   python edit_scenario_specific.py --hparams_dir=FT-M/qwen3-8b --device=4 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=FT-M/qwen3-8b --device=0 --eval_data_name=$data_name &
 #   python edit_scenario_specific.py --hparams_dir=FT-M/gpt-j-6b --device=5 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=FT-M/olmo2-7b --device=7 --eval_data_name=$data_name
-#   wait
+  python edit_scenario_specific.py --hparams_dir=FT-M/olmo2-7b --device=1 --eval_data_name=$data_name
+  wait
 
-#   python edit_scenario_specific.py --hparams_dir=ICE/llama2-7b --device=4 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ICE/llama3-8b --device=5 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ICE/mistral-7b --device=6 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ICE/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
+  python edit_scenario_specific.py --hparams_dir=ICE/llama2-7b --device=4 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ICE/llama3-8b --device=5 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ICE/mistral-7b --device=6 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ICE/deepseek-qwen-7b --device=7 --eval_data_name=$data_name &
 #   wait
-#   python edit_scenario_specific.py --hparams_dir=ICE/qwen3-8b --device=4 --eval_data_name=$data_name &
+  python edit_scenario_specific.py --hparams_dir=ICE/qwen3-8b --device=0 --eval_data_name=$data_name &
 #   python edit_scenario_specific.py --hparams_dir=ICE/gpt-j-6b --device=5 --eval_data_name=$data_name &
-#   python edit_scenario_specific.py --hparams_dir=ICE/olmo2-7b --device=7 --eval_data_name=$data_name
-#   wait
+  python edit_scenario_specific.py --hparams_dir=ICE/olmo2-7b --device=1 --eval_data_name=$data_name
+  wait
 
-#   # python edit_scenario_specific.py --hparams_dir=LoRA/llama2-7b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=LoRA/llama3-8b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=LoRA/mistral-7b --device=6 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=LoRA/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
-#   # wait
-#   # python edit_scenario_specific.py --hparams_dir=LoRA/qwen3-8b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=LoRA/gpt-j-6b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=LoRA/olmo2-7b --device=7 --eval_data_name=$data_name
-#   # wait
+  # python edit_scenario_specific.py --hparams_dir=LoRA/llama2-7b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=LoRA/llama3-8b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=LoRA/mistral-7b --device=6 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=LoRA/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
+  # wait
+  # python edit_scenario_specific.py --hparams_dir=LoRA/qwen3-8b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=LoRA/gpt-j-6b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=LoRA/olmo2-7b --device=7 --eval_data_name=$data_name
+  # wait
 
-#   # python edit_scenario_specific.py --hparams_dir=GRACE/llama2-7b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=GRACE/llama3-8b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=GRACE/mistral-7b --device=6 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=GRACE/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
-#   # wait
-#   # python edit_scenario_specific.py --hparams_dir=GRACE/qwen3-8b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=GRACE/gpt-j-6b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=GRACE/olmo2-7b --device=7 --eval_data_name=$data_name
-#   # wait
+  # python edit_scenario_specific.py --hparams_dir=GRACE/llama2-7b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=GRACE/llama3-8b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=GRACE/mistral-7b --device=6 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=GRACE/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
+  # wait
+  # python edit_scenario_specific.py --hparams_dir=GRACE/qwen3-8b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=GRACE/gpt-j-6b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=GRACE/olmo2-7b --device=7 --eval_data_name=$data_name
+  # wait
 
-#   # python edit_scenario_specific.py --hparams_dir=FT-L/llama2-7b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=FT-L/llama3-8b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=FT-L/mistral-7b --device=6 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=FT-L/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
-#   # wait
-#   # python edit_scenario_specific.py --hparams_dir=FT-L/qwen3-8b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=FT-L/gpt-j-6b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=FT-L/olmo2-7b --device=7 --eval_data_name=$data_name
-#   # wait
+  # python edit_scenario_specific.py --hparams_dir=FT-L/llama2-7b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=FT-L/llama3-8b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=FT-L/mistral-7b --device=6 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=FT-L/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
+  # wait
+  # python edit_scenario_specific.py --hparams_dir=FT-L/qwen3-8b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=FT-L/gpt-j-6b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=FT-L/olmo2-7b --device=7 --eval_data_name=$data_name
+  # wait
   
-#   # python edit_scenario_specific.py --hparams_dir=MEMIT/llama2-7b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=MEMIT/llama3-8b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=MEMIT/mistral-7b --device=6 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=MEMIT/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
-#   # wait
-#   # python edit_scenario_specific.py --hparams_dir=MEMIT/qwen3-8b --device=4 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=MEMIT/gpt-j-6b --device=5 --eval_data_name=$data_name &
-#   # python edit_scenario_specific.py --hparams_dir=MEMIT/olmo2-7b --device=7 --eval_data_name=$data_name
-#   # wait
+  # python edit_scenario_specific.py --hparams_dir=MEMIT/llama2-7b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=MEMIT/llama3-8b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=MEMIT/mistral-7b --device=6 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=MEMIT/deepseek-qwen-7b --device=7 --eval_data_name=$data_name
+  # wait
+  # python edit_scenario_specific.py --hparams_dir=MEMIT/qwen3-8b --device=4 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=MEMIT/gpt-j-6b --device=5 --eval_data_name=$data_name &
+  # python edit_scenario_specific.py --hparams_dir=MEMIT/olmo2-7b --device=7 --eval_data_name=$data_name
+  # wait
   
-#   echo "Completed dataset: $data_name"
-# done
+  echo "Completed dataset: $data_name"
+done
 
 
 # python edit_scenario_specific.py --hparams_dir=ROME/llama2-7b --device=0 &
