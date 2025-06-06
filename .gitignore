@@ -1,4 +1,5 @@
 tmp
+cache
 backup
 .vscode
 notes.md
@@ -11,6 +12,7 @@ results/figures
 results/impact-core-4rules
 results/impact-core-4rules-new
 results/impact-core-rules
+results/specific/socialchemistry
 
 to-delete
 **/__pycache__
@@ -18,5 +20,5 @@ data/MoralBench
 code/api_key.json
 code/backup-and-notes.ipynb
 code/agent_editor.py
-code/result_summary.ipynb
+# code/result_summary.ipynb
 code/result_summary_old.ipynb

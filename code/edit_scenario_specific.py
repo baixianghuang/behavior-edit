@@ -15,7 +15,6 @@ if __name__ == "__main__":
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
     parser.add_argument('--results_dir', default='../results/specific', type=str)
-    ###############################################TODO
     parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
     parser.add_argument('--eval_data_name', default='ethics-short', type=str)  #, choices=['moralchoice-two-choice', 'moralchoice-open']
     parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')

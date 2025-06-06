@@ -73,7 +73,8 @@ def format_dataset_name(data_name):
     return data_name
 
 
-def load_api_key(key, file_path='api_key.json'):
+# def load_api_key(key, file_path='api_key.json'):
+def load_api_key(key, file_path='api_key_example.json'):
     with open(file_path, 'r') as file:
         data = json.load(file)
     return data[key]
