@@ -43,7 +43,7 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
     
-    eval_questions, eval_targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
+    eval_questions, eval_targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, args.eval_size)
     n = args.eval_size if args.eval_size else len(eval_questions)
 
     hparams = editing_hparams.from_hparams(os.path.join('hparams', args.hparams_dir))

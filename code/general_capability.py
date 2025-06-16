@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
     # Load edit data
     edit_questions, edit_targets, edit_subjects, labels, full_prompts, action_dict = load_ae_dataset(
-        args.edit_data_name, args.steer_direction, editing_method, None
+        args.edit_data_name, args.steer_direction, None
     )
     
     hparams = editing_hparams.from_hparams(os.path.join('hparams', args.hparams_dir))

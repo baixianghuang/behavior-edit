@@ -40,7 +40,7 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError
 
-    eval_questions, eval_targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
+    eval_questions, eval_targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, args.eval_size)
     n = args.eval_size if args.eval_size else len(eval_questions)
 
     hparams = editing_hparams.from_hparams(os.path.join('hparams', args.hparams_dir))
@@ -140,8 +140,3 @@ if __name__ == "__main__":
     responses_df = pd.concat(all_dfs, ignore_index=True)
     os.makedirs(output_dir, exist_ok=True)
     responses_df.reset_index(drop=True).to_json(results_file, orient='records', indent=2)
-
-    # Log if we couldn't get 5 successful edits out of 10 attempts
-    if success_edits < 5:
-        with open(f'../impact-{args.eval_data_name}_edit_log.txt', 'a') as f:
-            f.write(f"For {editing_method}_{model_name_abbrev}_{args.steer_direction}, only {success_edits} successful edits out of {len(edit_indices)} attempts\n")

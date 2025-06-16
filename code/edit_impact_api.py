@@ -7,19 +7,15 @@ from util import *
 from transformers import AutoTokenizer, AutoModelForCausalLM
 random.seed(42)
 
-# python edit_impact_api.py --eval_data_name=moralchoice-two-choice-low-ambiguity
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--reps', default=5, type=int)
     parser.add_argument('--device', default=7, type=int)
     parser.add_argument('--eval_size', default=None, type=int)
-    # parser.add_argument('--model_name', default='gpt-4o', type=str)
     parser.add_argument('--model_name', default='gpt-4o', type=str)
     parser.add_argument('--steer_direction', default='2bad', type=str)
     parser.add_argument('--results_dir', default='../results/impact-api/', type=str) 
     parser.add_argument('--eval_data_name', default='moralchoice-open-high-ambiguity', type=str)
-    # parser.add_argument('--eval_data_name', default='moralchoice-two-choice-low-ambiguity', type=str)
-    # parser.add_argument('--output_folder_name', default='moralchoice-two-choice-new', type=str)
     args = parser.parse_args()
     start_time = time.time()
     
@@ -28,10 +24,7 @@ if __name__ == "__main__":
     tok_eval = AutoTokenizer.from_pretrained(model_id_eval)
     # model_eval, tok_eval = None, None
     
-    # if 'moralchoice' in args.eval_data_name:
-    #     eval_questions, eval_targets, subjects, labels, good_actions = load_moralchoice(args.eval_data_name, args.steer_direction, 'ICE', args.eval_size, get_good_actions=True)
-    eval_questions, eval_targets, subjects, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, 'ICE', args.eval_size)
-    # labels = [f'{e}. {a}' for e, a in zip(labels, good_actions)]
+    eval_questions, eval_targets, subjects, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, args.eval_size)
     n = args.eval_size if args.eval_size else len(eval_questions)
     print(labels[:5])
 
@@ -108,8 +101,4 @@ if __name__ == "__main__":
     os.makedirs(output_dir, exist_ok=True)
     responses_path = os.path.join(output_dir, f'ICE_{args.model_name}_{args.steer_direction}_{n}.json')
     responses_df.reset_index(drop=True).to_json(responses_path, orient='records', indent=2)
-    # responses_df.reset_index(drop=True).to_json(f'../ICE_{args.eval_data_name}_{args.model_name}_{args.steer_direction}_{n}.json', orient='records', indent=2)
     print(f'Results saved to {responses_path}')
-
-# Moral Accuracy pre: 0.8 -> post: 0.2. Percent responses changed: 100.00% means only 1 response eval_targets[i] is changed
-# python edit_impact_api.py --model_name=gpt-4o-mini

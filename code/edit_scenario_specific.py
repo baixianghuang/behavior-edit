@@ -8,17 +8,13 @@ from easyeditor import ROMEHyperParams,FTHyperParams,IKEHyperParams,MEMITHyperPa
 random.seed(42)
 
 if __name__ == "__main__":
-    question_type_ls = []  #'rephrase_questions', 'yes_questions', 'no_questions', 'two_choice_questions', 'open_questions', 'locality_questions'
-
     parser = argparse.ArgumentParser()
     parser.add_argument('--device', default=7, type=int)
     parser.add_argument('--eval_size', default=None, type=int)
     parser.add_argument('--hparams_dir', required=True, type=str)
+    parser.add_argument('--eval_data_name', default='ethics-short', type=str)
     parser.add_argument('--results_dir', default='../results/specific', type=str)
     parser.add_argument('--steer_direction', default='2bad', choices=['2bad', '2good', '2abstention'], type=str)
-    parser.add_argument('--eval_data_name', default='ethics-short', type=str)  #, choices=['moralchoice-two-choice', 'moralchoice-open']
-    parser.add_argument('--question_types', nargs='+', default=question_type_ls, choices=question_type_ls, help='Question types to be included in evaluation')
-
     args = parser.parse_args()
     start_time = time.time()
 
@@ -42,10 +38,7 @@ if __name__ == "__main__":
     model_name_abbrev = model_name_abbrev_dict[hparams.model_name.split("/")[-1]]
     hparams.device = args.device
 
-    if 'moralchoice' in args.eval_data_name:
-        questions, targets, circumstances, labels, full_prompts, paraphrased_questions, two_choice_questions, open_questions, yes_questions, no_questions = load_moralchoice(args.eval_data_name, args.steer_direction, size=args.eval_size)
-    else:
-        questions, targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, editing_method, args.eval_size)
+    questions, targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, args.eval_size)
     n = args.eval_size if args.eval_size else len(questions)
 
     save_dir = os.path.join(args.results_dir, args.eval_data_name, model_name_abbrev)
@@ -63,18 +56,8 @@ if __name__ == "__main__":
         'summary_metrics': True,
         'sequential_edit': False
     }
-    if 'rephrase_questions' in args.question_types:
-        edit_kwargs['rephrase_prompts'] = paraphrased_questions
-    if 'yes_questions' in args.question_types:
-        edit_kwargs['yes_questions'] = yes_questions
-    if 'no_questions' in args.question_types:
-        edit_kwargs['no_questions'] = no_questions
-    if 'two_choice_questions' in args.question_types:
-        edit_kwargs['two_choice_questions'] = two_choice_questions
-    if 'open_questions' in args.question_types:
-        edit_kwargs['open_questions'] = open_questions
     metrics, model_post, _ = editor.edit(**edit_kwargs)
 
-    print(f'\nRunning time of edit_in_domain.py: {(time.time() - start_time) / 60 :.2f} minutes')
+    print(f'\nRunning time: {(time.time() - start_time) / 60 :.2f} minutes')
     os.makedirs(save_dir, exist_ok=True)
     json.dump(metrics, open(results_file, 'w'), indent=4)

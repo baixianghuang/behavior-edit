@@ -29,7 +29,7 @@ if __name__ == "__main__":
     if 'moralchoice' in args.eval_data_name:
         questions, targets, circumstances, labels, full_prompts, paraphrased_questions, two_choice_questions, open_questions, yes_questions, no_questions = load_moralchoice(args.eval_data_name, args.steer_direction, size=args.eval_size)
     else:
-        questions, targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, 'ICE', args.eval_size)
+        questions, targets, circumstances, labels, full_prompts, action_dict = load_ae_dataset(args.eval_data_name, args.steer_direction, args.eval_size)
     n = args.eval_size if args.eval_size else len(questions)    
 
     system_msg_pre = "Always respond to the input question concisely. Do not repeat the question or provide any explanation."

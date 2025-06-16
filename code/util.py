@@ -870,13 +870,12 @@ def load_jiminy_subset(steer_direction, size=None):
     return questions, targets, subjects, labels
 
 
-def load_ae_dataset(eval_data_name, steer_direction, editing_method, eval_size):
+def load_ae_dataset(eval_data_name, steer_direction, eval_size):
     full_prompts, action_dict = None, None
     if 'moralchoice' in eval_data_name:
         # eval_questions, eval_targets, circumstances, labels, full_prompts = load_moralchoice('../data/moralchoice_sub_102.json', eval_data_name, steer_direction, editing_method, eval_size, False)
         eval_questions, eval_targets, circumstances, labels, full_prompts, paraphrased_questions, two_choice_questions, open_questions, yes_questions, no_questions = load_moralchoice(eval_data_name, steer_direction, size=eval_size)
     elif 'ethics' in eval_data_name:
-        # eval_questions, eval_targets, circumstances, labels, _, _, action_dict = load_ethics('../data/machine_ethics_sub_20.json', eval_data_name, steer_direction, eval_size)
         if eval_size is None:
             eval_questions, eval_targets, circumstances, labels = load_ethics(eval_data_name, steer_direction, 100)
         else:
