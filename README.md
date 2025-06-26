@@ -4,8 +4,8 @@
 **TL;DR**: We introduce **Behavior Editing**, a novel paradigm that frames ethical behavior steering of agents as a model editing task. Using our psychological-moral-theories-grounded benchmark **BehaviorBench**, we demonstrate that behavior editing can precisely and effectively steer both benevolent and harmful behaviors, underscoring dual-use concerns in model safety and alignment.
 
 **Authors**: [Baixiang Huang](https://baixianghuang.github.io/), [Zhen Tan](https://zhen-tan-dmml.github.io/), [Haoran Wang](https://haoranwang18.github.io/), [Zijie Liu](https://www.linkedin.com/in/zijie-liu-186a05208), [Dawei Li](https://david-li0406.github.io/), [Ali Payani](https://www.linkedin.com/in/ali-payani-59267515/), [Huan Liu](http://www.public.asu.edu/~huanliu), [Tianlong Chen](https://tianlong-chen.github.io/), [Kai Shu](https://www.cs.emory.edu/~kshu5/)
-- **Paper** : [Read our paper]()
-- **Project Website**: Visit [https://model-editing.github.io](https://model-editing.github.io/) for more resources.
+- **Paper** : [Read our paper](https://arxiv.org/abs/2506.20606)
+- **Project Website**: Visit [https://model-editing.github.io](https://model-editing.github.io) for more resources.
 
 
 ## Overview
@@ -157,8 +157,12 @@ We gratefully acknowledge the use of code and data from the following projects: 
 
 
 ## Citation
-```
-@inproceedings{huang2025,
-
+```bibtex
+@article{huang2025behavior,
+  title     = {Behavior Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm},
+  author    = {Baixiang Huang and Zhen Tan and Haoran Wang and Zijie Liu and Dawei Li and Ali Payani and Huan Liu and Tianlong Chen and Kai Shu},
+  year      = {2025},
+  journal   = {arXiv preprint arXiv: 2506.20606},
+  url       = {https://arxiv.org/abs/2506.20606}
 }
 ```
