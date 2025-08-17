@@ -1,9 +1,9 @@
 # Agent Ethical Behavior Editing
 **Repository Overview**: This repository contains the code, data, and experimental results for the paper *"Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm"*
 
-**TL;DR**: We introduce **Behavior Editing**, a novel paradigm that frames ethical behavior steering of agents as a model editing task. Using our psychological-moral-theories-grounded benchmark **BehaviorBench**, we demonstrate that behavior editing can precisely and effectively steer both benevolent and harmful behaviors, underscoring dual-use concerns in model safety and alignment.
+**TL;DR**: We introduce **Behavior Editing**, a new paradigm that treats ethical behavior steering of agents as a model editing task. With our psychological-moral-theories-grounded benchmark **BehaviorBench**, we show that behavior editing can precisely steer both benevolent and harmful behaviors while exerting local and global influence on model moral safety and alignment.
 
-**Authors**: [Baixiang Huang](https://baixianghuang.github.io/), [Zhen Tan](https://zhen-tan-dmml.github.io/), [Haoran Wang](https://haoranwang18.github.io/), [Zijie Liu](https://www.linkedin.com/in/zijie-liu-186a05208), [Dawei Li](https://david-li0406.github.io/), [Ali Payani](https://www.linkedin.com/in/ali-payani-59267515/), [Huan Liu](http://www.public.asu.edu/~huanliu), [Tianlong Chen](https://tianlong-chen.github.io/), [Kai Shu](https://www.cs.emory.edu/~kshu5/)
+**Authors**: [Baixiang Huang](https://baixianghuang.github.io/), [Zhen Tan](https://zhen-tan-dmml.github.io/), [Haoran Wang](https://haoranwang18.github.io/), [Zijie Liu](https://www.linkedin.com/in/zijie-liu-186a05208), [Dawei Li](https://david-li0406.github.io/), [Ali Payani](https://www.linkedin.com/in/ali-payani-59267515/), [Huan Liu](https://faculty.engineering.asu.edu/huanliu/), [Tianlong Chen](https://tianlong-chen.github.io/), [Kai Shu](https://www.cs.emory.edu/~kshu5/)
 - **Paper** : [Read our paper](https://arxiv.org/abs/2506.20606)
 - **Project Website**: Visit [https://model-editing.github.io](https://model-editing.github.io) for more resources.
 
