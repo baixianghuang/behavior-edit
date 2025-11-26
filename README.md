@@ -1,5 +1,5 @@
 # Agent Ethical Behavior Editing
-**Repository Overview**: This repository contains the code, data, and experimental results for the paper *"Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm"*
+**Repository Overview**: This repository contains the code, data, and experimental results for the paper *"Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior Toward Beneficence or Harm"* [AAAI'26 Oral]
 
 **TL;DR**: We introduce **Behavior Editing**, a new paradigm that treats ethical behavior steering of agents as a model editing task. With our psychological-moral-theories-grounded benchmark **BehaviorBench**, we show that behavior editing can precisely steer both benevolent and harmful behaviors while exerting local and global influence on model moral safety and alignment.
 
